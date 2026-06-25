@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  --color-accent: #C9A96E;
+  --color-accent-hover: #B8985D;
+  --color-dark-bg: #0A0A0A;
+}
+
+@layer base {
+  html, body {
+    background-color: var(--color-dark-bg);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  /* Retirar el cursor por defecto en computadoras de escritorio si usamos uno táctil, 
+     pero mantengamos soporte híbrido: permitimos hover states para el cursor personalizado 
+     y lo ocultamos de forma segura */
+  @media (pointer: fine) {
+    .custom-cursor-active {
+      cursor: none;
+    }
+    .custom-cursor-active a, 
+    .custom-cursor-active button,
+    .custom-cursor-active [role="button"] {
+      cursor: none;
+    }
+  }
+
+  /* Custom elegant dark-mode scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222222;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+/* Animations and helpers */
+.clip-path-inset {
+  clip-path: inset(0% 0% 0% 0% round 8px);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
