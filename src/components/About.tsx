@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
 import { Palette, Film, Sparkles } from 'lucide-react';
+// @ts-expect-error - Vite handles asset imports correctly
+import portraitImage from '../assets/images/regenerated_image_1781695314841.jpg';
 
 export default function About() {
   return (
@@ -30,7 +32,7 @@ export default function About() {
               {/* Overlay styling for extra dramatic high luxury vibe */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 z-10 transition-opacity group-hover:opacity-40" />
               <img
-                src="/src/assets/images/regenerated_image_1781695314841.jpg"
+                src={portraitImage}
                 alt="Adrián Honrubia portrait"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover grayscale transition-all duration-1000 ease-out group-hover:scale-105 group-hover:grayscale-0 filter brightness-[0.85]"
