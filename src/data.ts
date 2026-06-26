@@ -156,3 +156,116 @@ export const servicesList: Service[] = [
     details: ['Generative AI integration', 'Prompt engineering', 'Workflow automation', 'Continuous model research']
   }
 ];
+
+// Dual-language localizer function to seamlessly return localized projects
+export const getPortfolioProjects = (lang: 'en' | 'es'): Project[] => {
+  return portfolioProjects.map(proj => {
+    if (lang === 'es') {
+      if (proj.id === 'ikea-spot') {
+        return {
+          ...proj,
+          category: 'Cine y Branding',
+          description: 'Una campaña publicitaria construida en torno al contraste entre un estilo de vida de boxeo de ritmo rápido y la serenidad de un hogar IKEA.',
+          longDescription: 'Desarrollada para que IKEA promocione nuevos lanzamientos, la campaña aborda el deseo dual de un estilo de vida de alta intensidad y un santuario doméstico equilibrado, posicionando el mobiliario de diseño como la base definitiva para la recuperación personal.',
+          challenge: 'Crear una narrativa visual altamente estilizada que traduzca la imaginería atlética tradicional en dirección de arte de alta gama, manteniendo una calidez emocional inmediata.',
+          solution: 'Construir un set de rodaje híbrido donde un ring de boxeo de estilo brutalista se decora meticulosamente con productos minimalistas de IKEA, logrando una espectacular yuxtaposición surrealista.',
+          services: ['Visual de Campaña 01', 'Visual de Campaña 02', 'Anuncio de Televisión', 'Anuncio de TikTok'],
+          role: 'Director de Arte y Director Principal'
+        };
+      }
+      if (proj.id === 'aura-studios') {
+        return {
+          ...proj,
+          category: 'Dirección de Cine',
+          description: 'Un videoclip crudo y cinematográfico inspirado en la energía, la actitud y el estilo de vida de las calles de Nápoles.',
+          longDescription: 'Napoli es una muestra cinematográfica que explora temas de libertad, movimiento, rebeldía y la vida fuera de los sistemas convencionales mediante un lenguaje visual de cámara en mano y estética texturizada.',
+          challenge: 'Capturar el carácter auténtico y urbano de los entornos de calle sin caer en clichés cinematográficos ni en una dirección de arte sobreproducida.',
+          solution: 'Adoptar un enfoque de iluminación natural de alto contraste combinado con un movimiento fluido de cámara en mano y localizaciones urbanas reales para evocar velocidad y movimiento genuinos.',
+          services: ['Dirección Creativa', 'Cinematografía', 'Edición de Cine', 'Etalonaje de Color'],
+          role: 'Director Creativo y Director de Fotografía'
+        };
+      }
+      if (proj.id === 'nocturnal-drift') {
+        return {
+          ...proj,
+          category: 'Diseño Gráfico y Branding',
+          description: 'Un sistema de identidad visual y packaging audaz y estilizado diseñado para Maná, una bebida energética premium natural que celebra la energía limpia.',
+          longDescription: 'Maná es una bebida energética premium elaborada a partir de ingredientes naturales. Diseñamos una identidad estética holística: desde latas de aluminio mate oscuro y sistemas de logotipos geométricos hasta campañas digitales de alto contraste que transmiten foco y vitalidad.',
+          challenge: 'Diseñar un packaging de bebida de lujo que equilibre la calidez orgánica con estímulos de energía ultra modernos y de alto rendimiento, eludiendo la estética sintética tradicional.',
+          solution: 'Crear maquetas tipográficas minimalistas sobre latas de acabado mate táctil, combinadas con patrones de branding editorial modernos de alto contraste que captan la atención comercial inmediata.',
+          services: ['Diseño de Packaging', 'Estrategia Visual', 'Renderizado de Producto', 'Identidad de Marca'],
+          role: 'Director de Arte Principal'
+        };
+      }
+      if (proj.id === 'vague-magazine') {
+        return {
+          ...proj,
+          category: 'Gestión de Redes Sociales',
+          description: 'Un proyecto continuo de creación de contenidos y redes sociales centrado en reforzar la presencia digital de la barbería y construir una identidad de marca reconocible.',
+          longDescription: 'El objetivo de LaPara BarberShow es establecer una presencia digital sólida y coherente, capaz de atraer a nuevos clientes y, al mismo tiempo, reforzar la imagen profesional de la marca. La estrategia combina la identidad visual, el formato de vídeo corto y el storytelling para aumentar la visibilidad y el compromiso.',
+          challenge: 'Desarrollar una estética digital limpia, moderna y cuidada que comunique profesionalidad y atención al detalle, destacando sobre el ruido del contenido social habitual.',
+          solution: 'Desplegar estrategias de vídeo corto en formato vertical, ganchos de transformación estructurados y pautas de diseño estético que generen confianza y lealtad en la comunidad.',
+          services: ['Creación de Contenido', 'Producción de Vídeo', 'Estrategia en Redes Sociales', 'Desarrollo de Imagen de Marca', 'Diseño Gráfico'],
+          role: 'Gestor de Redes Sociales y Creador de Contenido'
+        };
+      }
+    }
+    return proj;
+  });
+};
+
+export const getServicesList = (lang: 'en' | 'es'): Service[] => {
+  return servicesList.map(srv => {
+    if (lang === 'es') {
+      if (srv.id === 'graphic-design') {
+        return {
+          ...srv,
+          title: 'Diseño Gráfico',
+          description: 'Maquetación editorial y diseño impreso a medida combinando la teoría clásica de retículas con técnicas visuales contemporáneas.',
+          details: ['Publicaciones editoriales', 'Libros y catálogos', 'Gráficos para exposiciones', 'Cartelería de eventos']
+        };
+      }
+      if (srv.id === 'branding') {
+        return {
+          ...srv,
+          title: 'Branding e Identidad',
+          description: 'Creación de sistemas visuales perdurables y filosofías de marca que elevan proyectos emergentes a iconos de prestigio.',
+          details: ['Estrategia visual', 'Arquitecturas tipográficas', 'Ingeniería de packaging', 'Sistemas de pautas de marca']
+        };
+      }
+      if (srv.id === 'social-content') {
+        return {
+          ...srv,
+          title: 'Contenido para Redes',
+          description: 'Contenido visual vertical de alto impacto conceptual, diseñado para interrumpir el scroll rápido y fidelizar comunidades.',
+          details: ['Campañas verticales premium', 'Dirección de arte de bodegones', 'Plantillas interactivas', 'Estrategia de contenidos']
+        };
+      }
+      if (srv.id === 'filmmaking') {
+        return {
+          ...srv,
+          title: 'Cine y Dirección',
+          description: 'Narrativas cinematográficas completas, documentales corporativos y dirección creativa desde el guion hasta la copia final.',
+          details: ['Producción cinematográfica', 'Dirección técnica', 'Creación de conceptos creativos', 'Operador de cámara en rodaje']
+        };
+      }
+      if (srv.id === 'video-editing') {
+        return {
+          ...srv,
+          title: 'Montaje de Vídeo',
+          description: 'Montaje audiovisual editorial de alta precisión, estructurando ritmos para evocar tensión emocional y máximo engagement.',
+          details: ['Edición narrativa y documental', 'Escultura y diseño de sonido', 'Estructuras de ritmo y flujo', 'Síntesis de material de archivo']
+        };
+      }
+      if (srv.id === 'ia') {
+        return {
+          ...srv,
+          title: 'Inteligencia Artificial',
+          description: 'Integración experta de modelos generativos de IA modernos, respaldada por un aprendizaje y experimentación constantes.',
+          details: ['Integración de IA generativa', 'Ingeniería de prompts', 'Automatización de flujos de trabajo', 'Investigación continua de modelos']
+        };
+      }
+    }
+    return srv;
+  });
+};

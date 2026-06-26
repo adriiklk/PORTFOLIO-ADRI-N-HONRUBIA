@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Project } from '../types';
 import { ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -8,6 +9,8 @@ interface ProjectsSectionProps {
 }
 
 export default function ProjectsSection({ projects, onSelectProject }: ProjectsSectionProps) {
+  const { language } = useLanguage();
+
   return (
     <section id="work" className="relative w-full py-24 md:py-32 bg-[#0A0A0A] text-white select-none scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -15,14 +18,16 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-6">
           <div className="flex flex-col">
             <span className="text-xs font-mono tracking-[0.3em] text-accent uppercase mb-2">
-              02 / WORK
+              {language === 'es' ? '02 / TRABAJO' : '02 / WORK'}
             </span>
             <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-white">
-              Selected Projects
+              {language === 'es' ? 'Proyectos Seleccionados' : 'Selected Projects'}
             </h2>
           </div>
           <div className="max-w-md text-neutral-400 font-light text-xs md:text-sm leading-relaxed font-sans">
-            A selection of my most notable work, where design, creativity, and storytelling come together to create meaningful visual experiences.
+            {language === 'es' 
+              ? 'Una selección de mis trabajos más notables, donde el diseño, la creatividad y el storytelling se unen para crear experiencias visuales significativas.'
+              : 'A selection of my most notable work, where design, creativity, and storytelling come together to create meaningful visual experiences.'}
           </div>
         </div>
 
@@ -69,7 +74,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
                   {/* Corner aesthetic details */}
                   <div className="absolute bottom-4 left-4 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <span className="text-[9px] font-mono tracking-widest text-[#FFF]/80 bg-black/60 px-2 py-1 border border-neutral-800 backdrop-blur-sm rounded-sm uppercase">
-                      OPEN PORTFOLIO
+                      {language === 'es' ? 'VER PROYECTO' : 'OPEN PORTFOLIO'}
                     </span>
                   </div>
                 </div>

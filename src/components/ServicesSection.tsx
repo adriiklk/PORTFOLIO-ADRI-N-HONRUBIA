@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Service } from '../types';
 import { PenTool, Target, Layers, Video, Clapperboard, Cpu } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 interface ServicesSectionProps {
   services: Service[];
@@ -28,6 +29,8 @@ const getServiceIcon = (id: string, size?: number) => {
 };
 
 export default function ServicesSection({ services }: ServicesSectionProps) {
+  const { language } = useLanguage();
+
   return (
     <section id="services" className="relative w-full py-24 md:py-32 bg-[#080808] text-white select-none scroll-mt-20">
       {/* Absolute background accent lines */}
@@ -37,10 +40,10 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
         {/* Section Title Header */}
         <div className="flex flex-col mb-16 md:mb-24">
           <span className="text-xs font-mono tracking-[0.3em] text-accent uppercase mb-2">
-            03 / CAPABILITIES
+            {language === 'es' ? '03 / CAPACIDADES' : '03 / CAPABILITIES'}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-white">
-            Services &amp; Craft
+            {language === 'es' ? 'Servicios y Oficio' : 'Services & Craft'}
           </h2>
         </div>
 

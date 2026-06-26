@@ -2,22 +2,24 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { ViewState } from '../types';
+import { useLanguage } from '../LanguageContext';
 
 interface HeaderProps {
   viewState: ViewState;
   setViewState: (state: ViewState) => void;
 }
 
-const navLinks = [
-  { label: 'Work', target: 'work' },
-  { label: 'About', target: 'about' },
-  { label: 'Services', target: 'services' },
-  { label: 'Contact', target: 'contact' }
-];
-
 export default function Header({ viewState, setViewState }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { label: t('nav.work'), target: 'work' },
+    { label: t('nav.about'), target: 'about' },
+    { label: t('nav.services'), target: 'services' },
+    { label: t('nav.contact'), target: 'contact' }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,23 +80,48 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
               ADRIÁN HONRUBIA
             </span>
             <span className="text-[9px] font-mono tracking-widest text-neutral-400 group-hover:text-white transition-colors duration-300">
-              GRAPHIC DESIGN, FILMMAKING & BRANDING
+              {t('brand.subtitle')}
             </span>
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-            {navLinks.map((link) => (
+          <div className="hidden md:flex items-center gap-8 lg:gap-12">
+            <nav className="flex items-center gap-8 lg:gap-12">
+              {navLinks.map((link) => (
+                <button
+                  key={link.target}
+                  onClick={() => handleNavClick(link.target)}
+                  className="relative text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors py-2 group"
+                >
+                  {link.label}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-accent group-hover:w-full transition-all duration-300" />
+                </button>
+              ))}
+            </nav>
+
+            {/* Desktop Language Selector */}
+            <div className="flex items-center gap-2 border-l border-neutral-800 pl-6 h-4">
               <button
-                key={link.target}
-                onClick={() => handleNavClick(link.target)}
-                className="relative text-xs font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors py-2 group"
+                onClick={() => setLanguage('en')}
+                className={`text-[10px] font-mono tracking-widest transition-colors ${
+                  language === 'en' ? 'text-accent font-medium' : 'text-neutral-500 hover:text-white'
+                }`}
+                aria-label="Set language to English"
               >
-                {link.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-accent group-hover:w-full transition-all duration-300" />
+                EN
               </button>
-            ))}
-          </nav>
+              <span className="text-[10px] font-mono text-neutral-800">/</span>
+              <button
+                onClick={() => setLanguage('es')}
+                className={`text-[10px] font-mono tracking-widest transition-colors ${
+                  language === 'es' ? 'text-accent font-medium' : 'text-neutral-500 hover:text-white'
+                }`}
+                aria-label="Set language to Spanish"
+              >
+                ES
+              </button>
+            </div>
+          </div>
 
           {/* Hamburger Menu Toggle (Mobile) */}
           <button
@@ -119,7 +146,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
           >
             <div className="flex flex-col gap-6">
               <span className="text-[10px] font-mono tracking-[0.3em] text-accent uppercase border-b border-neutral-900 pb-2">
-                NAVIGATE DIRECTORY
+                {t('brand.directory')}
               </span>
               <nav className="flex flex-col gap-6">
                 {navLinks.map((link, idx) => (
@@ -137,10 +164,36 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
               </nav>
             </div>
 
+            {/* Mobile Language Selector inside drawer */}
+            <div className="flex flex-col gap-2 mt-4">
+              <span className="text-[10px] font-mono tracking-[0.3em] text-neutral-500 uppercase">
+                {language === 'es' ? 'IDIOMA' : 'LANGUAGE'}
+              </span>
+              <div className="flex gap-4 items-center">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`text-xs font-mono tracking-widest py-1 ${
+                    language === 'en' ? 'text-accent font-semibold' : 'text-neutral-500'
+                  }`}
+                >
+                  ENGLISH
+                </button>
+                <span className="text-xs font-mono text-neutral-800">|</span>
+                <button
+                  onClick={() => setLanguage('es')}
+                  className={`text-xs font-mono tracking-widest py-1 ${
+                    language === 'es' ? 'text-accent font-semibold' : 'text-neutral-500'
+                  }`}
+                >
+                  ESPAÑOL
+                </button>
+              </div>
+            </div>
+
             {/* Mobile Drawer Footer Info */}
             <div className="flex flex-col gap-4 border-t border-neutral-900 pt-6">
               <div className="text-[10px] font-mono tracking-wider text-neutral-500">
-                INFO & INQUIRIES
+                {t('brand.info')}
               </div>
               <a
                 href="mailto:adrianhonrubia05@gmail.com"

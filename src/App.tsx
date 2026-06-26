@@ -9,14 +9,19 @@ import ServicesSection from './components/ServicesSection';
 import ContactSection from './components/ContactSection';
 import ProjectDetail from './components/ProjectDetail';
 import Footer from './components/Footer';
-import { portfolioProjects, servicesList } from './data';
+import { getPortfolioProjects, getServicesList } from './data';
 import { ViewState } from './types';
+import { useLanguage } from './LanguageContext';
 
 export default function App() {
   const [viewState, setViewState] = useState<ViewState>({ view: 'home' });
+  const { language } = useLanguage();
+
+  const localizedProjects = getPortfolioProjects(language);
+  const localizedServices = getServicesList(language);
 
   // Find the currently selected project for details layout
-  const selectedProject = portfolioProjects.find(
+  const selectedProject = localizedProjects.find(
     (p) => p.id === viewState.selectedProjectId
   );
 
@@ -58,12 +63,12 @@ export default function App() {
 
               {/* Curated Selected Works */}
               <ProjectsSection
-                projects={portfolioProjects}
+                projects={localizedProjects}
                 onSelectProject={(id) => setViewState({ view: 'project', selectedProjectId: id })}
               />
 
               {/* Specialist Capability Services */}
-              <ServicesSection services={servicesList} />
+              <ServicesSection services={localizedServices} />
 
               {/* Dynamic Contact Inquiries */}
               <ContactSection />

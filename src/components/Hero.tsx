@@ -1,11 +1,14 @@
 import { motion } from 'motion/react';
 import { ArrowDown } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 interface HeroProps {
   onDiscoverClick: () => void;
 }
 
 export default function Hero({ onDiscoverClick }: HeroProps) {
+  const { language } = useLanguage();
+
   return (
     <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center select-none bg-black">
       {/* Cinematic Autoplay Background Video */}
@@ -46,8 +49,17 @@ export default function Hero({ onDiscoverClick }: HeroProps) {
             transition={{ delay: 0.2, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl sm:text-7xl md:text-8xl font-serif font-light text-white tracking-tight leading-none"
           >
-            Graphic Designer <br className="hidden sm:inline" />
-            <span className="italic font-serif font-light text-neutral-300">&amp; Filmmaker</span>
+            {language === 'es' ? (
+              <>
+                Diseñador Gráfico <br className="hidden sm:inline" />
+                <span className="italic font-serif font-light text-neutral-300">&amp; Filmmaker</span>
+              </>
+            ) : (
+              <>
+                Graphic Designer <br className="hidden sm:inline" />
+                <span className="italic font-serif font-light text-neutral-300">&amp; Filmmaker</span>
+              </>
+            )}
           </motion.h2>
         </div>
 
@@ -58,7 +70,9 @@ export default function Hero({ onDiscoverClick }: HeroProps) {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="text-neutral-300 font-light text-sm sm:text-base md:text-lg tracking-normal max-w-xl mb-12"
         >
-          Creating visual experiences through design and cinematic storytelling.
+          {language === 'es' 
+            ? 'Creando experiencias visuales a través del diseño y la narrativa cinematográfica.'
+            : 'Creating visual experiences through design and cinematic storytelling.'}
         </motion.p>
 
         {/* Call to Action Button */}
@@ -72,12 +86,12 @@ export default function Hero({ onDiscoverClick }: HeroProps) {
         >
           {/* Accent hover backgrounds sliding effect */}
           <span className="absolute inset-0 h-full w-0 bg-accent group-hover:w-full transition-all duration-500 ease-[0.76, 0, 0.24, 1] -z-10" />
-          <span className="group-hover:text-black transition-colors duration-300">VIEW MY WORK</span>
+          <span className="group-hover:text-black transition-colors duration-300">
+            {language === 'es' ? 'VER MI TRABAJO' : 'VIEW MY WORK'}
+          </span>
           <ArrowDown size={14} className="group-hover:text-black group-hover:translate-y-0.5 transition-all text-neutral-400 duration-300" />
         </motion.button>
       </div>
-
-
     </section>
   );
 }

@@ -1,7 +1,9 @@
-import { motion } from 'motion/react';
+import { useLanguage } from '../LanguageContext';
 import { Mail, ArrowUpRight, MapPin } from 'lucide-react';
 
 export default function ContactSection() {
+  const { language } = useLanguage();
+
   return (
     <section id="contact" className="relative w-full py-20 bg-[#0A0A0A] text-white select-none scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
@@ -9,10 +11,10 @@ export default function ContactSection() {
         {/* Section title header */}
         <div className="flex flex-col mb-12 border-b border-neutral-900 pb-8">
           <span className="text-xs font-mono tracking-[0.3em] text-accent uppercase mb-2">
-            04 / CONTACT
+            {language === 'es' ? '04 / CONTACTO' : '04 / CONTACT'}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-white">
-            Feel free to reach out
+            {language === 'es' ? 'Ponte en contacto' : 'Feel free to reach out'}
           </h2>
         </div>
 
@@ -22,10 +24,14 @@ export default function ContactSection() {
           {/* Left Block: Brief Invite info */}
           <div className="space-y-6">
             <h3 className="text-xl md:text-2xl font-serif text-neutral-200 font-light leading-relaxed">
-              If you have a project in mind, an idea you want to develop, or just want to say hello, feel free to contact me directly.
+              {language === 'es' 
+                ? 'Si tienes un proyecto en mente, una idea que quieres desarrollar, o simplemente quieres saludar, no dudes en ponerte en contacto conmigo directamente.'
+                : 'If you have a project in mind, an idea you want to develop, or just want to say hello, feel free to contact me directly.'}
             </h3>
             <p className="text-neutral-400 text-xs md:text-sm font-light leading-relaxed font-sans max-w-md">
-              Email me or connect via my social channels. I usually respond within 24 hours.
+              {language === 'es'
+                ? 'Escríbeme un correo o conecta a través de mis redes sociales. Suelo responder en un plazo de 24 horas.'
+                : 'Email me or connect via my social channels. I usually respond within 24 hours.'}
             </p>
           </div>
 
@@ -37,7 +43,9 @@ export default function ContactSection() {
               className="group block bg-[#0E0E0E] hover:bg-[#121212] p-6 border border-neutral-900 rounded-sm transition-all duration-300"
               data-cursor="hover"
             >
-              <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">DIRECT EMAIL</span>
+              <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">
+                {language === 'es' ? 'CORREO DIRECTO' : 'DIRECT EMAIL'}
+              </span>
               <div className="flex items-center justify-between">
                 <span className="text-base md:text-lg font-serif text-white group-hover:text-accent transition-colors">
                   adrianhonrubia05@gmail.com
@@ -84,8 +92,14 @@ export default function ContactSection() {
             {/* Location Line */}
             <div className="flex items-center gap-3 px-5 py-4 bg-[#0E0E0E]/50 border border-neutral-900/40 rounded-sm text-neutral-400 text-xs">
               <MapPin size={14} className="text-accent hover:scale-110 transition-transform" />
-              <span className="font-mono text-[10px] tracking-wider uppercase text-neutral-500">LOCATION:</span>
-              <span className="font-serif text-sm font-light text-neutral-300">Barcelona, Spain (Available worldwide)</span>
+              <span className="font-mono text-[10px] tracking-wider uppercase text-neutral-500">
+                {language === 'es' ? 'UBICACIÓN:' : 'LOCATION:'}
+              </span>
+              <span className="font-serif text-sm font-light text-neutral-300">
+                {language === 'es'
+                  ? 'Barcelona, España (Disponible para todo el mundo)'
+                  : 'Barcelona, Spain (Available worldwide)'}
+              </span>
             </div>
 
           </div>
