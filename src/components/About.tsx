@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Palette, Film, Sparkles } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 // @ts-expect-error - Vite handles asset imports correctly
-import portraitImage from '../assets/images/regenerated_image_1781695314841.jpg';
+import portraitImage from '../assets/images/regenerated_image_1782489691929.png';
 
 export default function About() {
   const { language } = useLanguage();
