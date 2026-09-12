@@ -36,7 +36,7 @@ export default function Hero({ onDiscoverClick }: HeroProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-accent text-xs md:text-sm font-mono tracking-[0.35em] uppercase mb-4"
+          className="text-accent text-sm md:text-base font-mono tracking-[0.3em] font-medium uppercase mb-4"
         >
           ADRIÁN HONRUBIA
         </motion.div>

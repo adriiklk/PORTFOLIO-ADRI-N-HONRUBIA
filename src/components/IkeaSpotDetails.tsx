@@ -56,9 +56,9 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
         {/* Insight block */}
         <div className="bg-[#0E0E0E] p-8 md:p-10 border border-neutral-900 rounded-sm">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-accent">
-              <Target size={16} />
-              <span className="text-[10px] font-mono tracking-widest uppercase">
+            <div className="flex items-center gap-2.5 text-accent">
+              <Target size={18} />
+              <span className="text-xs md:text-sm font-mono tracking-wider uppercase font-medium">
                 {language === 'es' ? 'INSIGHT DE CAMPAÑA' : 'CAMPAIGN INSIGHT'}
               </span>
             </div>
@@ -73,9 +73,9 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
         {/* Key Message block */}
         <div className="bg-gradient-to-br from-neutral-950 to-[#0F0F0F] p-8 md:p-10 border border-neutral-900 rounded-sm">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-white">
-              <Sparkles size={16} />
-              <span className="text-[10px] font-mono tracking-widest uppercase text-white/60">
+            <div className="flex items-center gap-2.5 text-white">
+              <Sparkles size={18} />
+              <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-white/75 font-medium">
                 {language === 'es' ? 'MENSAJE CLAVE' : 'KEY MESSAGE'}
               </span>
             </div>
@@ -90,9 +90,9 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
 
       {/* 3. THE CREATIVE CONCEPT */}
       <section className="bg-neutral-950 p-8 md:p-12 border border-neutral-900 rounded-sm space-y-6">
-        <div className="flex items-center gap-2">
-          <Activity size={16} className="text-accent" />
-          <span className="text-[10px] font-mono tracking-widest uppercase text-accent">
+        <div className="flex items-center gap-2.5">
+          <Activity size={18} className="text-accent" />
+          <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-accent font-medium">
             {language === 'es' ? 'CONCEPTO CREATIVO' : 'THE CREATIVE CONCEPT'}
           </span>
         </div>
@@ -166,7 +166,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
             </div>
 
             <div className="space-y-2 pt-2">
-              <span className="text-xs font-mono tracking-widest text-accent uppercase">
+              <span className="text-xs md:text-sm font-mono tracking-wider text-accent font-medium uppercase block">
                 {language === 'es' ? 'Titular de VISUAL 01' : 'VISUAL 01 Headline'}
               </span>
               <h4 className="text-lg md:text-xl font-serif font-light text-white">
@@ -202,7 +202,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
             </div>
 
             <div className="space-y-2 pt-2">
-              <span className="text-xs font-mono tracking-widest text-accent uppercase">
+              <span className="text-xs md:text-sm font-mono tracking-wider text-accent font-medium uppercase block">
                 {language === 'es' ? 'Titular de VISUAL 02' : 'VISUAL 02 Headline'}
               </span>
               <h4 className="text-lg md:text-xl font-serif font-light text-white">
@@ -358,7 +358,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
 
           {/* Social strategy rationale */}
           <div className="md:col-span-7 space-y-6">
-            <span className="text-xs font-mono tracking-widest text-accent uppercase">
+            <span className="text-xs md:text-sm font-mono tracking-wider text-accent font-medium uppercase block">
               {language === 'es' ? 'ADAPTACIÓN ESPECÍFICA PARA PLATAFORMA' : 'PLATFORM-SPECIFIC ADAPTATION'}
             </span>
             <h4 className="text-2xl md:text-3xl font-serif font-light text-white leading-tight">

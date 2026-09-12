@@ -62,7 +62,7 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
             <span>{language === 'es' ? 'VOLVER AL INICIO' : 'BACK TO GALLERY'}</span>
           </button>
 
-          <span className="text-accent text-xs font-mono tracking-[0.3em] uppercase mb-2">
+          <span className="text-accent text-sm md:text-base font-mono tracking-[0.25em] font-medium uppercase mb-3 block">
             {project.category}
           </span>
           <h1 className="text-4xl md:text-7xl font-serif font-light tracking-tight leading-none text-white max-w-4xl">
@@ -135,7 +135,7 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
             </div>
 
             <div className="lg:col-span-4 bg-neutral-950 p-6 md:p-8 border border-neutral-900 rounded-sm">
-              <h3 className="text-xs font-mono tracking-widest text-accent uppercase border-b border-neutral-900 pb-3 mb-4">
+              <h3 className="text-xs md:text-sm font-mono tracking-widest text-accent font-medium uppercase border-b border-neutral-900 pb-3 mb-4">
                 {language === 'es' ? 'ESPECIFICACIONES DEL PROYECTO' : 'PROJECT SPECIFICATION'}
               </h3>
               <dl className="space-y-4 text-xs font-mono">
@@ -166,7 +166,7 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
         >
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
-              <span className="text-[10px] font-mono tracking-[0.3em] text-accent uppercase">
+              <span className="text-xs md:text-sm font-mono tracking-[0.25em] text-accent uppercase font-medium">
                 {language === 'es' ? 'SIGUIENTE EN LA GALERÍA' : 'UP NEXT IN LINE'}
               </span>
               <h4 className="text-3xl md:text-5xl font-serif font-light text-neutral-400 group-hover:text-white transition-colors duration-500 mt-2">

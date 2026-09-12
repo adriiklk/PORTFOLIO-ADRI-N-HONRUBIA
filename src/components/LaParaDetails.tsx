@@ -36,9 +36,9 @@ export default function LaParaDetails({ project }: LaParaDetailsProps) {
 
       {/* 2. THE OBJECTIVE */}
       <section className="bg-neutral-950 p-8 md:p-12 border border-neutral-900 rounded-sm space-y-6">
-        <div className="flex items-center gap-2">
-          <Target size={16} className="text-accent" />
-          <span className="text-[10px] font-mono tracking-widest uppercase text-accent">
+        <div className="flex items-center gap-2.5">
+          <Target size={18} className="text-accent" />
+          <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-accent font-medium">
             {language === 'es' ? 'EL OBJETIVO' : 'THE OBJECTIVE'}
           </span>
         </div>
@@ -58,9 +58,9 @@ export default function LaParaDetails({ project }: LaParaDetailsProps) {
 
       {/* 3. BRAND IMAGE */}
       <section className="max-w-3xl space-y-6">
-        <div className="flex items-center gap-2">
-          <Sparkles size={16} className="text-accent" />
-          <span className="text-[10px] font-mono tracking-widest uppercase text-accent">
+        <div className="flex items-center gap-2.5">
+          <Sparkles size={18} className="text-accent" />
+          <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-accent font-medium">
             {language === 'es' ? 'IMAGEN DE MARCA' : 'BRAND IMAGE'}
           </span>
         </div>
@@ -124,9 +124,9 @@ export default function LaParaDetails({ project }: LaParaDetailsProps) {
 
       {/* 4. CONTENT STRATEGY */}
       <section className="bg-neutral-950 p-8 md:p-12 border border-neutral-900 rounded-sm space-y-8">
-        <div className="flex items-center gap-2">
-          <Layers size={16} className="text-accent" />
-          <span className="text-[10px] font-mono tracking-widest uppercase text-accent">
+        <div className="flex items-center gap-2.5">
+          <Layers size={18} className="text-accent" />
+          <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-accent font-medium">
             {language === 'es' ? 'ESTRATEGIA DE CONTENIDO' : 'CONTENT STRATEGY'}
           </span>
         </div>
@@ -262,14 +262,14 @@ export default function LaParaDetails({ project }: LaParaDetailsProps) {
       {/* 6. RESULTS */}
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center border-t border-b border-neutral-900 py-16">
         <div className="md:col-span-5 text-center md:text-left space-y-4">
-          <div className="flex items-center justify-center md:justify-start gap-2">
-            <TrendingUp size={16} className="text-accent" />
-            <span className="text-[10px] font-mono tracking-widest uppercase text-accent">
+          <div className="flex items-center justify-center md:justify-start gap-2.5">
+            <TrendingUp size={18} className="text-accent" />
+            <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-accent font-medium">
               {language === 'es' ? 'RESULTADOS DE MÉTRICAS' : 'METRIC RESULTS'}
             </span>
           </div>
           <h3 className="text-4xl md:text-5xl font-serif font-light text-white tracking-tight">
-            10,000+
+            {language === 'es' ? '+55 mil' : '+55K'}
           </h3>
           <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider">
             {language === 'es' ? 'VISTAS OBTENIDAS EN MÚLTIPLES VÍDEOS' : 'VIEWS ACHIEVED ON MULTIPLE VIDEOS'}
@@ -286,9 +286,9 @@ export default function LaParaDetails({ project }: LaParaDetailsProps) {
 
       {/* 7. MY ROLE */}
       <section className="space-y-6">
-        <div className="flex items-center gap-2">
-          <Award size={16} className="text-accent" />
-          <span className="text-[10px] font-mono tracking-widest uppercase text-accent">
+        <div className="flex items-center gap-2.5">
+          <Award size={18} className="text-accent" />
+          <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-accent font-medium">
             {language === 'es' ? 'MI ROL Y RESPONSABILIDADES' : 'MY ROLE & RESPONSIBILITIES'}
           </span>
         </div>

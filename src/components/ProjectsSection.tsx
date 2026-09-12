@@ -17,7 +17,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-6">
           <div className="flex flex-col">
-            <span className="text-xs font-mono tracking-[0.3em] text-accent uppercase mb-2">
+            <span className="text-xs md:text-sm font-mono tracking-[0.25em] text-accent uppercase mb-2 font-medium">
               {language === 'es' ? '02 / TRABAJO' : '02 / WORK'}
             </span>
             <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-white">
@@ -73,7 +73,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
 
                   {/* Corner aesthetic details */}
                   <div className="absolute bottom-4 left-4 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="text-[9px] font-mono tracking-widest text-[#FFF]/80 bg-black/60 px-2 py-1 border border-neutral-800 backdrop-blur-sm rounded-sm uppercase">
+                    <span className="text-[11px] font-mono tracking-wider text-[#FFF]/90 bg-black/70 px-2.5 py-1 border border-neutral-800 backdrop-blur-sm rounded-sm uppercase font-medium">
                       {language === 'es' ? 'VER PROYECTO' : 'OPEN PORTFOLIO'}
                     </span>
                   </div>
@@ -81,16 +81,16 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
 
                 {/* Spec Sheets Details */}
                 <div className="mt-6 flex justify-between items-baseline border-b border-neutral-900 pb-4 filter brightness-[0.9] group-hover:brightness-[1.1] transition-all">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] font-mono tracking-widest text-neutral-500 uppercase">
+                  <div className="flex flex-col gap-1.5">
+                    <span className="text-xs font-mono tracking-wider text-neutral-400 uppercase">
                       {project.category}
                     </span>
                     <h3 className="text-xl md:text-2xl font-serif font-light text-white tracking-tight">
                       {project.title}
                     </h3>
                   </div>
-                  <div className="flex flex-col items-end gap-1 font-mono text-[9px] text-neutral-400">
-                    <span className="text-accent">{project.year}</span>
+                  <div className="flex flex-col items-end gap-1 font-mono text-xs md:text-sm text-neutral-400">
+                    <span className="text-accent font-medium">{project.year}</span>
                   </div>
                 </div>
               </motion.div>

@@ -39,7 +39,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Title Header */}
         <div className="flex flex-col mb-16 md:mb-24">
-          <span className="text-xs font-mono tracking-[0.3em] text-accent uppercase mb-2">
+          <span className="text-xs md:text-sm font-mono tracking-[0.25em] text-accent font-medium uppercase mb-3 block">
             {language === 'es' ? '03 / CAPACIDADES' : '03 / CAPABILITIES'}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-white">

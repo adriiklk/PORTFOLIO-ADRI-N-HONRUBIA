@@ -49,7 +49,7 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="flex items-center justify-center gap-2.5">
             <span className="h-[1px] w-6 bg-neutral-800" />
-            <span className="text-[10px] font-mono text-accent uppercase tracking-widest">
+            <span className="text-xs md:text-sm font-mono text-accent uppercase tracking-widest font-medium">
               {language === 'es' ? 'EL CONCEPTO' : 'THE CONCEPT'}
             </span>
             <span className="h-[1px] w-6 bg-neutral-800" />
@@ -73,9 +73,9 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
         {/* Creative Concept */}
         <div className="bg-[#0E0E0E] p-8 md:p-10 border border-neutral-900 rounded-sm">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-accent">
-              <Target size={16} />
-              <span className="text-[10px] font-mono tracking-widest uppercase">
+            <div className="flex items-center gap-2.5 text-accent">
+              <Target size={18} />
+              <span className="text-xs md:text-sm font-mono tracking-wider uppercase font-medium">
                 {language === 'es' ? 'CONCEPTO CREATIVO' : 'CREATIVE CONCEPT'}
               </span>
             </div>
@@ -90,9 +90,9 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
         {/* Visual Direction */}
         <div className="bg-gradient-to-br from-neutral-950 to-[#0F0F0F] p-8 md:p-10 border border-neutral-900 rounded-sm">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-white">
-              <Sparkles size={16} />
-              <span className="text-[10px] font-mono tracking-widest uppercase text-white/60">
+            <div className="flex items-center gap-2.5 text-white">
+              <Sparkles size={18} />
+              <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-white/75 font-medium">
                 {language === 'es' ? 'DIRECCIÓN VISUAL' : 'VISUAL DIRECTION'}
               </span>
             </div>

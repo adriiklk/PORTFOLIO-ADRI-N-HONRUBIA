@@ -10,7 +10,7 @@ export default function ContactSection() {
         
         {/* Section title header */}
         <div className="flex flex-col mb-12 border-b border-neutral-900 pb-8">
-          <span className="text-xs font-mono tracking-[0.3em] text-accent uppercase mb-2">
+          <span className="text-xs md:text-sm font-mono tracking-[0.25em] text-accent font-medium uppercase mb-3 block">
             {language === 'es' ? '04 / CONTACTO' : '04 / CONTACT'}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-white">
@@ -60,7 +60,7 @@ export default function ContactSection() {
             <div className="grid grid-cols-2 gap-4">
               {/* Instagram */}
               <a
-                href="https://instagram.com/adriiii10._"
+                href="https://instagram.com/adriannhg_"
                 target="_blank"
                 rel="noreferrer"
                 className="group block bg-[#0E0E0E] hover:bg-[#121212] p-5 border border-neutral-900 rounded-sm transition-all duration-300"
@@ -68,7 +68,7 @@ export default function ContactSection() {
               >
                 <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block mb-1">INSTAGRAM</span>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-sans text-white group-hover:text-accent transition-colors">@adriiii10._</span>
+                  <span className="text-sm font-sans text-white group-hover:text-accent transition-colors">@adriannhg_</span>
                   <ArrowUpRight size={14} className="text-neutral-600 group-hover:text-white transition-colors" />
                 </div>
               </a>

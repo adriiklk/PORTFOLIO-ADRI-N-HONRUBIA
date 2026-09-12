@@ -202,7 +202,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
                 adrianhonrubia05@gmail.com
               </a>
               <div className="flex gap-4 text-[10px] font-mono text-neutral-500">
-                <a href="#instagram" className="hover:text-white transition-colors">INSTAGRAM</a>
+                <a href="https://instagram.com/adriannhg_" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">INSTAGRAM</a>
                 <span>/</span>
                 <a href="#linkedin" className="hover:text-white transition-colors">LINKEDIN</a>
               </div>
