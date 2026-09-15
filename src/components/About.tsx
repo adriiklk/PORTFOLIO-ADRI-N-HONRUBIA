@@ -67,7 +67,7 @@ export default function About() {
               {language === 'es' ? (
                 <>
                   <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
-                    Soy Adrián Honrubia, un diseñador gráfico y filmmaker afincado en Barcelona apasionado por la creación de experiencias visuales que conecten a las marcas con las personas. Mi trabajo se centra en el diseño gráfico, la creación de contenido y el storytelling en redes sociales, ayudando a las empresas a construir una presencia fuerte, auténtica y memorable en un mundo cada vez más digital.
+                    Soy Adrián Honrubia, Multimedia Designer y AI Creator afincado en Barcelona apasionado por la creación de experiencias visuales que conecten a las marcas con las personas. Mi trabajo se centra en el diseño multimedia, la creación de contenido y el storytelling en redes sociales, ayudando a las empresas a construir una presencia fuerte, auténtica y memorable en un mundo cada vez más digital.
                   </p>
                   <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
                     Actualmente, estoy cursando el grado en Diseño Digital y Tecnologías Multimedia y me estoy formando para ser AI Architect, ampliando continuamente mis conocimientos en diseño, producción audiovisual, inteligencia artificial y tecnologías emergentes. Veo cada proyecto como una oportunidad para aprender, experimentar y llevar mi creatividad más allá, buscando siempre crear experiencias modernas, impactantes y visualmente atractivas que ayuden a las marcas a destacar y conectar con su público.
@@ -76,7 +76,7 @@ export default function About() {
               ) : (
                 <>
                   <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
-                    I'm Adrián Honrubia, a Barcelona-based graphic designer and filmmaker passionate about creating visual experiences that connect brands with people. My work focuses on graphic design, content creation, and social media storytelling, helping businesses build a strong, authentic, and memorable presence in an increasingly digital world.
+                    I'm Adrián Honrubia, a Barcelona-based Multimedia Designer and AI Creator passionate about creating visual experiences that connect brands with people. My work focuses on multimedia design, content creation, and social media storytelling, helping businesses build a strong, authentic, and memorable presence in an increasingly digital world.
                   </p>
                   <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
                     Currently, I am studying Digital Design and Multimedia Technologies and training to become an AI Architect, continuously expanding my knowledge in design, audiovisual production, artificial intelligence, and emerging technologies. I see every project as an opportunity to learn, experiment, and push my creativity further, always aiming to create modern, impactful, and visually engaging experiences that help brands stand out and connect with their audience.

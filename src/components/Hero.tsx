@@ -51,13 +51,13 @@ export default function Hero({ onDiscoverClick }: HeroProps) {
           >
             {language === 'es' ? (
               <>
-                Diseñador Gráfico <br className="hidden sm:inline" />
-                <span className="italic font-serif font-light text-neutral-300">&amp; Filmmaker</span>
+                Multimedia Designer <br className="hidden sm:inline" />
+                <span className="italic font-serif font-light text-neutral-300">&amp; AI Creator</span>
               </>
             ) : (
               <>
-                Graphic Designer <br className="hidden sm:inline" />
-                <span className="italic font-serif font-light text-neutral-300">&amp; Filmmaker</span>
+                Multimedia Designer <br className="hidden sm:inline" />
+                <span className="italic font-serif font-light text-neutral-300">&amp; AI Creator</span>
               </>
             )}
           </motion.h2>

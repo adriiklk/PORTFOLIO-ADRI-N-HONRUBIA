@@ -17,19 +17,19 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contact',
     
     // Header & Brand
-    'brand.subtitle': 'GRAPHIC DESIGN, FILMMAKING & BRANDING',
+    'brand.subtitle': 'MULTIMEDIA DESIGN, AI CREATION & BRANDING',
     'brand.info': 'INFO & INQUIRIES',
     'brand.directory': 'NAVIGATE DIRECTORY',
     
     // Hero
     'hero.badge': 'PORTFOLIO OF ADRIÁN HONRUBIA',
     'hero.tagline': 'Crafting cinematic narratives & bold visual identities.',
-    'hero.description': 'A Madrid-based Graphic Designer & Filmmaker specialized in high-end brand identity systems, video production, and social-first content strategies.',
+    'hero.description': 'A Barcelona-based Multimedia Designer & AI Creator specialized in high-end visual systems, creative AI production, and social-first content strategies.',
     'hero.cta': 'Discover Selected Works',
     
     // About
     'about.title': 'BIOGRAPHY',
-    'about.heading': "A designer with a filmmaker's lens, crafting stories across mediums.",
+    'about.heading': "A multimedia designer & AI creator, crafting stories across mediums.",
     'about.p1': 'I am a multidimensional creator working at the intersection of motion, print, and digital branding. My process is defined by narrative depth, rigorous geometry, and meticulous attention to emotional resonance.',
     'about.p2': 'Whether drafting the typographic layout of an editorial book, designing premium packaging, or directing natural-light cinematic visuals on set, I focus on building cohesive worlds that communicate trust, quality, and bold contemporary style.',
     'about.creativeFields': 'CREATIVE FIELD INTERESTS',
@@ -86,19 +86,19 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contacto',
     
     // Header & Brand
-    'brand.subtitle': 'DISEÑO GRÁFICO, CINE Y BRANDING',
+    'brand.subtitle': 'DISEÑO MULTIMEDIA, CREACIÓN CON IA Y BRANDING',
     'brand.info': 'INFORMACIÓN Y PREGUNTAS',
     'brand.directory': 'NAVEGAR POR EL DIRECTORIO',
     
     // Hero
     'hero.badge': 'PORTAFOLIO DE ADRIÁN HONRUBIA',
     'hero.tagline': 'Creando narrativas cinematográficas e identidades visuales audaces.',
-    'hero.description': 'Diseñador Gráfico y Filmmaker afincado en Madrid especializado en sistemas de identidad de marca de alto nivel, producción de vídeo y estrategias de contenido enfocadas en redes sociales.',
+    'hero.description': 'Multimedia Designer y AI Creator afincado en Barcelona especializado en sistemas de identidad visual, creación de contenido con IA y estrategias de contenido enfocadas en redes sociales.',
     'hero.cta': 'Descubrir Trabajos Seleccionados',
     
     // About
     'about.title': 'BIOGRAFÍA',
-    'about.heading': 'Un diseñador con la mirada de un filmmaker, creando historias a través de diferentes medios.',
+    'about.heading': 'Un diseñador multimedia y creador con IA, creando historias a través de diferentes medios.',
     'about.p1': 'Soy un creador multidimensional que trabaja en la intersección del movimiento, el diseño impreso y el branding digital. Mi proceso se define por la profundidad narrativa, la geometría rigurosa y una atención meticulosa a la resonancia emocional.',
     'about.p2': 'Ya sea redactando la maquetación tipográfica de un libro editorial, diseñando un packaging premium o dirigiendo escenas cinematográficas con luz natural en el set, me enfoco en construir mundos cohesivos que transmitan confianza, calidad y un estilo contemporáneo audaz.',
     'about.creativeFields': 'ÁREAS DE INTERÉS CREATIVO',
