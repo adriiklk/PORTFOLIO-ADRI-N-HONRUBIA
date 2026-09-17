@@ -99,9 +99,9 @@ export default function CustomCursor() {
           top: outerY,
           width: cursorType === 'project' || cursorType === 'play' ? 64 : cursorType === 'hover' ? 36 : 20,
           height: cursorType === 'project' || cursorType === 'play' ? 64 : cursorType === 'hover' ? 36 : 20,
-          border: cursorType === 'project' || cursorType === 'play' ? 'none' : '1px solid rgba(201, 169, 110, 0.6)',
-          backgroundColor: cursorType === 'project' ? '#C9A96E' : cursorType === 'play' ? '#FFFFFF' : 'transparent',
-          color: cursorType === 'project' ? '#000000' : cursorType === 'play' ? '#000000' : '#FFFFFF',
+          border: cursorType === 'project' || cursorType === 'play' ? 'none' : '1px solid var(--color-accent)',
+          backgroundColor: cursorType === 'project' ? 'var(--color-accent)' : cursorType === 'play' ? '#FFFFFF' : 'transparent',
+          color: cursorType === 'project' ? '#000000' : cursorType === 'play' ? '#000000' : 'var(--text-primary)',
         }}
         animate={{
           scale: 1,

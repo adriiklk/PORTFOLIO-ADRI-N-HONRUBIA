@@ -12,7 +12,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A0A0A] border-t border-neutral-900/60 text-neutral-500 py-12 select-none font-mono text-[10px] tracking-widest uppercase">
+    <footer className="bg-[#F9F9F7] dark:bg-[#0A0A0A] border-t border-neutral-200 dark:border-neutral-900/60 text-neutral-600 dark:text-neutral-500 py-12 select-none font-mono text-[10px] tracking-widest uppercase transition-colors duration-400">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Left Credit */}
         <div className="flex flex-col md:flex-row gap-2 md:gap-4 text-center md:text-left">
@@ -26,7 +26,7 @@ export default function Footer() {
         {/* Right Scroll to Top Lever */}
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-2 hover:text-white transition-colors py-2 px-1 group"
+          className="flex items-center gap-2 text-neutral-600 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors py-2 px-1 group"
           data-cursor="hover"
           aria-label="Scroll back to top of page"
         >

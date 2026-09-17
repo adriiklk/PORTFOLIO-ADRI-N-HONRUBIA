@@ -37,7 +37,7 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="bg-[#0A0A0A] text-white min-h-screen pt-24 pb-32 select-none"
+      className="bg-[#F9F9F7] dark:bg-[#0A0A0A] text-neutral-900 dark:text-white min-h-screen pt-24 pb-32 select-none transition-colors duration-400"
     >
       {/* 1. Immersive Cover Header */}
       <div className="relative w-full h-[65vh] md:h-[80vh] overflow-hidden bg-black flex items-end">
@@ -46,16 +46,16 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
             src={project.image}
             alt={project.title}
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover filter brightness-[0.5] grayscale"
+            className="w-full h-full object-cover filter brightness-[0.45] grayscale"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F9F9F7] dark:from-[#0A0A0A] via-black/40 to-black/20 opacity-90 transition-colors duration-400" />
         </div>
 
         {/* Back Button and Title Overlay */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-12 flex flex-col justify-end">
           <button
             onClick={onBack}
-            className="self-start inline-flex items-center gap-2 text-xs font-mono tracking-widest text-[#FFF]/60 hover:text-accent transition-colors mb-8 group"
+            className="self-start inline-flex items-center gap-2 text-xs font-mono tracking-widest text-neutral-800 dark:text-[#FFF]/60 hover:text-accent dark:hover:text-accent transition-colors mb-8 group bg-white/70 dark:bg-black/40 px-3 py-1.5 rounded-sm backdrop-blur-sm border border-neutral-200/60 dark:border-neutral-800/60"
             data-cursor="hover"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-300" />
@@ -65,7 +65,7 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
           <span className="text-accent text-sm md:text-base font-mono tracking-[0.25em] font-medium uppercase mb-3 block">
             {project.category}
           </span>
-          <h1 className="text-4xl md:text-7xl font-serif font-light tracking-tight leading-none text-white max-w-4xl">
+          <h1 className="text-4xl md:text-7xl font-serif font-light tracking-tight leading-none text-neutral-950 dark:text-white max-w-4xl">
             {project.title}
           </h1>
         </div>
@@ -158,7 +158,7 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
       )}
 
       {/* 5. Next Project Teaser Gateway */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-20 border-t border-neutral-900 pt-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-20 border-t border-neutral-200 dark:border-neutral-900 pt-16">
         <button
           onClick={() => onNavigateToProject(nextProject.id)}
           className="w-full block group text-left relative"
@@ -169,12 +169,12 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
               <span className="text-xs md:text-sm font-mono tracking-[0.25em] text-accent uppercase font-medium">
                 {language === 'es' ? 'SIGUIENTE EN LA GALERÍA' : 'UP NEXT IN LINE'}
               </span>
-              <h4 className="text-3xl md:text-5xl font-serif font-light text-neutral-400 group-hover:text-white transition-colors duration-500 mt-2">
+              <h4 className="text-3xl md:text-5xl font-serif font-light text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-950 dark:group-hover:text-white transition-colors duration-500 mt-2">
                 {nextProject.title}
               </h4>
             </div>
             
-            <div className="inline-flex items-center gap-3 text-neutral-500 group-hover:text-accent transition-colors duration-500 self-end sm:self-center font-mono text-xs tracking-widest">
+            <div className="inline-flex items-center gap-3 text-neutral-500 dark:text-neutral-500 group-hover:text-accent transition-colors duration-500 self-end sm:self-center font-mono text-xs tracking-widest">
               <span>{language === 'es' ? 'EXPLORAR PROYECTO' : 'EXPLORE DIRECTORY'}</span>
               <ArrowRight size={18} className="translate-x-0 group-hover:translate-x-2 transition-transform duration-500" />
             </div>

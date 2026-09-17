@@ -32,7 +32,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
   const { language } = useLanguage();
 
   return (
-    <section id="services" className="relative w-full py-24 md:py-32 bg-[#080808] text-white select-none scroll-mt-20">
+    <section id="services" className="relative w-full py-24 md:py-32 bg-[#F5F5F3] dark:bg-[#080808] text-neutral-900 dark:text-white select-none scroll-mt-20 transition-colors duration-400">
       {/* Absolute background accent lines */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none" />
 
@@ -42,7 +42,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
           <span className="text-xs md:text-sm font-mono tracking-[0.25em] text-accent font-medium uppercase mb-3 block">
             {language === 'es' ? '03 / CAPACIDADES' : '03 / CAPABILITIES'}
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-white">
+          <h2 className="text-3xl md:text-5xl font-serif font-light tracking-tight text-neutral-900 dark:text-white">
             {language === 'es' ? 'Servicios y Oficio' : 'Services & Craft'}
           </h2>
         </div>
@@ -56,7 +56,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               viewport={{ once: true, margin: '-5%' }}
               transition={{ delay: idx * 0.1, duration: 0.6, ease: 'easeOut' }}
               key={service.id}
-              className="group bg-neutral-950/60 hover:bg-neutral-950 p-8 border border-neutral-900 hover:border-accent/40 transition-all duration-500 rounded-sm flex flex-col justify-between min-h-[300px]"
+              className="group bg-white dark:bg-neutral-950/60 hover:bg-neutral-50 dark:hover:bg-neutral-950 p-8 border border-neutral-200/80 dark:border-neutral-900 hover:border-accent/50 dark:hover:border-accent/40 shadow-xs dark:shadow-none transition-all duration-500 rounded-sm flex flex-col justify-between min-h-[300px]"
               data-cursor="hover"
             >
               <div>
@@ -66,21 +66,21 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                 </div>
 
                 {/* Service Heading titles */}
-                <h3 className="text-xl md:text-2xl font-serif font-light text-white group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-xl md:text-2xl font-serif font-light text-neutral-900 dark:text-white group-hover:text-accent transition-colors duration-300">
                   {service.title}
                 </h3>
 
                 {/* Narrative core description */}
-                <p className="text-neutral-400 text-xs md:text-sm font-light mt-4 leading-relaxed line-clamp-3">
+                <p className="text-neutral-600 dark:text-neutral-400 text-xs md:text-sm font-light mt-4 leading-relaxed line-clamp-3">
                   {service.description}
                 </p>
               </div>
 
               {/* Sub-item specific bullet matrices */}
-              <div className="mt-8 pt-6 border-t border-neutral-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
                   {service.details.map((detail, dIdx) => (
-                    <li key={dIdx} className="text-[10px] font-mono text-neutral-400 flex items-center gap-1.5 truncate">
+                    <li key={dIdx} className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400 flex items-center gap-1.5 truncate">
                       <span className="w-1 h-1 bg-accent rounded-full shrink-0" />
                       <span>{detail}</span>
                     </li>
