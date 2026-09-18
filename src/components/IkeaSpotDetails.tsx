@@ -35,8 +35,8 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
       {/* 1. INTRODUCTION & OVERVIEW GRID */}
       <section className="border-b border-neutral-900 pb-16">
         <div className="space-y-6 max-w-4xl">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase">
-            {language === 'es' ? 'INTRODUCCIÓN DEL PROYECTO' : 'PROJECT INTRODUCTION'}
+          <span className="text-xs font-mono tracking-widest text-accent uppercase font-medium">
+            {language === 'es' ? '01 — INTRODUCCIÓN DEL PROYECTO' : '01 — PROJECT INTRODUCTION'}
           </span>
           <h2 className="text-2xl md:text-3xl font-serif font-light text-white leading-tight">
             {language === 'es' 
@@ -59,7 +59,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
             <div className="flex items-center gap-2.5 text-accent">
               <Target size={18} />
               <span className="text-xs md:text-sm font-mono tracking-wider uppercase font-medium">
-                {language === 'es' ? 'INSIGHT DE CAMPAÑA' : 'CAMPAIGN INSIGHT'}
+                {language === 'es' ? '02 — INSIGHT DE CAMPAÑA' : '02 — CAMPAIGN INSIGHT'}
               </span>
             </div>
             <p className="text-lg md:text-xl font-serif font-light text-neutral-200 leading-relaxed italic">
@@ -93,7 +93,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
         <div className="flex items-center gap-2.5">
           <Activity size={18} className="text-accent" />
           <span className="text-xs md:text-sm font-mono tracking-wider uppercase text-accent font-medium">
-            {language === 'es' ? 'CONCEPTO CREATIVO' : 'THE CREATIVE CONCEPT'}
+            {language === 'es' ? '03 — CONCEPTO CREATIVO' : '03 — THE CREATIVE CONCEPT'}
           </span>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -135,8 +135,8 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
       {/* 4. CAMPAIGN VISUALS GALLERY WITH IMAGE DROPZONE PLACES */}
       <section className="space-y-12">
         <div className="flex flex-col border-b border-neutral-900 pb-6">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase mb-2">
-            {language === 'es' ? 'MUESTRAS DE PRENSA Y EXTERIORES' : 'PRINT & OOH SPECIMENS'}
+          <span className="text-xs font-mono tracking-widest text-accent uppercase mb-2 font-medium">
+            {language === 'es' ? '04 — MUESTRAS DE PRENSA Y EXTERIORES' : '04 — PRINT & OOH SPECIMENS'}
           </span>
           <h3 className="text-xl md:text-2xl font-serif text-white font-light">
             {language === 'es' ? 'Visuales de Campaña y Dirección de Arte Clave' : 'Campaign Visuals & Key Art Direction'}
@@ -221,8 +221,8 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
       {/* 5. MAIN COMMERCIAL VIDEO AND SCRIPT STRUCTURE */}
       <section className="space-y-8">
         <div className="flex flex-col border-b border-neutral-900 pb-6">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase mb-2">
-            {language === 'es' ? 'EMISIÓN PRINCIPAL DEL ANUNCIO' : 'MAIN COMMERCIAL BROADCAST'}
+          <span className="text-xs font-mono tracking-widest text-accent uppercase mb-2 font-medium">
+            {language === 'es' ? '05 — EMISIÓN PRINCIPAL DEL ANUNCIO' : '05 — MAIN COMMERCIAL BROADCAST'}
           </span>
           <h3 className="text-xl md:text-2xl font-serif text-white font-light">
             {language === 'es' ? 'Anuncio de Televisión (16:9 Horizontal)' : 'Television Commercial (16:9 Landscape)'}
@@ -311,8 +311,8 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
       {/* 6. TIKTOK COMMERCIAL / SHORT-FORM VIDEO PLATFORMS */}
       <section className="space-y-8">
         <div className="flex flex-col border-b border-neutral-900 pb-6">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase mb-2">
-            {language === 'es' ? 'INTEGRACIÓN SOCIAL' : 'SOCIAL INTEGRATION'}
+          <span className="text-xs font-mono tracking-widest text-accent uppercase mb-2 font-medium">
+            {language === 'es' ? '06 — INTEGRACIÓN SOCIAL' : '06 — SOCIAL INTEGRATION'}
           </span>
           <h3 className="text-xl md:text-2xl font-serif text-white font-light">
             TikTok &amp; Instagram Reel Campaign (9:16 Portrait)

@@ -75,7 +75,7 @@ export default function ContactSection() {
 
               {/* Linkedin */}
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/adri%C3%A1n-honrubia-gonz%C3%A1lez-8b1640435/"
                 target="_blank"
                 rel="noreferrer"
                 className="group block bg-white dark:bg-[#0E0E0E] hover:bg-neutral-50 dark:hover:bg-[#121212] p-5 border border-neutral-200 dark:border-neutral-900 rounded-sm shadow-xs dark:shadow-none transition-all duration-300"
@@ -83,7 +83,7 @@ export default function ContactSection() {
               >
                 <span className="text-[9px] font-mono text-neutral-500 uppercase tracking-widest block mb-1">LINKEDIN</span>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-sans text-neutral-900 dark:text-white group-hover:text-accent transition-colors">adrian-honrubia</span>
+                  <span className="text-sm font-sans text-neutral-900 dark:text-white group-hover:text-accent transition-colors">Adrián Honrubia</span>
                   <ArrowUpRight size={14} className="text-neutral-400 dark:text-neutral-600 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
                 </div>
               </a>

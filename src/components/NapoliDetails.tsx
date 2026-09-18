@@ -53,8 +53,8 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
       {/* 1. INTRODUCTION */}
       <section className="border-b border-neutral-900 pb-16 max-w-4xl">
         <div className="space-y-6">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase">
-            {language === 'es' ? 'INTRODUCCIÓN DEL PROYECTO' : 'PROJECT INTRODUCTION'}
+          <span className="text-xs font-mono tracking-widest text-accent uppercase font-medium">
+            {language === 'es' ? '01 — INTRODUCCIÓN DEL PROYECTO' : '01 — PROJECT INTRODUCTION'}
           </span>
           <h2 className="text-2xl md:text-3xl font-serif font-light text-white leading-tight">
             {language === 'es'
@@ -75,7 +75,7 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
           <div className="flex items-center justify-center gap-2.5">
             <span className="h-[1px] w-6 bg-neutral-800" />
             <span className="text-xs md:text-sm font-mono text-accent uppercase tracking-widest font-medium">
-              {language === 'es' ? 'EL CONCEPTO' : 'THE CONCEPT'}
+              {language === 'es' ? '02 — EL CONCEPTO' : '02 — THE CONCEPT'}
             </span>
             <span className="h-[1px] w-6 bg-neutral-800" />
           </div>
@@ -101,7 +101,7 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
             <div className="flex items-center gap-2.5 text-accent">
               <Target size={18} />
               <span className="text-xs md:text-sm font-mono tracking-wider uppercase font-medium">
-                {language === 'es' ? 'CONCEPTO CREATIVO' : 'CREATIVE CONCEPT'}
+                {language === 'es' ? '03 — CONCEPTO CREATIVO' : '03 — CREATIVE CONCEPT'}
               </span>
             </div>
             <p className="text-lg md:text-xl font-serif font-light text-neutral-200 leading-relaxed italic">
@@ -139,8 +139,8 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
       {/* 4. OFFICIAL MUSIC VIDEO */}
       <section className="space-y-8">
         <div className="flex flex-col border-b border-neutral-900 pb-6">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase mb-2">
-            {language === 'es' ? 'LANZAMIENTO DE PELÍCULA OFICIAL' : 'OFFICIAL FILM RELEASE'}
+          <span className="text-xs font-mono tracking-widest text-accent uppercase mb-2 font-medium">
+            {language === 'es' ? '04 — LANZAMIENTO DE PELÍCULA OFICIAL' : '04 — OFFICIAL FILM RELEASE'}
           </span>
           <h3 className="text-xl md:text-2xl font-serif text-white font-light">
             {language === 'es' ? 'Presentación de Emisión de Videoclip' : 'Music Video Broadcast Presentation'}
@@ -198,8 +198,8 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
       <section className="space-y-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-900 pb-6 gap-4">
           <div>
-            <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase mb-2 block">
-              {language === 'es' ? 'EXHIBICIÓN CINEMATOGRÁFICA' : 'CINEMATIC EXHIBITION'}
+            <span className="text-xs font-mono tracking-widest text-accent uppercase mb-2 block font-medium">
+              {language === 'es' ? '05 — EXHIBICIÓN CINEMATOGRÁFICA' : '05 — CINEMATIC EXHIBITION'}
             </span>
             <h3 className="text-xl md:text-2xl font-serif text-white font-light">
               {language === 'es' ? 'Galería de Fotogramas de Película' : 'Film Frame Specimens Gallery'}

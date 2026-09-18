@@ -256,7 +256,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
               <div className="flex gap-4 text-[10px] font-mono text-neutral-500">
                 <a href="https://instagram.com/adriannhg_" target="_blank" rel="noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">INSTAGRAM</a>
                 <span>/</span>
-                <a href="#linkedin" className="hover:text-neutral-900 dark:hover:text-white transition-colors">LINKEDIN</a>
+                <a href="https://www.linkedin.com/in/adri%C3%A1n-honrubia-gonz%C3%A1lez-8b1640435/" target="_blank" rel="noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">LINKEDIN</a>
               </div>
             </div>
           </motion.div>
