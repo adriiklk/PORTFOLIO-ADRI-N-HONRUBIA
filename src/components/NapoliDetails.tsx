@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  Sparkles, Target, Tv, Volume2, VolumeX
+  Sparkles, Target, Tv, Volume2, VolumeX, Maximize2, X, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { Project } from '../types';
 import { useLanguage } from '../LanguageContext';
@@ -21,6 +21,31 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
   ];
 
   const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Keyboard navigation & body scroll lock for lightbox
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxIndex(null);
+      } else if (e.key === 'ArrowLeft') {
+        setLightboxIndex((prev) => (prev !== null ? (prev > 0 ? prev - 1 : galleryStills.length - 1) : null));
+      } else if (e.key === 'ArrowRight') {
+        setLightboxIndex((prev) => (prev !== null ? (prev < galleryStills.length - 1 ? prev + 1 : 0) : null));
+      }
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [lightboxIndex, galleryStills.length]);
 
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12 pb-20 space-y-24">
@@ -171,40 +196,178 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
 
       {/* 5. GALLERY STILLS SECTION */}
       <section className="space-y-12">
-        <div className="flex flex-col border-b border-neutral-900 pb-6">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase mb-2">
-            {language === 'es' ? 'EXHIBICIÓN CINEMATOGRÁFICA' : 'CINEMATIC EXHIBITION'}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-neutral-900 pb-6 gap-4">
+          <div>
+            <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase mb-2 block">
+              {language === 'es' ? 'EXHIBICIÓN CINEMATOGRÁFICA' : 'CINEMATIC EXHIBITION'}
+            </span>
+            <h3 className="text-xl md:text-2xl font-serif text-white font-light">
+              {language === 'es' ? 'Galería de Fotogramas de Película' : 'Film Frame Specimens Gallery'}
+            </h3>
+          </div>
+          <span className="text-xs font-mono text-neutral-400 hidden sm:inline-flex items-center gap-1.5 shrink-0">
+            <Maximize2 size={13} className="text-accent" />
+            {language === 'es' ? 'Haz clic en un fotograma para ampliar' : 'Click any frame to enlarge'}
           </span>
-          <h3 className="text-xl md:text-2xl font-serif text-white font-light">
-            {language === 'es' ? 'Galería de Fotogramas de Película' : 'Film Frame Specimens Gallery'}
-          </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[0, 1, 2, 3].map((idx) => (
-            <div key={idx} className="space-y-4">
-              <div className="aspect-[16/9] bg-[#0E0E0E] border border-neutral-900 rounded-sm relative flex flex-col justify-between p-6 overflow-hidden group transition-all">
-                {galleryStills[idx] ? (
-                  <img
-                    src={galleryStills[idx]}
-                    alt={`Cinema Still Specimen ${idx + 1}`}
-                    referrerPolicy="no-referrer"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 z-0 brightness-[0.8] group-hover:brightness-95"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-[#070707] z-0 flex flex-col items-center justify-center p-8 text-center">
-                    <span className="text-xs font-mono tracking-widest text-[#FFF]/30 block">[ STILL_SPECIMEN_0{idx + 1} ]</span>
-                  </div>
-                )}
+          {[0, 1, 2, 3].map((idx) => {
+            const hasImage = Boolean(galleryStills[idx]);
+            return (
+              <div key={idx} className="space-y-4">
+                <div 
+                  onClick={() => {
+                    if (hasImage) setLightboxIndex(idx);
+                  }}
+                  onKeyDown={(e) => {
+                    if (hasImage && (e.key === 'Enter' || e.key === ' ')) {
+                      e.preventDefault();
+                      setLightboxIndex(idx);
+                    }
+                  }}
+                  role={hasImage ? "button" : undefined}
+                  tabIndex={hasImage ? 0 : undefined}
+                  aria-label={hasImage ? (language === 'es' ? `Ampliar fotograma ${idx + 1}` : `Enlarge film still ${idx + 1}`) : undefined}
+                  className={`aspect-[16/9] bg-[#0E0E0E] border border-neutral-900 rounded-sm relative flex flex-col justify-between p-6 overflow-hidden group transition-all select-none ${
+                    hasImage ? 'cursor-pointer hover:border-accent/60 shadow-sm hover:shadow-lg' : ''
+                  }`}
+                >
+                  {hasImage ? (
+                    <img
+                      src={galleryStills[idx]}
+                      alt={`Cinema Still Specimen ${idx + 1}`}
+                      referrerPolicy="no-referrer"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 z-0 brightness-[0.85] group-hover:brightness-100"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-[#070707] z-0 flex flex-col items-center justify-center p-8 text-center">
+                      <span className="text-xs font-mono tracking-widest text-[#FFF]/30 block">[ STILL_SPECIMEN_0{idx + 1} ]</span>
+                    </div>
+                  )}
 
-                {/* Double Grid Guide Borders */}
-                <div className="absolute inset-0 border border-neutral-950/20 pointer-events-none z-10" />
-                <div className="absolute top-[4%] bottom-[4%] left-[4%] right-[4%] border border-[#FFF]/5 border-dashed pointer-events-none z-10" />
+                  {/* Hover Visual Prompt */}
+                  {hasImage && (
+                    <div className="absolute inset-0 bg-black/25 group-hover:bg-black/45 transition-colors flex items-center justify-center pointer-events-none z-20">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-1 group-hover:translate-y-0 px-3 py-1.5 bg-black/85 backdrop-blur-sm border border-neutral-700 text-white rounded-sm text-xs font-mono flex items-center gap-2 shadow-xl">
+                        <Maximize2 size={13} className="text-accent" />
+                        <span>{language === 'es' ? 'Ver fotograma' : 'View frame'}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Top identifier stamp */}
+                  <div className="relative z-10 flex justify-between items-center pointer-events-none">
+                    <span className="text-[10px] font-mono tracking-widest text-white/60 bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-white/10">
+                      FRAME 0{idx + 1}
+                    </span>
+                    {hasImage && (
+                      <span className="text-[10px] font-mono tracking-wider text-accent bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        16:9 RAW
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Double Grid Guide Borders */}
+                  <div className="absolute inset-0 border border-neutral-950/20 pointer-events-none z-10" />
+                  <div className="absolute top-[4%] bottom-[4%] left-[4%] right-[4%] border border-[#FFF]/10 border-dashed pointer-events-none z-10" />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
+
+      {/* FULLSCREEN LIGHTBOX MODAL */}
+      {lightboxIndex !== null && galleryStills[lightboxIndex] && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950/95 backdrop-blur-md p-3 sm:p-6 md:p-8 select-none animate-in fade-in duration-200"
+          onClick={() => setLightboxIndex(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Top Bar Navigation */}
+          <div 
+            className="absolute top-3 left-3 right-3 sm:top-5 sm:left-6 sm:right-6 flex items-center justify-between text-white z-20 pointer-events-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono px-2.5 py-1 bg-neutral-900/90 border border-neutral-700 text-accent rounded-sm font-semibold tracking-wider">
+                {lightboxIndex + 1} / {galleryStills.length}
+              </span>
+              <h4 className="text-sm sm:text-base font-serif font-light text-white tracking-wide">
+                {language === 'es' ? `Fotograma Cinematográfico 0${lightboxIndex + 1}` : `Cinematic Film Frame 0${lightboxIndex + 1}`}
+              </h4>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-mono text-neutral-400 hidden sm:inline mr-2">
+                {language === 'es' ? 'Esc para cerrar · ← → para navegar' : 'Esc to close · ← → to navigate'}
+              </span>
+              <button
+                onClick={() => setLightboxIndex(null)}
+                className="cursor-pointer p-2.5 rounded-full bg-neutral-900/90 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-700 transition-colors shadow-lg"
+                title={language === 'es' ? 'Cerrar (Esc)' : 'Close (Esc)'}
+                aria-label="Close lightbox"
+              >
+                <X size={20} />
+              </button>
+            </div>
+          </div>
+
+          {/* Previous Arrow Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) => (prev !== null ? (prev > 0 ? prev - 1 : galleryStills.length - 1) : null));
+            }}
+            className="cursor-pointer absolute left-2 sm:left-5 top-1/2 -translate-y-1/2 p-3 rounded-full bg-neutral-900/90 hover:bg-neutral-800 text-neutral-300 hover:text-accent border border-neutral-700 transition-all z-20 shadow-2xl group"
+            title={language === 'es' ? 'Anterior' : 'Previous'}
+            aria-label="Previous frame"
+          >
+            <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
+          </button>
+
+          {/* Frame Container */}
+          <div 
+            className="relative max-w-6xl max-h-[86vh] w-full h-full flex flex-col items-center justify-center p-2 z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative max-h-[75vh] w-auto flex items-center justify-center overflow-hidden rounded-sm border border-neutral-800 shadow-2xl bg-black">
+              <img
+                src={galleryStills[lightboxIndex]}
+                alt={`Cinematic Frame 0${lightboxIndex + 1}`}
+                className="max-h-[75vh] max-w-full w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
+              {/* Subtle cinema guide lines */}
+              <div className="absolute top-[3%] bottom-[3%] left-[3%] right-[3%] border border-white/5 border-dashed pointer-events-none" />
+            </div>
+
+            {/* Technical Caption Stamp */}
+            <div className="mt-3.5 flex items-center gap-3 text-[11px] font-mono text-neutral-400 text-center px-4 py-1.5 bg-neutral-900/80 border border-neutral-800 rounded-sm">
+              <span className="text-accent font-medium">STILL_SPECIMEN_0{lightboxIndex + 1}</span>
+              <span className="text-neutral-600">·</span>
+              <span>16:9 35MM GRAIN</span>
+              <span className="text-neutral-600">·</span>
+              <span className="text-neutral-300">NAPOLI MUSIC VIDEO</span>
+            </div>
+          </div>
+
+          {/* Next Arrow Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((prev) => (prev !== null ? (prev < galleryStills.length - 1 ? prev + 1 : 0) : null));
+            }}
+            className="cursor-pointer absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 p-3 rounded-full bg-neutral-900/90 hover:bg-neutral-800 text-neutral-300 hover:text-accent border border-neutral-700 transition-all z-20 shadow-2xl group"
+            title={language === 'es' ? 'Siguiente' : 'Next'}
+            aria-label="Next frame"
+          >
+            <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
+          </button>
+        </div>
+      )}
 
     </div>
   );

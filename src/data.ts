@@ -31,6 +31,8 @@ import regeneratedImage14 from './assets/images/regenerated_image_1782399830414.
 import regeneratedImage15 from './assets/images/regenerated_image_1782400659934.jpg';
 // @ts-expect-error - Vite handles asset imports correctly
 import regeneratedImage16 from './assets/images/regenerated_image_1782401326643.png';
+// @ts-expect-error - Vite handles asset imports correctly
+import vermutCoverImage from './assets/images/vermut_cover_1789638959654.jpg';
 
 export const portfolioProjects: Project[] = [
   {
@@ -114,6 +116,23 @@ export const portfolioProjects: Project[] = [
       regeneratedImage4,
       'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop'
+    ]
+  },
+  {
+    id: 'el-bon-vermut',
+    title: 'El Bon Vermut: Web Design Prototype',
+    category: 'Web Development & AI',
+    year: '2026',
+    image: vermutCoverImage,
+    description: 'A contemporary digital experience and interactive three-layer parallax system developed as a web prototype for an authentic local vermouth bar in Sant Boi de Llobregat.',
+    longDescription: 'El Bon Vermut combines the warmth, soul, and heritage of a traditional Catalan vermouth tavern with a modern, engaging digital presence. The centerpiece is an interactive three-layer parallax system that brings the brand identity to life using the mouse position against the local landmarks of Sant Boi.',
+    challenge: 'Translating the unhurried, warm atmosphere and local identity of a neighborhood vermouth bar into an intuitive, high-craft web experience without feeling cold or generic.',
+    solution: 'Crafting a three-layer parallax architecture where a static vermouth table anchors the user while the surrounding Sant Boi landscape and historical landmarks subtly react to cursor movement.',
+    services: ['Web Design', 'UX/UI', 'Art Direction', 'Interaction Design', 'Parallax', 'Brand Integration', 'AI-Assisted Development'],
+    client: 'El Bon Vermut (Sant Boi)',
+    role: 'Web Designer & Creative Technologist',
+    gallery: [
+      vermutCoverImage
     ]
   }
 ];
@@ -207,6 +226,18 @@ export const getPortfolioProjects = (lang: 'en' | 'es'): Project[] => {
           solution: 'Desplegar estrategias de vídeo corto en formato vertical, ganchos de transformación estructurados y pautas de diseño estético que generen confianza y lealtad en la comunidad.',
           services: ['Creación de Contenido', 'Producción de Vídeo', 'Estrategia en Redes Sociales', 'Desarrollo de Imagen de Marca', 'Diseño Gráfico'],
           role: 'Gestor de Redes Sociales y Creador de Contenido'
+        };
+      }
+      if (proj.id === 'el-bon-vermut') {
+        return {
+          ...proj,
+          category: 'Desarrollo Web & IA',
+          description: 'Una experiencia digital contemporánea y sistema parallax interactivo de tres capas desarrollado como prototipo web para una vermutería tradicional de Sant Boi de Llobregat.',
+          longDescription: 'El Bon Vermut conjuga la calidez, el arraigo y el alma de una taberna de vermut tradicional catalana con una presencia digital cercana y de vanguardia. La pieza central es un sistema parallax de tres planos que cobra vida con el cursor sobre los iconos paisajísticos de Sant Boi.',
+          challenge: 'Trasladar la atmósfera pausada, acogedora y de proximidad de un bar de barrio a una experiencia web interactiva de alto nivel sin perder cercanía ni autenticidad.',
+          solution: 'Idear una arquitectura parallax tridimensional donde la mesa de vermut actúa como ancla visual estática mientras el relieve y los monumentos locales de Sant Boi reaccionan sutilmente a la posición del ratón.',
+          services: ['Diseño Web', 'UX/UI', 'Dirección de Arte', 'Diseño de Interacción', 'Parallax', 'Integración de Marca', 'Desarrollo Asistido por IA'],
+          role: 'Diseñador Web y Tecnólogo Creativo'
         };
       }
     }

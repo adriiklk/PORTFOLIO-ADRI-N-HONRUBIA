@@ -7,6 +7,7 @@ import IkeaSpotDetails from './IkeaSpotDetails';
 import NapoliDetails from './NapoliDetails';
 import ManaDetails from './ManaDetails';
 import LaParaDetails from './LaParaDetails';
+import ElBonVermutDetails from './ElBonVermutDetails';
 import { useLanguage } from '../LanguageContext';
 
 interface ProjectDetailProps {
@@ -118,6 +119,8 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
         <ManaDetails project={project} />
       ) : project.id === 'vague-magazine' ? (
         <LaParaDetails project={project} />
+      ) : project.id === 'el-bon-vermut' ? (
+        <ElBonVermutDetails project={project} />
       ) : (
         <>
           {/* fallback details if any other project is ever added */}
