@@ -124,35 +124,35 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
       ) : (
         <>
           {/* fallback details if any other project is ever added */}
-          <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-neutral-900 pb-16">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-neutral-200 dark:border-neutral-900 pb-16">
             <div className="lg:col-span-8 space-y-6">
               <h2 className="text-xs font-mono tracking-widest text-neutral-500 uppercase">
                 {language === 'es' ? 'RESUMEN DEL CONCEPTO' : 'CONCEPT OVERVIEW'}
               </h2>
-              <p className="text-xl md:text-2xl font-serif font-light text-neutral-200 leading-relaxed italic">
+              <p className="text-xl md:text-2xl font-serif font-light text-neutral-900 dark:text-neutral-200 leading-relaxed italic">
                 &ldquo;{project.description}&rdquo;
               </p>
-              <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
+              <p className="text-neutral-700 dark:text-neutral-400 text-sm md:text-base font-light leading-relaxed">
                 {project.longDescription}
               </p>
             </div>
 
-            <div className="lg:col-span-4 bg-neutral-950 p-6 md:p-8 border border-neutral-900 rounded-sm">
-              <h3 className="text-xs md:text-sm font-mono tracking-widest text-accent font-medium uppercase border-b border-neutral-900 pb-3 mb-4">
+            <div className="lg:col-span-4 bg-white dark:bg-neutral-950 p-6 md:p-8 border border-neutral-200 dark:border-neutral-900 rounded-sm shadow-xs dark:shadow-none">
+              <h3 className="text-xs md:text-sm font-mono tracking-widest text-accent font-medium uppercase border-b border-neutral-200 dark:border-neutral-900 pb-3 mb-4">
                 {language === 'es' ? 'ESPECIFICACIONES DEL PROYECTO' : 'PROJECT SPECIFICATION'}
               </h3>
               <dl className="space-y-4 text-xs font-mono">
-                <div className="flex justify-between py-1.5 border-b border-neutral-900/40">
+                <div className="flex justify-between py-1.5 border-b border-neutral-100 dark:border-neutral-900/40">
                   <dt className="text-neutral-500 uppercase">{language === 'es' ? 'CLIENTE' : 'CLIENT'}</dt>
-                  <dd className="text-white font-medium text-right uppercase">{project.client}</dd>
+                  <dd className="text-neutral-900 dark:text-white font-medium text-right uppercase">{project.client}</dd>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-neutral-900/40">
+                <div className="flex justify-between py-1.5 border-b border-neutral-100 dark:border-neutral-900/40">
                   <dt className="text-neutral-500 uppercase">{language === 'es' ? 'AÑO' : 'YEAR'}</dt>
-                  <dd className="text-white font-medium text-right">{project.year}</dd>
+                  <dd className="text-neutral-900 dark:text-white font-medium text-right">{project.year}</dd>
                 </div>
-                <div className="flex justify-between py-1.5 border-b border-neutral-900/40">
+                <div className="flex justify-between py-1.5 border-b border-neutral-100 dark:border-neutral-900/40">
                   <dt className="text-neutral-500 uppercase">{language === 'es' ? 'ROL' : 'ROLE'}</dt>
-                  <dd className="text-white font-medium text-right uppercase">{project.role}</dd>
+                  <dd className="text-neutral-900 dark:text-white font-medium text-right uppercase">{project.role}</dd>
                 </div>
               </dl>
             </div>

@@ -72,8 +72,8 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
                   </div>
 
                   {/* Corner aesthetic details */}
-                  <div className="absolute bottom-4 left-4 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="text-[11px] font-mono tracking-wider text-neutral-900 dark:text-[#FFF]/90 bg-white/90 dark:bg-black/70 px-2.5 py-1 border border-neutral-200 dark:border-neutral-800 backdrop-blur-sm rounded-sm uppercase font-medium shadow-xs">
+                  <div className="absolute bottom-4 left-4 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 image-badge" data-theme-keep="dark">
+                    <span className="text-[11px] font-mono tracking-wider text-white bg-black/75 px-2.5 py-1 border border-white/15 backdrop-blur-sm rounded-sm uppercase font-medium shadow-md">
                       {language === 'es' ? 'VER PROYECTO' : 'OPEN PORTFOLIO'}
                     </span>
                   </div>

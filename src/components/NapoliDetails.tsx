@@ -229,6 +229,7 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
                   role={hasImage ? "button" : undefined}
                   tabIndex={hasImage ? 0 : undefined}
                   aria-label={hasImage ? (language === 'es' ? `Ampliar fotograma ${idx + 1}` : `Enlarge film still ${idx + 1}`) : undefined}
+                  data-theme-keep="dark"
                   className={`aspect-[16/9] bg-[#0E0E0E] border border-neutral-900 rounded-sm relative flex flex-col justify-between p-6 overflow-hidden group transition-all select-none ${
                     hasImage ? 'cursor-pointer hover:border-accent/60 shadow-sm hover:shadow-lg' : ''
                   }`}
@@ -242,7 +243,7 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
                     />
                   ) : (
                     <div className="absolute inset-0 bg-[#070707] z-0 flex flex-col items-center justify-center p-8 text-center">
-                      <span className="text-xs font-mono tracking-widest text-[#FFF]/30 block">[ STILL_SPECIMEN_0{idx + 1} ]</span>
+                      <span className="text-xs font-mono tracking-widest text-white/40 block">[ STILL_SPECIMEN_0{idx + 1} ]</span>
                     </div>
                   )}
 
@@ -251,18 +252,18 @@ export default function NapoliDetails({ project }: NapoliDetailsProps) {
                     <div className="absolute inset-0 bg-black/25 group-hover:bg-black/45 transition-colors flex items-center justify-center pointer-events-none z-20">
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-1 group-hover:translate-y-0 px-3 py-1.5 bg-black/85 backdrop-blur-sm border border-neutral-700 text-white rounded-sm text-xs font-mono flex items-center gap-2 shadow-xl">
                         <Maximize2 size={13} className="text-accent" />
-                        <span>{language === 'es' ? 'Ver fotograma' : 'View frame'}</span>
+                        <span className="text-white">{language === 'es' ? 'Ver fotograma' : 'View frame'}</span>
                       </div>
                     </div>
                   )}
 
                   {/* Top identifier stamp */}
-                  <div className="relative z-10 flex justify-between items-center pointer-events-none">
-                    <span className="text-[10px] font-mono tracking-widest text-white/60 bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-white/10">
+                  <div className="relative z-10 flex justify-between items-center pointer-events-none image-badge">
+                    <span className="text-[10px] font-mono tracking-widest text-white bg-black/75 backdrop-blur-xs px-2.5 py-1 rounded-sm border border-white/10 shadow-sm">
                       FRAME 0{idx + 1}
                     </span>
                     {hasImage && (
-                      <span className="text-[10px] font-mono tracking-wider text-accent bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] font-mono tracking-wider text-accent bg-black/75 backdrop-blur-xs px-2.5 py-1 rounded-sm border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
                         16:9 RAW
                       </span>
                     )}

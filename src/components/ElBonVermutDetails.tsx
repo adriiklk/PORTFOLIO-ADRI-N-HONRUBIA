@@ -436,7 +436,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
 
               {/* Top title badge overlay */}
               <div className="flex items-center p-4 sm:p-6 z-10">
-                <span className="text-[11px] font-mono tracking-widest text-white uppercase flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-sm border border-white/10 shadow-sm">
+                <span className="text-[11px] font-mono tracking-widest text-neutral-900 dark:text-white uppercase flex items-center gap-2 bg-white/90 dark:bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-sm border border-neutral-200/80 dark:border-white/10 shadow-sm transition-colors">
                   <Layout size={13} className="text-accent" /> {language === 'es' ? 'COMPOSICIÓN DE CABECERA / LANDING HERO' : 'HERO LANDING COMPOSITION'}
                 </span>
               </div>
@@ -456,7 +456,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                   <div className="h-14 rounded-xs bg-[#F4EFEA] border border-neutral-300 flex items-end p-1 text-[8px] font-mono text-neutral-800">#F4EFEA</div>
                   <div className="h-14 rounded-xs bg-[#1C1A17] flex items-end p-1 text-[8px] font-mono text-white/80">#1C1A17</div>
                 </div>
-                <p className="text-[11px] text-neutral-500 font-light">
+                <p className="text-[11px] text-neutral-600 dark:text-neutral-400 font-light">
                   {language === 'es' ? 'Rojo vermut, dorado barrica, crema papel y carbón taberna.' : 'Vermouth ruby, barrel gold, paper cream, and tavern charcoal.'}
                 </p>
               </div>
@@ -469,7 +469,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                   <div className="font-serif text-2xl text-neutral-950 dark:text-white">Playfair / Editorial</div>
                   <div className="font-mono text-xs text-accent">Plus Jakarta Sans &amp; JetBrains Mono</div>
                 </div>
-                <p className="text-[11px] text-neutral-500 font-light">
+                <p className="text-[11px] text-neutral-600 dark:text-neutral-400 font-light">
                   {language === 'es' ? 'Elegancia clásica para títulos, claridad contemporánea para lectura.' : 'Classic display elegance for titles, crisp clarity for menus and content.'}
                 </p>
               </div>
@@ -587,16 +587,16 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
           </div>
 
           {/* Interactive Parallax Sandbox Showcase */}
-          <div className="bg-neutral-950 text-white border border-neutral-800 rounded-sm overflow-hidden">
+          <div className="bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-sm overflow-hidden shadow-xs dark:shadow-none transition-colors">
             {/* Header / Mode Switcher */}
-            <div className="p-4 sm:p-6 border-b border-neutral-850 flex flex-wrap items-center justify-between gap-4 bg-neutral-950/80">
+            <div className="p-4 sm:p-6 border-b border-neutral-200 dark:border-neutral-850 flex flex-wrap items-center justify-between gap-4 bg-neutral-50/80 dark:bg-neutral-950/80">
               <div className="flex items-center gap-3">
                 <Layers size={18} className="text-accent" />
                 <div>
-                  <h4 className="text-xs sm:text-sm font-mono tracking-wider uppercase text-white font-medium">
+                  <h4 className="text-xs sm:text-sm font-mono tracking-wider uppercase text-neutral-950 dark:text-white font-medium">
                     {language === 'es' ? 'DEMOSTRADOR INTERACTIVO DEL PARALLAX' : 'INTERACTIVE PARALLAX DEMONSTRATOR'}
                   </h4>
-                  <p className="text-[11px] font-mono text-neutral-400">
+                  <p className="text-[11px] font-mono text-neutral-600 dark:text-neutral-400">
                     {language === 'es' 
                       ? 'Mueve el ratón o inclina tu móvil / tablet con el giroscopio para desplazar las capas' 
                       : 'Move cursor or tilt your mobile / tablet with the gyroscope to shift the layers'}
@@ -604,13 +604,13 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                 </div>
               </div>
 
-              <div className="flex items-center gap-1 bg-neutral-900 p-1 rounded-sm border border-neutral-800 text-xs font-mono">
+              <div className="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-900 p-1 rounded-sm border border-neutral-200 dark:border-neutral-800 text-xs font-mono">
                 <button
                   onClick={() => setActiveParallaxTab('interactive')}
                   className={`px-3 py-1.5 rounded-xs transition-colors cursor-pointer ${
                     activeParallaxTab === 'interactive'
-                      ? 'bg-neutral-800 text-accent font-medium'
-                      : 'text-neutral-400 hover:text-white'
+                      ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-accent font-medium shadow-xs'
+                      : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
                   }`}
                 >
                   {language === 'es' ? 'Vista Interactiva' : 'Interactive View'}
@@ -619,8 +619,8 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                   onClick={() => setActiveParallaxTab('exploded')}
                   className={`px-3 py-1.5 rounded-xs transition-colors cursor-pointer ${
                     activeParallaxTab === 'exploded'
-                      ? 'bg-neutral-800 text-accent font-medium'
-                      : 'text-neutral-400 hover:text-white'
+                      ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-accent font-medium shadow-xs'
+                      : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
                   }`}
                 >
                   {language === 'es' ? 'Desglose en 3 Planos' : '3-Plane Explosion'}
@@ -635,6 +635,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 onTouchMove={handleTouchMove}
+                data-theme-keep="dark"
                 className="relative h-[480px] sm:h-[560px] md:h-[640px] w-full overflow-hidden bg-[#0D0B0A] cursor-crosshair select-none flex items-end justify-center touch-none"
               >
                 {/* Mobile / Gyroscope helper controls */}
@@ -652,7 +653,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                     <button
                       onClick={recalibrateGyro}
                       title={language === 'es' ? 'Recalibrar ángulo de inclinación' : 'Recalibrate resting tilt'}
-                      className="cursor-pointer text-[10px] font-mono text-neutral-300 bg-black/80 hover:bg-neutral-900 backdrop-blur-md px-2.5 py-1.5 rounded-sm border border-neutral-800 flex items-center gap-1.5 shadow-lg transition-colors"
+                      className="cursor-pointer text-[10px] font-mono text-white bg-black/80 hover:bg-neutral-900 backdrop-blur-md px-2.5 py-1.5 rounded-sm border border-neutral-700 flex items-center gap-1.5 shadow-lg transition-colors"
                     >
                       <RotateCcw size={11} className="text-accent" />
                       <span className="hidden sm:inline">{language === 'es' ? 'Recalibrar' : 'Recalibrate'}</span>
@@ -676,7 +677,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                     className="w-full h-full object-cover object-center"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute bottom-6 left-8 text-[9px] font-mono text-white/50 uppercase tracking-widest bg-black/40 backdrop-blur-xs px-2 py-0.5 rounded">
+                  <div className="absolute bottom-6 left-8 text-[9px] font-mono text-white uppercase tracking-widest bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded border border-white/10 shadow-md">
                     [ CAPA 01: HORIZONTE Y CIELO · COEFICIENTE ×1.0 ]
                   </div>
                 </div>
@@ -694,7 +695,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                     className="w-full h-full object-cover sm:object-contain object-bottom drop-shadow-[0_12px_28px_rgba(0,0,0,0.65)]"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="hidden md:block absolute bottom-24 left-8 text-[9px] font-mono text-accent/80 uppercase tracking-widest bg-black/50 backdrop-blur-xs px-2 py-0.5 rounded border border-accent/20">
+                  <div className="hidden md:block absolute bottom-24 left-8 text-[9px] font-mono text-accent uppercase tracking-widest bg-black/65 backdrop-blur-xs px-2.5 py-1 rounded border border-accent/30 shadow-md">
                     [ CAPA 02: SANT RAMON & IGLESIA · COEFICIENTE ×0.50 ]
                   </div>
                 </div>
@@ -711,13 +712,13 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                   />
 
                   {/* Static Anchor Badge */}
-                  <div className="absolute -top-7 sm:-top-8 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/80 backdrop-blur-md border border-accent/40 rounded-full text-[9px] font-mono tracking-widest text-accent uppercase font-medium whitespace-nowrap shadow-xl">
+                  <div className="absolute -top-7 sm:-top-8 left-1/2 -translate-x-1/2 px-3 py-1 bg-black/85 backdrop-blur-md border border-accent/40 rounded-full text-[9px] font-mono tracking-widest text-accent uppercase font-medium whitespace-nowrap shadow-xl">
                     ANCLA VISUAL INMÓVIL (0px)
                   </div>
                 </div>
 
                 {/* Instruction hover caption */}
-                <div className="absolute bottom-4 right-4 z-30 pointer-events-none text-[10px] font-mono text-neutral-300 bg-black/75 backdrop-blur-md px-3 py-1.5 rounded-sm border border-neutral-800 flex items-center gap-2 shadow-lg max-w-[85%] sm:max-w-none">
+                <div className="absolute bottom-4 right-4 z-30 pointer-events-none text-[10px] font-mono text-white bg-black/85 backdrop-blur-md px-3 py-1.5 rounded-sm border border-neutral-700 flex items-center gap-2 shadow-lg max-w-[85%] sm:max-w-none">
                   {inputSource === 'gyro' ? (
                     <>
                       <Compass size={12} className="text-accent animate-pulse shrink-0" />
@@ -738,7 +739,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
               </div>
             ) : (
               /* Exploded 3-Plane Isometric Visualization */
-              <div className="p-6 sm:p-10 bg-[#0D0B0A] space-y-8">
+              <div className="p-6 sm:p-10 bg-[#0D0B0A] space-y-8" data-theme-keep="dark">
                 {/* 3D Visual Stack Demonstration */}
                 <div className="relative h-64 sm:h-72 w-full rounded-sm overflow-hidden bg-gradient-to-b from-neutral-900 to-neutral-950 border border-neutral-800 flex items-center justify-center p-4">
                   <div className="relative w-full max-w-2xl h-full flex items-center justify-center [perspective:1000px]">
@@ -767,70 +768,70 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                     </div>
                   </div>
 
-                  <div className="absolute top-3 left-3 text-[10px] font-mono text-neutral-400 bg-black/60 px-2 py-1 rounded">
+                  <div className="absolute top-3 left-3 text-[10px] font-mono text-white bg-black/75 px-2.5 py-1 rounded border border-white/10 shadow-md">
                     DESPIECE ISOMÉTRICO TRIDIMENSIONAL
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Plane 1 */}
-                  <div className="p-5 bg-neutral-900/70 border border-neutral-800 rounded-sm space-y-3 flex flex-col justify-between">
+                  <div className="p-5 bg-white dark:bg-neutral-900/70 border border-neutral-200 dark:border-neutral-800 rounded-sm space-y-3 flex flex-col justify-between shadow-xs dark:shadow-none">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center text-xs font-mono">
                         <span className="text-accent font-bold">PLANO 01 — FONDO</span>
-                        <span className="text-neutral-400">DELTA × 1.0</span>
+                        <span className="text-neutral-500 dark:text-neutral-400">DELTA × 1.0</span>
                       </div>
-                      <div className="aspect-[16/9] w-full rounded overflow-hidden border border-neutral-800 bg-neutral-950">
+                      <div className="aspect-[16/9] w-full rounded overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-950">
                         <img src={parallaxBgImage} alt="Plano 1 Fondo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                       </div>
-                      <h5 className="text-base font-serif text-white">Paisaje de Sant Boi</h5>
-                      <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                      <h5 className="text-base font-serif text-neutral-900 dark:text-white">Paisaje de Sant Boi</h5>
+                      <p className="text-xs text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
                         Cielo y cordillera del Baix Llobregat. Al ser la capa más distante, experimenta el desplazamiento reactivo más amplio (-26px) para generar perspectiva profunda.
                       </p>
                     </div>
-                    <div className="pt-3 border-t border-neutral-800 text-[10px] font-mono text-accent flex justify-between">
+                    <div className="pt-3 border-t border-neutral-200 dark:border-neutral-800 text-[10px] font-mono text-accent flex justify-between">
                       <span>Desplazamiento: -26px</span>
                       <span>Asset: background.png</span>
                     </div>
                   </div>
 
                   {/* Plane 2 */}
-                  <div className="p-5 bg-neutral-900/70 border border-neutral-800 rounded-sm space-y-3 flex flex-col justify-between">
+                  <div className="p-5 bg-white dark:bg-neutral-900/70 border border-neutral-200 dark:border-neutral-800 rounded-sm space-y-3 flex flex-col justify-between shadow-xs dark:shadow-none">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center text-xs font-mono">
                         <span className="text-accent font-bold">PLANO 02 — MEDIO</span>
-                        <span className="text-neutral-400">DELTA × 0.50</span>
+                        <span className="text-neutral-500 dark:text-neutral-400">DELTA × 0.50</span>
                       </div>
-                      <div className="aspect-[16/9] w-full rounded overflow-hidden border border-neutral-800 bg-[#161210] flex items-end justify-center p-1">
+                      <div className="aspect-[16/9] w-full rounded overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-[#161210] flex items-end justify-center p-1">
                         <img src={parallaxMidImage} alt="Plano 2 Medio" className="w-full h-full object-contain object-bottom" referrerPolicy="no-referrer" />
                       </div>
-                      <h5 className="text-base font-serif text-white">Sant Ramon y la Iglesia</h5>
-                      <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                      <h5 className="text-base font-serif text-neutral-900 dark:text-white">Sant Ramon y la Iglesia</h5>
+                      <p className="text-xs text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
                         Montañas con la Ermita de Sant Ramon a la derecha y el campanario parroquial de Sant Boi a la izquierda. PNG recortado con transparencia (-14px).
                       </p>
                     </div>
-                    <div className="pt-3 border-t border-neutral-800 text-[10px] font-mono text-accent flex justify-between">
+                    <div className="pt-3 border-t border-neutral-200 dark:border-neutral-800 text-[10px] font-mono text-accent flex justify-between">
                       <span>Desplazamiento: -14px</span>
                       <span>Asset: midground.png</span>
                     </div>
                   </div>
 
                   {/* Plane 3 */}
-                  <div className="p-5 bg-neutral-900/70 border border-accent/40 rounded-sm space-y-3 shadow-[0_0_15px_rgba(201,169,110,0.1)] flex flex-col justify-between">
+                  <div className="p-5 bg-white dark:bg-neutral-900/70 border border-accent/40 rounded-sm space-y-3 shadow-xs dark:shadow-[0_0_15px_rgba(201,169,110,0.1)] flex flex-col justify-between">
                     <div className="space-y-3">
                       <div className="flex justify-between items-center text-xs font-mono">
                         <span className="text-accent font-bold">PLANO 03 — FRENTE</span>
-                        <span className="text-emerald-400 font-bold">ESTÁTICO</span>
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">ESTÁTICO</span>
                       </div>
-                      <div className="aspect-[16/9] w-full rounded overflow-hidden border border-neutral-800 bg-[#161210] flex items-end justify-center p-1">
+                      <div className="aspect-[16/9] w-full rounded overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-[#161210] flex items-end justify-center p-1">
                         <img src={parallaxForeImage} alt="Plano 3 Frente" className="w-full h-full object-contain object-bottom" referrerPolicy="no-referrer" />
                       </div>
-                      <h5 className="text-base font-serif text-white">Mesa de Vermut</h5>
-                      <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                      <h5 className="text-base font-serif text-neutral-900 dark:text-white">Mesa de Vermut</h5>
+                      <p className="text-xs text-neutral-600 dark:text-neutral-400 font-light leading-relaxed">
                         Mesa rústica con botella de Vermut El Bon, vaso con rodaja de naranja, olivas, patatas y boquerones. Se mantiene inmóvil en el centro como ancla de referencia (0px).
                       </p>
                     </div>
-                    <div className="pt-3 border-t border-neutral-800 text-[10px] font-mono text-emerald-400 font-bold flex justify-between">
+                    <div className="pt-3 border-t border-neutral-200 dark:border-neutral-800 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold flex justify-between">
                       <span>Desplazamiento: 0.0px</span>
                       <span>Asset: foregound.png</span>
                     </div>
@@ -847,7 +848,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                 <span className="text-[11px] font-mono tracking-widest text-accent uppercase font-medium">
                   {language === 'es' ? 'COMPOSICIÓN INTEGRADA DEL HERO' : 'HERO COMPOSITE PREVIEW'}
                 </span>
-                <span className="text-[10px] font-mono text-neutral-500">3 CAPAS ACTIVAS</span>
+                <span className="text-[10px] font-mono text-neutral-600 dark:text-neutral-400">3 CAPAS ACTIVAS</span>
               </div>
               
               <div className="relative my-auto w-full aspect-[16/9] rounded overflow-hidden border border-neutral-200 dark:border-neutral-800/80 bg-neutral-950">
@@ -859,7 +860,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                 />
               </div>
 
-              <div className="flex justify-between items-center text-[10px] font-mono text-neutral-400 dark:text-neutral-500 border-t border-neutral-100 dark:border-neutral-850 pt-3">
+              <div className="flex justify-between items-center text-[10px] font-mono text-neutral-600 dark:text-neutral-400 border-t border-neutral-100 dark:border-neutral-850 pt-3">
                 <span>VISTA FINAL DE LA CABECERA</span>
                 <span className="text-accent">RENDERIZADO INTEGRADO</span>
               </div>
@@ -870,7 +871,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                 <span className="text-[11px] font-mono tracking-widest text-accent uppercase font-medium">
                   {language === 'es' ? 'KIT DE CAPAS AISLADAS' : 'ISOLATED ASSET KIT'}
                 </span>
-                <span className="text-[10px] font-mono text-neutral-500">PNG ALFA + JPG</span>
+                <span className="text-[10px] font-mono text-neutral-600 dark:text-neutral-400">PNG ALFA + JPG</span>
               </div>
 
               <div className="grid grid-cols-3 gap-2 my-auto w-full py-2">
@@ -878,23 +879,23 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
                   <div className="aspect-[4/3] rounded overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-900">
                     <img src={parallaxBgImage} alt="Fondo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   </div>
-                  <span className="text-[9px] font-mono text-neutral-500 block">FONDO</span>
+                  <span className="text-[9px] font-mono text-neutral-700 dark:text-neutral-300 block font-medium">FONDO</span>
                 </div>
                 <div className="space-y-1.5 text-center">
                   <div className="aspect-[4/3] rounded overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-900 flex items-end">
                     <img src={parallaxMidImage} alt="Hitos" className="w-full h-full object-contain object-bottom" referrerPolicy="no-referrer" />
                   </div>
-                  <span className="text-[9px] font-mono text-neutral-500 block">HITOS PNG</span>
+                  <span className="text-[9px] font-mono text-neutral-700 dark:text-neutral-300 block font-medium">HITOS PNG</span>
                 </div>
                 <div className="space-y-1.5 text-center">
                   <div className="aspect-[4/3] rounded overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-900 flex items-end">
                     <img src={parallaxForeImage} alt="Mesa" className="w-full h-full object-contain object-bottom" referrerPolicy="no-referrer" />
                   </div>
-                  <span className="text-[9px] font-mono text-neutral-500 block">MESA PNG</span>
+                  <span className="text-[9px] font-mono text-neutral-700 dark:text-neutral-300 block font-medium">MESA PNG</span>
                 </div>
               </div>
 
-              <div className="flex justify-between items-center text-[10px] font-mono text-neutral-400 dark:text-neutral-500 border-t border-neutral-100 dark:border-neutral-850 pt-3">
+              <div className="flex justify-between items-center text-[10px] font-mono text-neutral-600 dark:text-neutral-400 border-t border-neutral-100 dark:border-neutral-850 pt-3">
                 <span>3 ARCHIVOS ORIGINALES</span>
                 <span className="text-accent">PROFUNDIDAD Z-AXIS</span>
               </div>
@@ -1157,18 +1158,18 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
       </section>
 
       {/* 10 — VIEW PROTOTYPE GATEWAY */}
-      <section className="bg-gradient-to-br from-neutral-900 via-neutral-950 to-black text-white p-8 sm:p-14 border border-accent/40 rounded-sm shadow-xl relative overflow-hidden">
+      <section className="bg-[#F4EFEA] dark:bg-gradient-to-br dark:from-neutral-900 dark:via-neutral-950 dark:to-black text-neutral-900 dark:text-white p-8 sm:p-14 border border-accent/40 rounded-sm shadow-sm dark:shadow-xl relative overflow-hidden transition-colors duration-400">
         {/* Subtle decorative glow */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-accent/15 dark:bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         
         <div className="relative z-10 max-w-3xl space-y-6">
           <span className="text-xs font-mono tracking-[0.25em] text-accent uppercase font-medium">
             10 — {language === 'es' ? 'PROTOTIPO INTERACTIVO EN LÍNEA' : 'LIVE ONLINE PROTOTYPE'}
           </span>
-          <h3 className="text-3xl sm:text-5xl font-serif font-light leading-tight text-white">
+          <h3 className="text-3xl sm:text-5xl font-serif font-light leading-tight text-neutral-950 dark:text-white">
             {language === 'es' ? 'Explora el prototipo en directo' : 'Experience the live prototype'}
           </h3>
-          <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
+          <p className="text-neutral-700 dark:text-neutral-400 text-sm md:text-base font-light leading-relaxed">
             {language === 'es'
               ? 'Navega por la versión interactiva alojada en Vercel para comprobar de primera mano la física del paralaje, el tono visual y la arquitectura de la información.'
               : 'Browse the live interactive prototype hosted on Vercel to experience the parallax physics, visual tone, and information architecture firsthand.'}
@@ -1186,7 +1187,7 @@ export default function ElBonVermutDetails({ project }: ElBonVermutDetailsProps)
               <ExternalLink size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </a>
 
-            <span className="text-xs font-mono text-neutral-500 flex items-center gap-1.5">
+            <span className="text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               el-bon-vermut.vercel.app
             </span>

@@ -146,7 +146,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Visual 01 */}
           <div className="space-y-4">
-            <div className="w-full bg-[#0E0E0E] border border-neutral-900 rounded-sm relative overflow-hidden group transition-all">
+            <div className="w-full bg-[#0E0E0E] border border-neutral-900 rounded-sm relative overflow-hidden group transition-all" data-theme-keep="dark">
               {visual1 ? (
                 <img
                   src={visual1}
@@ -156,7 +156,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
                 />
               ) : (
                 <div className="aspect-[4/3] bg-[#070707] z-0 flex flex-col items-center justify-center p-8 text-center">
-                  <span className="text-xs font-mono tracking-widest text-[#FFF]/40 block">[ IMAGE ]</span>
+                  <span className="text-xs font-mono tracking-widest text-white/50 block">[ IMAGE ]</span>
                 </div>
               )}
 
@@ -169,10 +169,10 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
               <span className="text-xs md:text-sm font-mono tracking-wider text-accent font-medium uppercase block">
                 {language === 'es' ? 'Titular de VISUAL 01' : 'VISUAL 01 Headline'}
               </span>
-              <h4 className="text-lg md:text-xl font-serif font-light text-white">
+              <h4 className="text-lg md:text-xl font-serif font-light text-neutral-900 dark:text-white">
                 {language === 'es' ? '«Gana el combate contra el desorden».' : '“Win the fight against disorder.”'}
               </h4>
-              <p className="text-neutral-400 text-xs md:text-sm font-light leading-relaxed">
+              <p className="text-neutral-600 dark:text-neutral-400 text-xs md:text-sm font-light leading-relaxed">
                 {language === 'es'
                   ? 'Un ring de boxeo se transforma en un espacio habitable amueblado con los últimos productos de IKEA. La imagen crea un llamativo contraste entre un entorno tradicionalmente agresivo y el confort de un hogar bien organizado.'
                   : 'A boxing ring is transformed into a living space furnished with IKEA’s latest products. The image creates a striking contrast between a traditionally aggressive environment and the comfort of a well-organized home.'}
@@ -182,7 +182,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
 
           {/* Visual 02 */}
           <div className="space-y-4">
-            <div className="w-full bg-[#0E0E0E] border border-neutral-900 rounded-sm relative overflow-hidden group transition-all">
+            <div className="w-full bg-[#0E0E0E] border border-neutral-900 rounded-sm relative overflow-hidden group transition-all" data-theme-keep="dark">
               {visual2 ? (
                 <img
                   src={visual2}
@@ -192,7 +192,7 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
                 />
               ) : (
                 <div className="aspect-[4/3] bg-[#070707] z-0 flex flex-col items-center justify-center p-8 text-center">
-                  <span className="text-xs font-mono tracking-widest text-[#FFF]/40 block">[ IMAGE ]</span>
+                  <span className="text-xs font-mono tracking-widest text-white/50 block">[ IMAGE ]</span>
                 </div>
               )}
 
@@ -205,10 +205,10 @@ export default function IkeaSpotDetails({ project }: IkeaSpotDetailsProps) {
               <span className="text-xs md:text-sm font-mono tracking-wider text-accent font-medium uppercase block">
                 {language === 'es' ? 'Titular de VISUAL 02' : 'VISUAL 02 Headline'}
               </span>
-              <h4 className="text-lg md:text-xl font-serif font-light text-white">
+              <h4 className="text-lg md:text-xl font-serif font-light text-neutral-900 dark:text-white">
                 {language === 'es' ? '«Decían que no teníamos la cabeza amueblada».' : '“They said our heads weren’t furnished.”'}
               </h4>
-              <p className="text-neutral-400 text-xs md:text-sm font-light leading-relaxed">
+              <p className="text-neutral-600 dark:text-neutral-400 text-xs md:text-sm font-light leading-relaxed">
                 {language === 'es'
                   ? 'Se muestra al boxeador en un momento tranquilo y relajado, sentado en un sofá rodeado de productos IKEA. El visual refuerza el tono humorístico de la campaña al tiempo que conecta al boxeador con el mensaje de marca.'
                   : 'The boxer is shown in a calm and relaxed moment, sitting on a sofa surrounded by IKEA products. The visual reinforces the campaign’s humorous tone while connecting the boxer to the brand message.'}

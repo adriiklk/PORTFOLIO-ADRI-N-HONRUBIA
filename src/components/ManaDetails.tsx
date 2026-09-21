@@ -12,9 +12,19 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
 
   const renderImage = (label: string, imageUrl: string, containerClass: string = 'w-full') => {
     return (
-      <div className={`bg-[#0A0A0A] border border-neutral-900 rounded-sm overflow-hidden group h-fit ${containerClass}`}>
+      <div 
+        className={`relative bg-[#0A0A0A] border border-neutral-900 rounded-sm overflow-hidden group h-fit ${containerClass}`}
+        data-theme-keep="dark"
+      >
         {imageUrl && (
-          <img src={imageUrl} alt={label} className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105" />
+          <img src={imageUrl} alt={label} className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105 block" />
+        )}
+        {label && (
+          <div className="absolute bottom-3 left-3 z-10 pointer-events-none image-badge">
+            <span className="text-[10px] font-mono tracking-widest text-white bg-black/65 backdrop-blur-xs px-2.5 py-1 rounded-sm border border-white/10 uppercase font-medium shadow-md">
+              {label}
+            </span>
+          </div>
         )}
       </div>
     );
@@ -26,8 +36,8 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
       {/* 1. PROJECT INTRODUCTION */}
       <section className="border-b border-neutral-900 pb-16">
         <div className="space-y-6 max-w-3xl">
-          <span className="text-xs font-mono tracking-widest text-[#FFF]/50 uppercase">
-            {language === 'es' ? 'INTRODUCCIÓN DEL PROYECTO' : 'PROJECT INTRODUCTION'}
+          <span className="text-xs font-mono tracking-widest text-accent uppercase font-medium">
+            01 — {language === 'es' ? 'INTRODUCCIÓN DEL PROYECTO' : 'PROJECT INTRODUCTION'}
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-light text-white leading-tight underline decoration-neutral-800 decoration-1 underline-offset-8">
             Maná Energy Drink
@@ -56,7 +66,8 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
 
       {/* 4. NAMING */}
       <section className="space-y-6">
-        <h3 className="text-2xl font-serif font-light text-white">
+        <h3 className="text-2xl font-serif font-light text-accent">
+          <span className="font-mono mr-2.5 font-normal">02 —</span>
           {language === 'es' ? 'Evolución del Naming' : 'Naming Evolution'}
         </h3>
         <p className="text-neutral-400 max-w-2xl font-light leading-relaxed">
@@ -68,7 +79,8 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
 
       {/* 5. BRAND STRATEGY */}
       <section className="space-y-6 ml-auto text-right max-w-2xl">
-        <h3 className="text-2xl font-serif font-light text-white">
+        <h3 className="text-2xl font-serif font-light text-accent">
+          <span className="font-mono mr-2.5 font-normal">03 —</span>
           {language === 'es' ? 'Posicionamiento de Marca' : 'Brand Positioning'}
         </h3>
         <p className="text-neutral-400 font-light leading-relaxed">
@@ -81,7 +93,8 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
       {/* 6. LOGO DESIGN */}
       <section className="space-y-10">
         <div className="space-y-4">
-          <h3 className="text-2xl font-serif font-light text-white">
+          <h3 className="text-2xl font-serif font-light text-accent">
+            <span className="font-mono mr-2.5 font-normal">04 —</span>
             {language === 'es' ? 'Diseño de Logotipo' : 'Logo Design'}
           </h3>
           <p className="text-neutral-400 max-w-2xl font-light leading-relaxed">
@@ -106,7 +119,8 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
       {/* 7. VISUAL IDENTITY */}
       <section className="space-y-10">
         <div className="space-y-4">
-          <h3 className="text-2xl font-serif font-light text-white">
+          <h3 className="text-2xl font-serif font-light text-accent">
+            <span className="font-mono mr-2.5 font-normal">05 —</span>
             {language === 'es' ? 'Identidad Visual' : 'Visual Identity'}
           </h3>
           <p className="text-neutral-400 max-w-2xl font-light leading-relaxed">
@@ -124,7 +138,8 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
       {/* 8. PACKAGING DESIGN */}
       <section className="space-y-10">
         <div className="space-y-4">
-          <h3 className="text-2xl font-serif font-light text-white">
+          <h3 className="text-2xl font-serif font-light text-accent">
+            <span className="font-mono mr-2.5 font-normal">06 —</span>
             {language === 'es' ? 'Diseño de Packaging' : 'Packaging Design'}
           </h3>
           <p className="text-neutral-400 max-w-2xl font-light leading-relaxed">
@@ -142,7 +157,8 @@ export default function ManaDetails({ project }: ManaDetailsProps) {
       {/* 9. ADVERTISING APPLICATION */}
       <section className="space-y-10">
         <div className="space-y-4">
-          <h3 className="text-2xl font-serif font-light text-white">
+          <h3 className="text-2xl font-serif font-light text-accent">
+            <span className="font-mono mr-2.5 font-normal">07 —</span>
             {language === 'es' ? 'Campaña Publicitaria' : 'Advertising Campaign'}
           </h3>
           <p className="text-neutral-400 max-w-2xl font-light leading-relaxed">

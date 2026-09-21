@@ -145,31 +145,76 @@ html.light {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
   }
 
-  /* Text colors: ensure high legibility while protecting full-screen video players */
-  :not(.fixed.z-50, .fixed.z-50 *, [data-theme-keep="dark"], [data-theme-keep="dark"] *) {
+  /* Text colors: ensure high legibility on light background, while strictly preserving WHITE text inside images, dark overlays, and media badges */
+  :not(
+    .fixed.z-50, .fixed.z-50 *,
+    [data-theme-keep="dark"], [data-theme-keep="dark"] *,
+    [class*="bg-black"], [class*="bg-black"] *,
+    [class*="bg-neutral-950"], [class*="bg-neutral-950"] *,
+    [class*="bg-[#0D0B0A]"], [class*="bg-[#0D0B0A]"] *,
+    .image-overlay, .image-overlay *,
+    .image-badge, .image-badge *
+  ) {
     &.text-white {
       color: #161615;
     }
+
+    &.text-neutral-200,
+    &.text-neutral-300 {
+      color: #2D2B26;
+    }
+
+    &.text-neutral-400 {
+      color: #5C5952;
+    }
+
+    &.text-neutral-500 {
+      color: #7D7A72;
+    }
+
+    &.text-\[\#FFF\]\/50,
+    &.text-\[\#FFF\]\/60,
+    &.text-\[\#FFF\]\/80,
+    &.text-white\/75 {
+      color: #5C5952;
+    }
   }
 
-  .text-neutral-200,
-  .text-neutral-300 {
-    color: #2D2B26;
-  }
-
-  .text-neutral-400 {
-    color: #5C5952;
-  }
-
-  .text-neutral-500 {
-    color: #7D7A72;
-  }
-
-  .text-\[\#FFF\]\/50,
-  .text-\[\#FFF\]\/60,
-  .text-\[\#FFF\]\/80,
-  .text-white\/75 {
-    color: #5C5952;
+  /* Force pure white text for all text inside images, dark overlays, and badges in light mode */
+  [data-theme-keep="dark"],
+  [data-theme-keep="dark"] .text-white,
+  [data-theme-keep="dark"] .text-white\/90,
+  [data-theme-keep="dark"] .text-white\/80,
+  [data-theme-keep="dark"] .text-white\/70,
+  [data-theme-keep="dark"] .text-white\/60,
+  [data-theme-keep="dark"] .text-white\/50,
+  [data-theme-keep="dark"] .text-neutral-200,
+  [data-theme-keep="dark"] .text-neutral-300,
+  [data-theme-keep="dark"] .text-neutral-400,
+  .image-badge,
+  .image-badge *,
+  .image-overlay,
+  .image-overlay .text-white,
+  .image-overlay .text-white\/90,
+  .image-overlay .text-white\/80,
+  .image-overlay .text-white\/70,
+  .image-overlay .text-white\/60,
+  .image-overlay .text-white\/50,
+  .image-overlay span:not(.text-accent, .text-emerald-400),
+  [class*="bg-black/"] .text-white,
+  [class*="bg-black/"] .text-white\/90,
+  [class*="bg-black/"] .text-white\/80,
+  [class*="bg-black/"] .text-white\/70,
+  [class*="bg-black/"] .text-white\/60,
+  [class*="bg-black/"] .text-white\/50,
+  [class*="bg-black/"] .text-neutral-200,
+  [class*="bg-black/"] .text-neutral-300,
+  [class*="bg-black/"] .text-neutral-400,
+  [class*="bg-black/"] span:not(.text-accent, .text-emerald-400),
+  [class*="bg-neutral-950/"] .text-white,
+  [class*="bg-neutral-950/"] .text-neutral-300,
+  [class*="bg-neutral-950/"] span:not(.text-accent, .text-emerald-400) {
+    color: #FFFFFF !important;
   }
 
   /* Gradients */
