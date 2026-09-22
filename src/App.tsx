@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import CustomCursor from './components/CustomCursor';
+import ScrollProgress from './components/ScrollProgress';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -34,6 +35,9 @@ export default function App() {
 
   return (
     <>
+      {/* 1. Thin Elegant Read Progress Indicator */}
+      <ScrollProgress />
+
       {/* 2. Custom Interactive Cursor */}
       <CustomCursor />
 
@@ -56,22 +60,57 @@ export default function App() {
               transition={{ duration: 0.6 }}
             >
               {/* Hero Section */}
-              <Hero onDiscoverClick={handleDiscoverClick} />
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <Hero onDiscoverClick={handleDiscoverClick} />
+              </motion.div>
 
               {/* Biography Section */}
-              <About />
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <About />
+              </motion.div>
 
               {/* Curated Selected Works */}
-              <ProjectsSection
-                projects={localizedProjects}
-                onSelectProject={(id) => setViewState({ view: 'project', selectedProjectId: id })}
-              />
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <ProjectsSection
+                  projects={localizedProjects}
+                  onSelectProject={(id) => setViewState({ view: 'project', selectedProjectId: id })}
+                />
+              </motion.div>
 
               {/* Specialist Capability Services */}
-              <ServicesSection services={localizedServices} />
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <ServicesSection services={localizedServices} />
+              </motion.div>
 
               {/* Dynamic Contact Inquiries */}
-              <ContactSection />
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <ContactSection />
+              </motion.div>
             </motion.div>
           ) : (
             selectedProject && (

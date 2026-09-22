@@ -8,6 +8,7 @@ import NapoliDetails from './NapoliDetails';
 import ManaDetails from './ManaDetails';
 import LaParaDetails from './LaParaDetails';
 import ElBonVermutDetails from './ElBonVermutDetails';
+import LosSantosDetails from './LosSantosDetails';
 import { useLanguage } from '../LanguageContext';
 
 interface ProjectDetailProps {
@@ -121,6 +122,8 @@ export default function ProjectDetail({ project, onBack, onNavigateToProject }: 
         <LaParaDetails project={project} />
       ) : project.id === 'el-bon-vermut' ? (
         <ElBonVermutDetails project={project} />
+      ) : project.id === 'los-santos-detailing' ? (
+        <LosSantosDetails project={project} />
       ) : (
         <>
           {/* fallback details if any other project is ever added */}

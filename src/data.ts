@@ -33,8 +33,78 @@ import regeneratedImage15 from './assets/images/regenerated_image_1782400659934.
 import regeneratedImage16 from './assets/images/regenerated_image_1782401326643.png';
 // @ts-expect-error - Vite handles asset imports correctly
 import vermutCoverImage from './assets/images/vermut_cover_1789638959654.jpg';
+// @ts-expect-error - Vite handles asset imports correctly
+import losSantosCoverImage from './assets/images/los_santos_cover_1790026831303.jpg';
+// @ts-expect-error - Vite handles asset imports correctly
+import neonLogoImage from './assets/images/neon_logo_identity_1790026845528.jpg';
+// @ts-expect-error - Vite handles asset imports correctly
+import lsDesktopHeroImage from './assets/images/regenerated_image_1790070468832.png';
+// @ts-expect-error - Vite handles asset imports correctly
+import lsBookingContactImage from './assets/images/regenerated_image_1790070472203.png';
+// @ts-expect-error - Vite handles asset imports correctly
+import lsServicesUiImage from './assets/images/regenerated_image_1790070470979.png';
+// @ts-expect-error - Vite handles asset imports correctly
+import lsBeforeAfterImage from './assets/images/regenerated_image_1790070473194.png';
 
 export const portfolioProjects: Project[] = [
+  {
+    id: 'los-santos-detailing',
+    title: 'Los Santos Detailing: Web Design Prototype',
+    category: 'Web Development & AI',
+    year: '2026',
+    image: losSantosCoverImage,
+    description: 'A premium digital prototype and interactive luminous identity created for a bespoke automotive detailing studio, uniting precision craftsmanship and responsive technology.',
+    longDescription: 'Developed as a high-end web prototype, Los Santos Detailing translates the exclusivity, material perfection, and meticulous craftsmanship of luxury automotive detailing into a dark, technical digital experience. The centerpiece is an interactive neon sign identity that responds in real-time to cursor proximity and subtle 3D tilt.',
+    challenge: 'Translating the sensory, immaculate perfection of ceramic coatings, paint correction, and private detailing studios into a digital space where the brand identity feels like an active, physical element of the interface rather than a flat static mark.',
+    solution: 'Transforming the company insignia into an interactive neon installation reacting to cursor proximity with variable bloom, intensity gradients, and cursor-tracked micro-rotations, wrapped in a technical editorial UI.',
+    services: ['Web Design', 'UX/UI Architecture', 'Interactive Branding', 'Neon Physics Simulation', 'AI-Assisted Prototyping'],
+    client: 'Los Santos Detailing',
+    role: 'Digital Designer & Creative Technologist',
+    gallery: [
+      losSantosCoverImage,
+      neonLogoImage,
+      lsDesktopHeroImage,
+      lsBeforeAfterImage,
+      lsServicesUiImage,
+      lsBookingContactImage
+    ]
+  },
+  {
+    id: 'el-bon-vermut',
+    title: 'El Bon Vermut: Web Design Prototype',
+    category: 'Web Development & AI',
+    year: '2026',
+    image: vermutCoverImage,
+    description: 'A contemporary digital experience and interactive three-layer parallax system developed as a web prototype for an authentic local vermouth bar in Sant Boi de Llobregat.',
+    longDescription: 'El Bon Vermut combines the warmth, soul, and heritage of a traditional Catalan vermouth tavern with a modern, engaging digital presence. The centerpiece is an interactive three-layer parallax system that brings the brand identity to life using the mouse position against the local landmarks of Sant Boi.',
+    challenge: 'Translating the unhurried, warm atmosphere and local identity of a neighborhood vermouth bar into an intuitive, high-craft web experience without feeling cold or generic.',
+    solution: 'Crafting a three-layer parallax architecture where a static vermouth table anchors the user while the surrounding Sant Boi landscape and historical landmarks subtly react to cursor movement.',
+    services: ['Web Design', 'UX/UI', 'Art Direction', 'Interaction Design', 'Parallax', 'Brand Integration', 'AI-Assisted Development'],
+    client: 'El Bon Vermut (Sant Boi)',
+    role: 'Web Designer & Creative Technologist',
+    gallery: [
+      vermutCoverImage
+    ]
+  },
+  {
+    id: 'vague-magazine',
+    title: 'LaPara BarberShow Account Manage',
+    category: 'Social Media Management',
+    year: '2026',
+    image: regeneratedImage4,
+    description: 'An ongoing social media and content creation project focused on strengthening the barbershop\'s digital presence and building a recognizable brand identity across social platforms.',
+    longDescription: 'The objective of LaPara BarberShow is to establish a strong, consistent digital presence capable of attracting new clients while reinforcing the brand\'s professional image. The strategy combines visual identity, short-form video content, and storytelling to increase visibility and engagement across social media platforms.',
+    challenge: 'Developing a clean, modern, and curated digital aesthetic that communicates professionalism and attention to detail, cutting through the noise of standard social content.',
+    solution: 'Deploying optimized vertical short-form video strategies, structured transformation hooks, and aesthetic layout guidelines that build community trust and loyalty.',
+    services: ['Content Creation', 'Video Production', 'Social Media Strategy', 'Brand Image Development', 'Graphic Design'],
+    client: 'LaPara BarberShow',
+    role: 'Social Media Manager & Content Creator',
+    gallery: [
+      regeneratedImage4,
+      'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop'
+    ]
+  },
   {
     id: 'ikea-spot',
     title: 'Ikea Spot',
@@ -97,42 +167,6 @@ export const portfolioProjects: Project[] = [
       regeneratedImage15,
       regeneratedImage13,
       regeneratedImage14
-    ]
-  },
-  {
-    id: 'vague-magazine',
-    title: 'LaPara BarberShow Account Manage',
-    category: 'Social Media Management',
-    year: '2026',
-    image: regeneratedImage4,
-    description: 'An ongoing social media and content creation project focused on strengthening the barbershop\'s digital presence and building a recognizable brand identity across social platforms.',
-    longDescription: 'The objective of LaPara BarberShow is to establish a strong, consistent digital presence capable of attracting new clients while reinforcing the brand\'s professional image. The strategy combines visual identity, short-form video content, and storytelling to increase visibility and engagement across social media platforms.',
-    challenge: 'Developing a clean, modern, and curated digital aesthetic that communicates professionalism and attention to detail, cutting through the noise of standard social content.',
-    solution: 'Deploying optimized vertical short-form video strategies, structured transformation hooks, and aesthetic layout guidelines that build community trust and loyalty.',
-    services: ['Content Creation', 'Video Production', 'Social Media Strategy', 'Brand Image Development', 'Graphic Design'],
-    client: 'LaPara BarberShow',
-    role: 'Social Media Manager & Content Creator',
-    gallery: [
-      regeneratedImage4,
-      'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop'
-    ]
-  },
-  {
-    id: 'el-bon-vermut',
-    title: 'El Bon Vermut: Web Design Prototype',
-    category: 'Web Development & AI',
-    year: '2026',
-    image: vermutCoverImage,
-    description: 'A contemporary digital experience and interactive three-layer parallax system developed as a web prototype for an authentic local vermouth bar in Sant Boi de Llobregat.',
-    longDescription: 'El Bon Vermut combines the warmth, soul, and heritage of a traditional Catalan vermouth tavern with a modern, engaging digital presence. The centerpiece is an interactive three-layer parallax system that brings the brand identity to life using the mouse position against the local landmarks of Sant Boi.',
-    challenge: 'Translating the unhurried, warm atmosphere and local identity of a neighborhood vermouth bar into an intuitive, high-craft web experience without feeling cold or generic.',
-    solution: 'Crafting a three-layer parallax architecture where a static vermouth table anchors the user while the surrounding Sant Boi landscape and historical landmarks subtly react to cursor movement.',
-    services: ['Web Design', 'UX/UI', 'Art Direction', 'Interaction Design', 'Parallax', 'Brand Integration', 'AI-Assisted Development'],
-    client: 'El Bon Vermut (Sant Boi)',
-    role: 'Web Designer & Creative Technologist',
-    gallery: [
-      vermutCoverImage
     ]
   }
 ];
@@ -238,6 +272,18 @@ export const getPortfolioProjects = (lang: 'en' | 'es'): Project[] => {
           solution: 'Idear una arquitectura parallax tridimensional donde la mesa de vermut actúa como ancla visual estática mientras el relieve y los monumentos locales de Sant Boi reaccionan sutilmente a la posición del ratón.',
           services: ['Diseño Web', 'UX/UI', 'Dirección de Arte', 'Diseño de Interacción', 'Parallax', 'Integración de Marca', 'Desarrollo Asistido por IA'],
           role: 'Diseñador Web y Tecnólogo Creativo'
+        };
+      }
+      if (proj.id === 'los-santos-detailing') {
+        return {
+          ...proj,
+          category: 'Desarrollo Web & IA',
+          description: 'Un prototipo digital de alta gama e identidad luminosa interactiva para un estudio de detailing automotriz de lujo, uniendo artesanía de precisión y tecnología reactiva.',
+          longDescription: 'Desarrollado como prototipo web de alta gama, Los Santos Detailing traslada la exclusividad, perfección material y meticulosidad del detailing de lujo a una experiencia digital oscura y técnica. La pieza central es una insignia de neón interactiva que responde en tiempo real a la proximidad del cursor y a sutiles inclinaciones 3D.',
+          challenge: 'Traducir la perfección táctil y visual del detallado automotriz (corrección de pintura, recubrimientos cerámicos) a un entorno web donde el logotipo deje de ser un identificador estático y actúe como un elemento activo y físico de la interfaz.',
+          solution: 'Transformar la insignia de la marca en una instalación de neón interactiva con brillo y bloom variables según la distancia del cursor y micro-rotaciones espaciales, envuelta en una arquitectura UX/UI técnica y editorial.',
+          services: ['Diseño Web', 'Arquitectura UX/UI', 'Branding Interactivo', 'Simulación de Neón', 'Desarrollo Asistido por IA'],
+          role: 'Diseñador Digital y Tecnólogo Creativo'
         };
       }
     }
