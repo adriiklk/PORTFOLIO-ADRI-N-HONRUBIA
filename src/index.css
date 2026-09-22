@@ -207,19 +207,8 @@ html.light {
   .image-overlay .text-white\/60,
   .image-overlay .text-white\/50,
   .image-overlay span:not(.text-accent, .text-emerald-400),
-  [class*="bg-black/"] .text-white,
-  [class*="bg-black/"] .text-white\/90,
-  [class*="bg-black/"] .text-white\/80,
-  [class*="bg-black/"] .text-white\/70,
-  [class*="bg-black/"] .text-white\/60,
-  [class*="bg-black/"] .text-white\/50,
-  [class*="bg-black/"] .text-neutral-200,
-  [class*="bg-black/"] .text-neutral-300,
-  [class*="bg-black/"] .text-neutral-400,
-  [class*="bg-black/"] span:not(.text-accent, .text-emerald-400),
-  [class*="bg-neutral-950/"] .text-white,
-  [class*="bg-neutral-950/"] .text-neutral-300,
-  [class*="bg-neutral-950/"] span:not(.text-accent, .text-emerald-400) {
+  .image-overlay div:not([data-theme-keep]),
+  [data-theme-keep="dark"] span:not(.text-accent, .text-emerald-400) {
     color: #FFFFFF !important;
   }
 

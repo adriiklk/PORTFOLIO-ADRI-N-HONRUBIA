@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Linkedin } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 interface HeroProps {
@@ -78,22 +78,42 @@ export default function Hero({ onDiscoverClick }: HeroProps) {
             : 'Creating visual experiences through design and cinematic storytelling.'}
         </motion.p>
 
-        {/* Call to Action Button */}
-        <motion.button
+        {/* Call to Action Buttons */}
+        <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          onClick={onDiscoverClick}
-          className="relative inline-flex items-center gap-3 px-8 py-4 bg-transparent border border-neutral-300 hover:border-accent dark:border-neutral-700/60 dark:hover:border-accent text-xs font-mono tracking-[0.2em] text-neutral-900 dark:text-white uppercase overflow-hidden group select-none transition-all duration-300 rounded-sm"
-          data-cursor="hover"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
-          {/* Accent hover backgrounds sliding effect */}
-          <span className="absolute inset-0 h-full w-0 bg-accent group-hover:w-full transition-all duration-500 ease-[0.76, 0, 0.24, 1] -z-10" />
-          <span className="group-hover:text-black transition-colors duration-300">
-            {language === 'es' ? 'VER MI TRABAJO' : 'VIEW MY WORK'}
-          </span>
-          <ArrowDown size={14} className="group-hover:text-black group-hover:translate-y-0.5 transition-all text-neutral-500 dark:text-neutral-400 duration-300" />
-        </motion.button>
+          {/* Primary CTA: View Work */}
+          <button
+            onClick={onDiscoverClick}
+            className="relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-neutral-300 hover:border-accent dark:border-neutral-700/60 dark:hover:border-accent text-xs font-mono tracking-[0.2em] text-neutral-900 dark:text-white uppercase overflow-hidden group select-none transition-all duration-300 rounded-sm"
+            data-cursor="hover"
+          >
+            {/* Accent hover backgrounds sliding effect */}
+            <span className="absolute inset-0 h-full w-0 bg-accent group-hover:w-full transition-all duration-500 ease-[0.76, 0, 0.24, 1] -z-10" />
+            <span className="group-hover:text-black transition-colors duration-300 font-medium">
+              {language === 'es' ? 'VER MI TRABAJO' : 'VIEW MY WORK'}
+            </span>
+            <ArrowDown size={14} className="group-hover:text-black group-hover:translate-y-0.5 transition-all text-neutral-500 dark:text-neutral-400 duration-300" />
+          </button>
+
+          {/* Secondary CTA: LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/adri%C3%A1n-honrubia-gonz%C3%A1lez-8b1640435/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 bg-neutral-200/50 hover:bg-neutral-900 dark:bg-neutral-900/60 dark:hover:bg-white border border-neutral-300 hover:border-neutral-900 dark:border-neutral-700/60 dark:hover:border-accent text-xs font-mono tracking-[0.2em] uppercase transition-all duration-300 rounded-sm group select-none shadow-xs dark:shadow-none"
+            data-cursor="hover"
+          >
+            <Linkedin size={14} className="text-accent group-hover:text-accent dark:group-hover:text-black transition-colors duration-300 shrink-0" />
+            <span className="font-medium text-neutral-900 group-hover:text-white dark:text-neutral-100 dark:group-hover:text-black transition-colors duration-300">
+              LINKEDIN
+            </span>
+            <ArrowUpRight size={13} className="text-neutral-600 group-hover:text-white dark:text-neutral-400 dark:group-hover:text-black opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
