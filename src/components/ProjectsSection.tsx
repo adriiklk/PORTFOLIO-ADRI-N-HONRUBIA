@@ -42,6 +42,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
+                whileHover={{ y: -6, scale: 1.012 }}
                 transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 key={project.id}
                 onClick={() => onSelectProject(project.id)}
@@ -52,7 +53,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
                 data-cursor="project"
               >
                 {/* Image Showcase Container */}
-                <div className="aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-900 clip-path-inset relative shadow-sm dark:shadow-none">
+                <div className="aspect-[4/3] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-900 group-hover:border-accent/60 dark:group-hover:border-accent/50 group-hover:shadow-[0_12px_36px_-8px_rgba(201,169,110,0.18)] transition-all duration-500 clip-path-inset relative shadow-sm dark:shadow-none rounded-sm">
                   {/* Hover dark blend overlays */}
                   <div className="absolute inset-0 bg-black/10 dark:bg-black/30 group-hover:bg-transparent dark:group-hover:bg-black/10 transition-colors duration-500 z-10" />
                   
@@ -80,7 +81,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
                 </div>
 
                 {/* Spec Sheets Details */}
-                <div className="mt-6 flex justify-between items-baseline border-b border-neutral-200 dark:border-neutral-900 pb-4 filter brightness-[0.95] group-hover:brightness-100 transition-all">
+                <div className="mt-6 flex justify-between items-baseline border-b border-neutral-200 dark:border-neutral-900 group-hover:border-accent/40 pb-4 filter brightness-[0.95] group-hover:brightness-100 transition-all duration-500">
                   <div className="flex flex-col gap-1.5">
                     <span className="text-xs font-mono tracking-wider text-neutral-500 dark:text-neutral-400 uppercase">
                       {project.category}
