@@ -81,7 +81,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
             <span className="text-sm font-serif font-medium tracking-[0.2em] text-neutral-900 dark:text-white group-hover:text-accent transition-colors duration-300">
               ADRIÁN HONRUBIA
             </span>
-            <span className="text-[9px] font-mono tracking-widest text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors duration-300">
+            <span className="text-[9px] font-sans tracking-[0.18em] uppercase text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors duration-300 font-medium">
               {t('brand.subtitle')}
             </span>
           </button>
@@ -93,7 +93,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
                 <button
                   key={link.target}
                   onClick={() => handleNavClick(link.target)}
-                  className="relative text-xs font-mono uppercase tracking-widest text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors py-2 group"
+                  className="relative text-[11px] font-sans font-medium uppercase tracking-[0.18em] text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors py-2 group"
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-accent group-hover:w-full transition-all duration-300" />
@@ -105,18 +105,18 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
             <div className="flex items-center gap-2 border-l border-neutral-300 dark:border-neutral-800 pl-6 h-4">
               <button
                 onClick={() => setLanguage('en')}
-                className={`text-[10px] font-mono tracking-widest transition-colors ${
-                  language === 'en' ? 'text-accent font-medium' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
+                className={`text-[10px] font-sans tracking-widest transition-colors ${
+                  language === 'en' ? 'text-accent font-semibold' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white font-medium'
                 }`}
                 aria-label="Set language to English"
               >
                 EN
               </button>
-              <span className="text-[10px] font-mono text-neutral-300 dark:text-neutral-800">/</span>
+              <span className="text-[10px] font-sans text-neutral-300 dark:text-neutral-800 font-medium">/</span>
               <button
                 onClick={() => setLanguage('es')}
-                className={`text-[10px] font-mono tracking-widest transition-colors ${
-                  language === 'es' ? 'text-accent font-medium' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
+                className={`text-[10px] font-sans tracking-widest transition-colors ${
+                  language === 'es' ? 'text-accent font-semibold' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white font-medium'
                 }`}
                 aria-label="Set language to Spanish"
               >
@@ -172,7 +172,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
             className="fixed inset-0 z-40 bg-[#F9F9F7] dark:bg-[#0E0E0E] text-neutral-900 dark:text-white flex flex-col justify-between p-8 pt-28"
           >
             <div className="flex flex-col gap-6">
-              <span className="text-[10px] font-mono tracking-[0.3em] text-accent uppercase border-b border-neutral-200 dark:border-neutral-900 pb-2">
+              <span className="text-[10px] font-sans font-medium tracking-[0.3em] text-accent uppercase border-b border-neutral-200 dark:border-neutral-900 pb-2">
                 {t('brand.directory')}
               </span>
               <nav className="flex flex-col gap-5">
@@ -183,7 +183,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
                     transition={{ delay: 0.1 + idx * 0.05, duration: 0.4 }}
                     key={link.target}
                     onClick={() => handleNavClick(link.target)}
-                    className="text-left text-3xl font-serif font-light text-neutral-700 dark:text-neutral-400 hover:text-accent dark:hover:text-accent transition-all hover:pl-2"
+                    className="text-left text-2xl sm:text-3xl font-sans uppercase tracking-[0.12em] font-light text-neutral-700 dark:text-neutral-400 hover:text-accent dark:hover:text-accent transition-all hover:pl-2"
                   >
                     {link.label}
                   </motion.button>
@@ -194,12 +194,12 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
             <div className="flex flex-col gap-4">
               {/* Mobile Theme Selector inside drawer */}
               <div className="flex items-center justify-between py-2 border-b border-neutral-200 dark:border-neutral-900">
-                <span className="text-[10px] font-mono tracking-[0.3em] text-neutral-500 uppercase">
+                <span className="text-[10px] font-sans font-medium tracking-[0.3em] text-neutral-500 uppercase">
                   {language === 'es' ? 'TEMA' : 'THEME'}
                 </span>
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center gap-2 text-xs font-mono tracking-widest text-neutral-800 dark:text-neutral-200 hover:text-accent transition-colors"
+                  className="flex items-center gap-2 text-xs font-sans font-medium tracking-widest text-neutral-800 dark:text-neutral-200 hover:text-accent transition-colors"
                 >
                   {theme === 'dark' ? (
                     <>
@@ -217,23 +217,23 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
 
               {/* Mobile Language Selector inside drawer */}
               <div className="flex flex-col gap-2">
-                <span className="text-[10px] font-mono tracking-[0.3em] text-neutral-500 uppercase">
+                <span className="text-[10px] font-sans font-medium tracking-[0.3em] text-neutral-500 uppercase">
                   {language === 'es' ? 'IDIOMA' : 'LANGUAGE'}
                 </span>
                 <div className="flex gap-4 items-center">
                   <button
                     onClick={() => setLanguage('en')}
-                    className={`text-xs font-mono tracking-widest py-1 ${
-                      language === 'en' ? 'text-accent font-semibold' : 'text-neutral-500'
+                    className={`text-xs font-sans tracking-widest py-1 ${
+                      language === 'en' ? 'text-accent font-semibold' : 'text-neutral-500 font-medium'
                     }`}
                   >
                     ENGLISH
                   </button>
-                  <span className="text-xs font-mono text-neutral-300 dark:text-neutral-800">|</span>
+                  <span className="text-xs font-sans text-neutral-300 dark:text-neutral-800">|</span>
                   <button
                     onClick={() => setLanguage('es')}
-                    className={`text-xs font-mono tracking-widest py-1 ${
-                      language === 'es' ? 'text-accent font-semibold' : 'text-neutral-500'
+                    className={`text-xs font-sans tracking-widest py-1 ${
+                      language === 'es' ? 'text-accent font-semibold' : 'text-neutral-500 font-medium'
                     }`}
                   >
                     ESPAÑOL
@@ -244,16 +244,16 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
 
             {/* Mobile Drawer Footer Info */}
             <div className="flex flex-col gap-4 border-t border-neutral-200 dark:border-neutral-900 pt-6">
-              <div className="text-[10px] font-mono tracking-wider text-neutral-500">
+              <div className="text-[10px] font-sans tracking-wider text-neutral-500 font-medium">
                 {t('brand.info')}
               </div>
               <a
                 href="mailto:adrianhonrubia05@gmail.com"
-                className="text-xs font-mono text-neutral-900 dark:text-white hover:text-accent transition-colors"
+                className="text-xs font-sans font-medium text-neutral-900 dark:text-white hover:text-accent transition-colors"
               >
                 adrianhonrubia05@gmail.com
               </a>
-              <div className="flex gap-4 text-[10px] font-mono text-neutral-500">
+              <div className="flex gap-4 text-[10px] font-sans font-medium text-neutral-500">
                 <a href="https://instagram.com/adriannhg_" target="_blank" rel="noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">INSTAGRAM</a>
                 <span>/</span>
                 <a href="https://www.linkedin.com/in/adri%C3%A1n-honrubia-gonz%C3%A1lez-8b1640435/" target="_blank" rel="noreferrer" className="hover:text-neutral-900 dark:hover:text-white transition-colors">LINKEDIN</a>
