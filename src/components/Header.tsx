@@ -112,7 +112,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
               >
                 EN
               </button>
-              <span className="text-[10px] font-sans text-neutral-300 dark:text-neutral-800 font-medium">/</span>
+              <span className="text-[11px] font-sans text-neutral-400 dark:text-neutral-500 font-normal select-none">/</span>
               <button
                 onClick={() => setLanguage('es')}
                 className={`text-[10px] font-sans tracking-widest transition-colors ${
@@ -229,7 +229,7 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
                   >
                     ENGLISH
                   </button>
-                  <span className="text-xs font-sans text-neutral-300 dark:text-neutral-800">|</span>
+                  <span className="text-xs font-sans text-neutral-400 dark:text-neutral-500 font-normal select-none">/</span>
                   <button
                     onClick={() => setLanguage('es')}
                     className={`text-xs font-sans tracking-widest py-1 ${
