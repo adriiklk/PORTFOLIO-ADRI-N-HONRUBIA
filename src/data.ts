@@ -45,8 +45,35 @@ import lsBookingContactImage from './assets/images/regenerated_image_17900704722
 import lsServicesUiImage from './assets/images/regenerated_image_1790070470979.png';
 // @ts-expect-error - Vite handles asset imports correctly
 import lsBeforeAfterImage from './assets/images/regenerated_image_1790070473194.png';
+// @ts-expect-error - Vite handles asset imports correctly
+import imaclinicCoverImage from './assets/images/regenerated_image_1791146481609.png';
 
 export const portfolioProjects: Project[] = [
+  {
+    id: 'imaclinic',
+    title: 'IMAclinic: Web Design & 3D Interactive Prototype',
+    category: 'Web Development & AI',
+    year: '2026',
+    image: imaclinicCoverImage,
+    description: 'A contemporary dental clinic web prototype built around a custom interactive 3D tooth experience, unifying clinical purity and continuous scroll storytelling.',
+    longDescription: 'IMAclinic is a dental clinic web prototype built around a central interactive 3D experience. The main differentiating element is a custom 3D tooth model created and modelled by me specifically for this project, integrated into the website to accompany the user throughout the page as a continuous visual guide.',
+    challenge: 'Dental websites must communicate professionalism, cleanliness, and trust while avoiding cold, static monotony. The challenge was maintaining these essential clinical qualities while creating a contemporary, interactive, and memorable digital experience revolving around a single central element.',
+    solution: 'Conceptualising and hand-modelling a bespoke 3D tooth in Blender, optimizing it for browser WebGL rendering, and choreographing its orientation, position, and scale reactively across the entire scroll journey through modern AI-assisted engineering.',
+    services: [
+      'Web Design',
+      'UX/UI',
+      '3D Modelling',
+      'Interactive 3D',
+      'Scroll Interaction',
+      'Art Direction',
+      'AI-Assisted Development'
+    ],
+    client: 'IMAclinic',
+    role: 'Digital Designer & Creative Technologist',
+    gallery: [
+      imaclinicCoverImage
+    ]
+  },
   {
     id: 'los-santos-detailing',
     title: 'Los Santos Detailing: Web Design Prototype',
@@ -283,6 +310,27 @@ export const getPortfolioProjects = (lang: 'en' | 'es'): Project[] => {
           challenge: 'Traducir la perfección táctil y visual del detallado automotriz (corrección de pintura, recubrimientos cerámicos) a un entorno web donde el logotipo deje de ser un identificador estático y actúe como un elemento activo y físico de la interfaz.',
           solution: 'Transformar la insignia de la marca en una instalación de neón interactiva con brillo y bloom variables según la distancia del cursor y micro-rotaciones espaciales, envuelta en una arquitectura UX/UI técnica y editorial.',
           services: ['Diseño Web', 'Arquitectura UX/UI', 'Branding Interactivo', 'Simulación de Neón', 'Desarrollo Asistido por IA'],
+          role: 'Diseñador Digital y Tecnólogo Creativo'
+        };
+      }
+      if (proj.id === 'imaclinic') {
+        return {
+          ...proj,
+          title: 'IMAclinic: Prototipo de Diseño Web & 3D Interactivo',
+          category: 'Desarrollo Web & IA',
+          description: 'Un prototipo web para clínica dental contemporánea construido en torno a una experiencia 3D interactiva centrada en un diente modelado a mano.',
+          longDescription: 'IMAclinic es un prototipo web de clínica dental concebido en torno a una experiencia interactiva central en 3D. La pieza diferencial es un modelo 3D de un diente conceptualizado y modelado por mí específicamente para este proyecto, integrado en la web para acompañar al usuario a lo largo de toda la página como guía visual continua.',
+          challenge: 'Las webs de clínicas dentales requieren transmitir profesionalidad, pulcritud y confianza evitando caer en una monotonía fría y estática. El reto fue preservar estas cualidades médicas creando a la vez una experiencia digital contemporánea, interactiva y memorable en torno a un elemento central.',
+          solution: 'Conceptualizar y modelar a mano en Blender un diente 3D personalizado, optimizarlo para la web y coreografiar su posición, giro y escala de forma reactiva al scroll mediante flujos modernos de desarrollo asistido por IA.',
+          services: [
+            'Diseño Web',
+            'UX/UI',
+            'Modelado 3D',
+            '3D Interactivo',
+            'Interacción con Scroll',
+            'Dirección de Arte',
+            'Desarrollo Asistido por IA'
+          ],
           role: 'Diseñador Digital y Tecnólogo Creativo'
         };
       }

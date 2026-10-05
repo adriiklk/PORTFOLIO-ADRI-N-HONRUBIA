@@ -14,6 +14,7 @@
   --font-sans: 'Montserrat', sans-serif;
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
+  --color-neutral-850: #1f2329;
 }
 
 :root {

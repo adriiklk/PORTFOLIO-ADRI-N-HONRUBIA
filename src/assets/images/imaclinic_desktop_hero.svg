@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="browserBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0E1317" />
+      <stop offset="100%" stop-color="#06080A" />
+    </linearGradient>
+
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#161C22" />
+      <stop offset="100%" stop-color="#0F1419" />
+    </linearGradient>
+
+    <radialGradient id="heroGlow" cx="68%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.18" />
+      <stop offset="40%" stop-color="#0284C7" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#06080A" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="goldAmbient" cx="72%" cy="65%" r="35%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.14" />
+      <stop offset="60%" stop-color="#C9A96E" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Tooth Shading & Topology -->
+    <linearGradient id="desktopToothShade" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#EDF5FA" />
+      <stop offset="65%" stop-color="#AFC6D6" />
+      <stop offset="90%" stop-color="#64859B" />
+      <stop offset="100%" stop-color="#2D4657" />
+    </linearGradient>
+
+    <linearGradient id="wireGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#C9A96E" stop-opacity="0.75" />
+    </linearGradient>
+
+    <!-- Card Backgrounds -->
+    <linearGradient id="glassCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Browser Container Window -->
+  <rect width="1920" height="1080" fill="url(#browserBg)" />
+
+  <!-- macOS Style Window Header -->
+  <rect width="1920" height="52" fill="url(#headerGrad)" />
+  <line x1="0" y1="52" x2="1920" y2="52" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1" />
+
+  <!-- Window Controls Dots -->
+  <circle cx="36" cy="26" r="6.5" fill="#EF4444" opacity="0.85" />
+  <circle cx="58" cy="26" r="6.5" fill="#F59E0B" opacity="0.85" />
+  <circle cx="80" cy="26" r="6.5" fill="#10B981" opacity="0.85" />
+
+  <!-- Browser URL Pill -->
+  <rect x="480" y="11" width="960" height="30" rx="6" fill="#07090C" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1" />
+  <g transform="translate(500, 20)">
+    <!-- Lock Icon -->
+    <path d="M4,7 L4,4 C4,2 5.5,0.5 7.5,0.5 C9.5,0.5 11,2 11,4 L11,7 M1,7 L14,7 L14,14 L1,14 Z" 
+          fill="none" stroke="#10B981" stroke-width="1.2" />
+    <text x="24" y="9" font-family="'Montserrat', sans-serif" font-size="12" fill="#94A3B8" letter-spacing="0.5">
+      https://<tspan fill="#FFFFFF" font-weight="600">imaclinic.vercel.app</tspan> — Desktop Web Prototype
+    </text>
+  </g>
+
+  <!-- WEBSITE NAVIGATION BAR -->
+  <g transform="translate(0, 52)">
+    <rect width="1920" height="84" fill="#070A0D" fill-opacity="0.8" />
+    <line x1="0" y1="84" x2="1920" y2="84" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1" />
+
+    <!-- Brand Logo -->
+    <text x="120" y="52" font-family="'Cormorant Garamond', Georgia, serif" font-size="34" font-weight="400" letter-spacing="2" fill="#FFFFFF">
+      IMA<tspan fill="#C9A96E">clinic</tspan>
+    </text>
+
+    <!-- Navigation Links -->
+    <g font-family="'Montserrat', sans-serif" font-size="13" font-weight="500" letter-spacing="2" fill="#94A3B8">
+      <text x="600" y="50" fill="#FFFFFF">PHILOSOPHY</text>
+      <text x="760" y="50">TREATMENTS</text>
+      <text x="940" y="50">3D TECHNOLOGY</text>
+      <text x="1140" y="50">FACILITIES</text>
+      <text x="1300" y="50">CONTACT</text>
+    </g>
+
+    <!-- Language Selector & Header CTA -->
+    <g font-family="'Montserrat', sans-serif">
+      <text x="1560" y="50" font-size="12" font-weight="600" fill="#FFFFFF" letter-spacing="1">EN <tspan fill="#64748B">/</tspan> <tspan fill="#64748B">ES</tspan></text>
+      
+      <rect x="1640" y="24" width="160" height="38" rx="2" fill="#C9A96E" />
+      <text x="1720" y="48" font-size="11" font-weight="600" letter-spacing="1.5" fill="#070A0D" text-anchor="middle">
+        BOOK VISIT
+      </text>
+    </g>
+  </g>
+
+  <!-- HERO SECTION BACKGROUND & LIGHTING -->
+  <rect x="0" y="136" width="1920" height="944" fill="#080B0E" />
+  <circle cx="1300" cy="580" r="550" fill="url(#heroGlow)" />
+  <circle cx="1400" cy="720" r="380" fill="url(#goldAmbient)" />
+
+  <!-- Subtle Perspective Floor Coordinates -->
+  <g opacity="0.12" stroke="#38BDF8" stroke-width="1" stroke-dasharray="2 6">
+    <ellipse cx="1300" cy="880" rx="360" ry="50" />
+    <ellipse cx="1300" cy="880" rx="200" ry="28" />
+  </g>
+
+  <!-- LEFT EDITORIAL COLUMN (Hero Content) -->
+  <g transform="translate(120, 240)">
+    <!-- Clinical Badge -->
+    <rect x="0" y="0" width="260" height="30" rx="2" fill="#0EA5E9" fill-opacity="0.12" stroke="#0EA5E9" stroke-opacity="0.3" />
+    <text x="16" y="19" font-family="'Montserrat', sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#38BDF8">
+      CONTEMPORARY DENTAL CLINIC
+    </text>
+
+    <!-- Headline (Cormorant Garamond) -->
+    <text x="0" y="115" font-family="'Cormorant Garamond', Georgia, serif" font-size="78" font-weight="300" fill="#FFFFFF" letter-spacing="0.5">
+      Purity in Care.
+    </text>
+    <text x="0" y="195" font-family="'Cormorant Garamond', Georgia, serif" font-size="78" font-weight="300" fill="#C9A96E" letter-spacing="0.5">
+      Precision in 3D.
+    </text>
+
+    <!-- Subtitle Description -->
+    <text x="0" y="260" font-family="'Montserrat', sans-serif" font-size="17" font-weight="300" fill="#94A3B8" letter-spacing="0.2">
+      <tspan x="0" dy="0">A calm, patient-first healthcare experience built around a central</tspan>
+      <tspan x="0" dy="28">interactive 3D journey that accompanies you throughout the clinic.</tspan>
+    </text>
+
+    <!-- Primary & Secondary CTA Buttons -->
+    <g transform="translate(0, 360)">
+      <rect x="0" y="0" width="220" height="52" rx="2" fill="#C9A96E" />
+      <text x="110" y="32" font-family="'Montserrat', sans-serif" font-size="12" font-weight="600" letter-spacing="2" fill="#0A0A0A" text-anchor="middle">
+        SCHEDULE VISIT →
+      </text>
+
+      <rect x="240" y="0" width="220" height="52" rx="2" fill="#FFFFFF" fill-opacity="0.04" stroke="#FFFFFF" stroke-opacity="0.15" />
+      <text x="350" y="32" font-family="'Montserrat', sans-serif" font-size="12" font-weight="500" letter-spacing="1.5" fill="#E2E8F0" text-anchor="middle">
+        EXPLORE 3D TOOTH
+      </text>
+    </g>
+
+    <!-- Patient Trust Proof Points -->
+    <g transform="translate(0, 480)" font-family="'Montserrat', sans-serif">
+      <line x1="0" y1="0" x2="520" y2="0" stroke="#FFFFFF" stroke-opacity="0.1" />
+
+      <g transform="translate(0, 24)">
+        <text x="0" y="24" font-family="'Cormorant Garamond', Georgia, serif" font-size="32" font-weight="400" fill="#FFFFFF">4.9 / 5.0</text>
+        <text x="0" y="44" font-size="11" font-weight="500" letter-spacing="1" fill="#64748B">PATIENT SATISFACTION</text>
+      </g>
+
+      <g transform="translate(180, 24)">
+        <text x="0" y="24" font-family="'Cormorant Garamond', Georgia, serif" font-size="32" font-weight="400" fill="#FFFFFF">100% 3D</text>
+        <text x="0" y="44" font-size="11" font-weight="500" letter-spacing="1" fill="#64748B">DIGITAL DIAGNOSTICS</text>
+      </g>
+
+      <g transform="translate(360, 24)">
+        <text x="0" y="24" font-family="'Cormorant Garamond', Georgia, serif" font-size="32" font-weight="400" fill="#C9A96E">60 FPS</text>
+        <text x="0" y="44" font-size="11" font-weight="500" letter-spacing="1" fill="#64748B">SCROLL CONTINUITY</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN: 3D TOOTH SCULPTURAL CENTERPIECE -->
+  <g transform="translate(1300, 520)">
+    <!-- Base Solid Shaded Tooth Body -->
+    <path d="M-130,-210 C-95,-245 -35,-255 0,-220 C35,-255 95,-245 130,-210 C175,-165 190,-70 175,35 C165,85 150,140 120,210 C105,255 85,330 65,395 C55,415 40,415 35,375 C25,300 10,220 0,190 C-10,220 -25,300 -35,375 C-40,415 -55,415 -65,395 C-85,330 -105,255 -120,210 C-150,140 -165,85 -175,35 C-190,-70 -175,-165 -130,-210 Z"
+          fill="url(#desktopToothShade)" opacity="0.95" />
+
+    <!-- Enamel Highlights -->
+    <path d="M-70,-220 C-25,-190 25,-190 70,-220 C105,-185 130,-115 120,-35 C75,-10 25,10 0,0 C-25,10 -75,-10 -120,-35 C-130,-115 -105,-185 -70,-220 Z"
+          fill="#FFFFFF" opacity="0.45" />
+
+    <!-- Wireframe Overlay -->
+    <g fill="none" stroke="url(#wireGradient)" stroke-width="1.3" opacity="0.75">
+      <path d="M-130,-210 Q0,-235 130,-210" />
+      <path d="M-155,-140 Q0,-165 155,-140" />
+      <path d="M-175,-60 Q0,-90 175,-60" />
+      <path d="M-170,25 Q0,-5 170,25" />
+      <path d="M-145,115 Q0,80 145,115" />
+      <path d="M-115,200 Q0,175 115,200" />
+      <path d="M-85,290 Q0,270 85,290" />
+      <path d="M-50,370 Q0,360 50,370" />
+
+      <path d="M0,-220 C-10,-90 -15,90 -35,375" />
+      <path d="M0,-220 C10,-90 15,90 35,375" />
+      <path d="M-70,-220 C-95,-100 -100,70 -95,260 C-85,325 -75,370 -65,395" />
+      <path d="M70,-220 C95,-100 100,70 95,260 C85,325 75,370 65,395" />
+    </g>
+
+    <!-- Floating UI Badge 01: 3D Scanner -->
+    <g transform="translate(140, -140)">
+      <rect width="210" height="64" rx="4" fill="url(#glassCard)" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="1" />
+      <circle cx="32" cy="32" r="14" fill="#0EA5E9" fill-opacity="0.2" />
+      <path d="M26,32 L38,32 M32,26 L32,38" stroke="#38BDF8" stroke-width="1.5" />
+      <text x="56" y="27" font-family="'Montserrat', sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#38BDF8">REAL-TIME 3D</text>
+      <text x="56" y="44" font-family="'Montserrat', sans-serif" font-size="12" font-weight="400" fill="#FFFFFF">Intraoral Mesh</text>
+    </g>
+
+    <!-- Floating UI Badge 02: Scroll Follower -->
+    <g transform="translate(-290, 180)">
+      <rect width="220" height="64" rx="4" fill="url(#glassCard)" stroke="#C9A96E" stroke-opacity="0.35" stroke-width="1" />
+      <circle cx="32" cy="32" r="14" fill="#C9A96E" fill-opacity="0.2" />
+      <path d="M28,32 L36,32 M32,28 L32,36" stroke="#C9A96E" stroke-width="1.5" />
+      <text x="56" y="27" font-family="'Montserrat', sans-serif" font-size="10" font-weight="600" letter-spacing="1.5" fill="#C9A96E">CHOREOGRAPHED</text>
+      <text x="56" y="44" font-family="'Montserrat', sans-serif" font-size="12" font-weight="400" fill="#FFFFFF">Scroll Follower Guide</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM FOOTER TEASER BAR -->
+  <g transform="translate(120, 990)">
+    <line x1="0" y1="0" x2="1680" y2="0" stroke="#FFFFFF" stroke-opacity="0.08" />
+    <text x="0" y="32" font-family="'Montserrat', sans-serif" font-size="12" font-weight="500" letter-spacing="2" fill="#64748B">
+      01 / SCROLL DOWN TO EXPLORE CONTINUOUS STORYTELLING
+    </text>
+    <text x="1680" y="32" font-family="monospace" font-size="12" fill="#38BDF8" text-anchor="end">
+      FRAME: 60FPS · THREE.JS · WEBGL PROTOTYPE
+    </text>
+  </g>
+</svg>

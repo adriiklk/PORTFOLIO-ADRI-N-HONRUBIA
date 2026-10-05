@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#11161B" />
+      <stop offset="50%" stop-color="#090C0E" />
+      <stop offset="100%" stop-color="#040607" />
+    </radialGradient>
+
+    <radialGradient id="cyanGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.22" />
+      <stop offset="40%" stop-color="#0284C7" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#040607" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="accentGlow" cx="52%" cy="68%" r="40%">
+      <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.16" />
+      <stop offset="60%" stop-color="#C9A96E" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="toothShade" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#F0F6FA" />
+      <stop offset="55%" stop-color="#CBDCE6" />
+      <stop offset="85%" stop-color="#7B99AB" />
+      <stop offset="100%" stop-color="#3A5364" />
+    </linearGradient>
+
+    <linearGradient id="toothWire" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#BAE6FD" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C9A96E" />
+      <stop offset="100%" stop-color="#E5CFA0" />
+    </linearGradient>
+
+    <filter id="toothGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Deep Clinical Dark Background -->
+  <rect width="1600" height="1200" fill="url(#bgGrad)" />
+
+  <!-- Technical Spatial Grid Lines -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="1">
+    <line x1="200" y1="0" x2="200" y2="1200" />
+    <line x1="400" y1="0" x2="400" y2="1200" />
+    <line x1="600" y1="0" x2="600" y2="1200" />
+    <line x1="800" y1="0" x2="800" y2="1200" stroke-dasharray="4 8" />
+    <line x1="1000" y1="0" x2="1000" y2="1200" />
+    <line x1="1200" y1="0" x2="1200" y2="1200" />
+    <line x1="1400" y1="0" x2="1400" y2="1200" />
+
+    <line x1="0" y1="180" x2="1600" y2="180" />
+    <line x1="0" y1="360" x2="1600" y2="360" />
+    <line x1="0" y1="540" x2="1600" y2="540" />
+    <line x1="0" y1="720" x2="1600" y2="720" />
+    <line x1="0" y1="900" x2="1600" y2="900" />
+    <line x1="0" y1="1080" x2="1600" y2="1080" />
+  </g>
+
+  <!-- Ambient Light Halos -->
+  <circle cx="800" cy="560" r="500" fill="url(#cyanGlow)" />
+  <circle cx="840" cy="700" r="380" fill="url(#accentGlow)" />
+
+  <!-- Subtle Perspective Floor Coordinates -->
+  <g opacity="0.15" stroke="#38BDF8" stroke-width="1" stroke-dasharray="2 6">
+    <ellipse cx="800" cy="980" rx="380" ry="60" />
+    <ellipse cx="800" cy="980" rx="220" ry="35" />
+    <ellipse cx="800" cy="980" rx="90" ry="15" />
+  </g>
+
+  <!-- Central Tooth Sculptural Representation (Molar Model) -->
+  <g transform="translate(800, 560)">
+    <!-- Base Silhouette Shading -->
+    <path d="M-150,-240 C-110,-280 -40,-290 0,-250 C40,-290 110,-280 150,-240 C200,-190 220,-80 200,40 C190,100 170,160 140,240 C120,290 100,380 75,450 C65,475 45,475 40,430 C30,340 10,250 0,220 C-10,250 -30,340 -40,430 C-45,475 -65,475 -75,450 C-100,380 -120,290 -140,240 C-170,160 -190,100 -200,40 C-220,-80 -200,-190 -150,-240 Z"
+          fill="url(#toothShade)" opacity="0.95" />
+
+    <!-- Crown Anatomical Cusp Details & Ambient Shadows -->
+    <path d="M-80,-250 C-30,-220 30,-220 80,-250 C120,-210 150,-130 140,-40 C90,-10 30,10 0,0 C-30,10 -90,-10 -140,-40 C-150,-130 -120,-210 -80,-250 Z"
+          fill="#FFFFFF" opacity="0.4" />
+    
+    <path d="M0,-240 C-20,-180 -10,-100 0,-50 C10,-100 20,-180 0,-240 Z"
+          fill="#1E293B" opacity="0.15" />
+
+    <!-- Root Bifurcation Groove -->
+    <path d="M0,80 C-15,180 -20,280 -40,420 C-10,340 0,230 0,160 C0,230 10,340 40,420 C20,280 15,180 0,80 Z"
+          fill="#1C2E3D" opacity="0.3" />
+
+    <!-- Wireframe Topology Overlay (Visualizing 3D Polygon Craft) -->
+    <g fill="none" stroke="url(#toothWire)" stroke-width="1.2" opacity="0.75">
+      <!-- Latitudinal Contour Loops -->
+      <path d="M-150,-240 Q0,-270 150,-240" />
+      <path d="M-180,-160 Q0,-190 180,-160" />
+      <path d="M-200,-70 Q0,-100 200,-70" />
+      <path d="M-195,30 Q0,-10 195,30" />
+      <path d="M-165,130 Q0,90 165,130" />
+      <path d="M-130,230 Q0,200 130,230" />
+      <path d="M-95,330 Q0,310 95,330" />
+      <path d="M-60,420 Q0,410 60,420" />
+
+      <!-- Longitudinal Flow Lines -->
+      <path d="M0,-250 C-10,-100 -20,100 -40,430" />
+      <path d="M0,-250 C10,-100 20,100 40,430" />
+      <path d="M-80,-250 C-110,-120 -115,80 -110,300 C-100,370 -85,420 -75,450" />
+      <path d="M80,-250 C110,-120 115,80 110,300 C100,370 85,420 75,450" />
+      <path d="M-140,-200 C-175,-90 -160,80 -140,240" />
+      <path d="M140,-200 C175,-90 160,80 140,240" />
+      <path d="M-40,-270 C-50,-150 -50,50 -20,240" />
+      <path d="M40,-270 C50,-150 50,50 20,240" />
+    </g>
+
+    <!-- Vertex Dots across Crown Edge -->
+    <g fill="#38BDF8" opacity="0.9">
+      <circle cx="-150" cy="-240" r="3" />
+      <circle cx="0" cy="-250" r="3.5" />
+      <circle cx="150" cy="-240" r="3" />
+      <circle cx="-180" cy="-160" r="2.5" />
+      <circle cx="180" cy="-160" r="2.5" />
+      <circle cx="-200" cy="-70" r="2.5" />
+      <circle cx="200" cy="-70" r="2.5" />
+      <circle cx="0" cy="-50" r="3" />
+      <circle cx="-75" cy="450" r="3" />
+      <circle cx="75" cy="450" r="3" />
+      <circle cx="-40" cy="430" r="2.5" />
+      <circle cx="40" cy="430" r="2.5" />
+    </g>
+
+    <!-- Specular Highlight Sheen -->
+    <path d="M-110,-210 C-90,-230 -60,-235 -40,-225 C-60,-210 -80,-180 -95,-130 C-105,-155 -112,-185 -110,-210 Z"
+          fill="#FFFFFF" opacity="0.85" filter="url(#toothGlow)" />
+  </g>
+
+  <!-- Typography & Spatial Telemetry Header Overlay -->
+  <g font-family="'Montserrat', sans-serif">
+    <!-- Top Bar -->
+    <text x="100" y="110" font-size="14" font-weight="600" letter-spacing="4" fill="#C9A96E" text-transform="uppercase">
+      IMACLINIC · DENTAL CLINIC WEB PROTOTYPE
+    </text>
+    <text x="1500" y="110" font-size="13" font-weight="500" letter-spacing="3" fill="#64748B" text-anchor="end">
+      CUSTOM 3D TOOTH ASSET // SCROLL NARRATIVE
+    </text>
+
+    <!-- Subtitle Badge -->
+    <rect x="100" y="145" width="220" height="28" rx="2" fill="#0EA5E9" fill-opacity="0.12" stroke="#0EA5E9" stroke-opacity="0.3" />
+    <text x="115" y="164" font-size="11" font-weight="600" letter-spacing="2.5" fill="#38BDF8" text-transform="uppercase">
+      INTERACTIVE 3D &amp; UI/UX
+    </text>
+
+    <!-- Large Title Display -->
+    <text x="100" y="1030" font-family="'Cormorant Garamond', Georgia, serif" font-size="92" font-weight="300" letter-spacing="1" fill="#FFFFFF">
+      IMAclinic
+    </text>
+    <text x="100" y="1080" font-size="18" font-weight="400" letter-spacing="3" fill="#94A3B8" text-transform="uppercase">
+      From 3D Model to Interactive Web Experience
+    </text>
+
+    <!-- Coordinate Stamp -->
+    <text x="1500" y="1040" font-family="monospace" font-size="12" letter-spacing="2" fill="#38BDF8" text-anchor="end">
+      GEOM: CUSTOM BLENDER ASSET
+    </text>
+    <text x="1500" y="1065" font-family="monospace" font-size="12" letter-spacing="2" fill="#C9A96E" text-anchor="end">
+      STATUS: ACTIVE WEB PROTOTYPE
+    </text>
+    <text x="1500" y="1090" font-family="monospace" font-size="12" letter-spacing="2" fill="#64748B" text-anchor="end">
+      URL: IMACLINIC.VERCEL.APP
+    </text>
+  </g>
+</svg>

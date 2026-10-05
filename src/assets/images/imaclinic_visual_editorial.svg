@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070A0D" />
+      <stop offset="50%" stop-color="#0B0F14" />
+      <stop offset="100%" stop-color="#040608" />
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#C9A96E" stop-opacity="0.7" />
+    </linearGradient>
+    <pattern id="gridPattern1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38BDF8" stroke-width="0.7" opacity="0.08" />
+    </pattern>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#12181F" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0A0E13" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="1000" fill="url(#bgGrad1)" />
+  <rect width="1600" height="1000" fill="url(#gridPattern1)" />
+
+  <!-- Outer frame border -->
+  <rect x="40" y="40" width="1520" height="920" rx="4" fill="none" stroke="#222C38" stroke-width="1.5" />
+
+  <!-- Header bar -->
+  <rect x="40" y="40" width="1520" height="70" fill="#0E131A" />
+  <line x1="40" y1="110" x2="1560" y2="110" stroke="#222C38" stroke-width="1.5" />
+
+  <!-- Badges -->
+  <rect x="80" y="60" width="160" height="30" rx="3" fill="#18202A" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1" />
+  <text x="160" y="80" font-family="'JetBrains Mono', monospace, sans-serif" font-size="11" fill="#38BDF8" text-anchor="middle" letter-spacing="2">VISUAL 01</text>
+
+  <rect x="255" y="60" width="220" height="30" rx="3" fill="#18202A" stroke="#2A3747" stroke-width="1" />
+  <text x="365" y="80" font-family="'JetBrains Mono', monospace, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle" letter-spacing="2">EDITORIAL COMPOSITION</text>
+
+  <text x="1480" y="80" font-family="'JetBrains Mono', monospace, sans-serif" font-size="11" fill="#64748B" text-anchor="end" letter-spacing="2">16:10 · GRID ARCHITECTURE</text>
+
+  <!-- Layout Composition Content -->
+  <!-- Left Column: Typography & System Specs -->
+  <g transform="translate(100, 180)">
+    <text x="0" y="0" font-family="'JetBrains Mono', monospace, sans-serif" font-size="13" fill="#38BDF8" letter-spacing="4">SYSTEM · WHITESPACE &amp; RIGOR</text>
+    <text x="0" y="55" font-family="Georgia, serif" font-size="44" font-weight="300" fill="#F8FAFC">Estructura &amp; Retícula</text>
+    <text x="0" y="105" font-family="Georgia, serif" font-size="44" font-weight="300" fill="#94A3B8">Sanitaria Limpia</text>
+
+    <line x1="0" y1="150" x2="480" y2="150" stroke="url(#accentLine)" stroke-width="1.5" />
+
+    <text x="0" y="200" font-family="'JetBrains Mono', monospace, sans-serif" font-size="13" fill="#64748B" line-height="24">
+      <tspan x="0" dy="0">RATIO: 16:10 EXPANDED VIEWPORT</tspan>
+      <tspan x="0" dy="30">HIERARCHY: MINIMAL EDITORIAL</tspan>
+      <tspan x="0" dy="30">COLOR: PURE WHITE / MEDICAL SLATE</tspan>
+      <tspan x="0" dy="30">INTERACTION: INTUITIVE SPATIAL FLOW</tspan>
+    </text>
+
+    <!-- Mini Wireframe Blocks -->
+    <rect x="0" y="340" width="140" height="90" rx="3" fill="#141C24" stroke="#243342" stroke-width="1" />
+    <line x1="20" y1="365" x2="80" y2="365" stroke="#38BDF8" stroke-width="2" />
+    <line x1="20" y1="385" x2="120" y2="385" stroke="#475569" stroke-width="1.5" />
+    <line x1="20" y1="405" x2="100" y2="405" stroke="#334155" stroke-width="1.5" />
+
+    <rect x="160" y="340" width="140" height="90" rx="3" fill="#141C24" stroke="#243342" stroke-width="1" />
+    <circle cx="230" cy="385" r="22" fill="#18232F" stroke="#C9A96E" stroke-width="1" />
+
+    <rect x="320" y="340" width="160" height="90" rx="3" fill="#141C24" stroke="#243342" stroke-width="1" />
+    <line x1="340" y1="370" x2="460" y2="370" stroke="#38BDF8" stroke-width="1" opacity="0.6" />
+    <line x1="340" y1="390" x2="430" y2="390" stroke="#38BDF8" stroke-width="1" opacity="0.4" />
+    <line x1="340" y1="410" x2="450" y2="410" stroke="#38BDF8" stroke-width="1" opacity="0.2" />
+  </g>
+
+  <!-- Right Composition: Visual Wireframe Interface Presentation -->
+  <g transform="translate(680, 160)">
+    <!-- Browser Mock Window -->
+    <rect x="0" y="0" width="820" height="540" rx="8" fill="url(#cardGrad)" stroke="#273545" stroke-width="1.5" filter="drop-shadow(0 20px 30px rgba(0,0,0,0.7))" />
+
+    <!-- Window top dots -->
+    <circle cx="35" cy="30" r="5" fill="#EF4444" opacity="0.7" />
+    <circle cx="55" cy="30" r="5" fill="#F59E0B" opacity="0.7" />
+    <circle cx="75" cy="30" r="5" fill="#10B981" opacity="0.7" />
+
+    <rect x="110" y="18" width="600" height="24" rx="4" fill="#0A0E13" stroke="#1E293B" stroke-width="1" />
+    <text x="410" y="34" font-family="'JetBrains Mono', monospace, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">imaclinic.vercel.app · editorial layout</text>
+
+    <!-- Inside page wireframe -->
+    <g transform="translate(40, 70)">
+      <!-- Nav bar -->
+      <line x1="0" y1="30" x2="740" y2="30" stroke="#1E293B" stroke-width="1" />
+      <rect x="0" y="10" width="70" height="12" rx="2" fill="#38BDF8" opacity="0.8" />
+      <rect x="520" y="10" width="50" height="8" rx="2" fill="#64748B" opacity="0.4" />
+      <rect x="590" y="10" width="50" height="8" rx="2" fill="#64748B" opacity="0.4" />
+      <rect x="660" y="6" width="80" height="18" rx="3" fill="#C9A96E" opacity="0.8" />
+
+      <!-- Hero block in mockup -->
+      <g transform="translate(0, 70)">
+        <rect x="0" y="0" width="220" height="14" rx="2" fill="#38BDF8" opacity="0.6" />
+        <rect x="0" y="28" width="340" height="32" rx="3" fill="#F8FAFC" opacity="0.9" />
+        <rect x="0" y="74" width="280" height="14" rx="2" fill="#64748B" opacity="0.5" />
+        <rect x="0" y="98" width="310" height="10" rx="2" fill="#475569" opacity="0.4" />
+        <rect x="0" y="116" width="240" height="10" rx="2" fill="#475569" opacity="0.3" />
+
+        <rect x="0" y="150" width="130" height="34" rx="3" fill="#38BDF8" opacity="0.85" />
+        <rect x="145" y="150" width="130" height="34" rx="3" fill="none" stroke="#475569" stroke-width="1" />
+
+        <!-- 3D Tooth placeholder inside mock window -->
+        <g transform="translate(420, -10)">
+          <circle cx="160" cy="140" r="130" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4 6" opacity="0.25" />
+          <circle cx="160" cy="140" r="90" fill="none" stroke="#C9A96E" stroke-width="1" opacity="0.2" />
+
+          <!-- Tooth stylized silhouette -->
+          <path d="M120,60 C135,40 160,35 170,50 C180,35 205,40 220,60 C240,85 245,130 230,180 C215,220 200,270 190,300 C182,315 172,310 170,285 C165,240 155,190 145,170 C135,190 125,240 120,285 C118,310 108,315 100,300 C90,270 75,220 60,180 C45,130 50,85 70,60 Z"
+                fill="none" stroke="url(#accentLine)" stroke-width="2.5" />
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Details Bar -->
+  <g transform="translate(100, 780)">
+    <rect x="0" y="0" width="1400" height="110" rx="4" fill="#0C1016" stroke="#1F2A37" stroke-width="1" />
+    <g transform="translate(40, 35)">
+      <text x="0" y="0" font-family="'JetBrains Mono', monospace, sans-serif" font-size="11" fill="#38BDF8" letter-spacing="2">CLINICAL IDENTITY</text>
+      <text x="0" y="30" font-family="Georgia, serif" font-size="20" fill="#F1F5F9">Composiciones Puras &amp; Respiración Visual</text>
+    </g>
+    <g transform="translate(560, 35)">
+      <text x="0" y="0" font-family="'JetBrains Mono', monospace, sans-serif" font-size="11" fill="#C9A96E" letter-spacing="2">ZERO CLUTTER</text>
+      <text x="0" y="30" font-family="Georgia, serif" font-size="20" fill="#F1F5F9">Ausencia deliberada de ruido gráfico</text>
+    </g>
+    <g transform="translate(1080, 35)">
+      <text x="0" y="0" font-family="'JetBrains Mono', monospace, sans-serif" font-size="11" fill="#94A3B8" letter-spacing="2">PROTOTYPE</text>
+      <text x="0" y="30" font-family="Georgia, serif" font-size="20" fill="#F1F5F9">IMAclinic Web 2026</text>
+    </g>
+  </g>
+</svg>
