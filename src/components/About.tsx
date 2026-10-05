@@ -49,7 +49,7 @@ export default function About() {
 
               {/* Float Badge caption */}
               <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 image-badge" data-theme-keep="dark">
-                <span className="text-[10px] font-mono tracking-widest text-white bg-black/75 px-3 py-1.5 border border-white/10 backdrop-blur-sm rounded-sm shadow-md">
+                <span className="text-[10px] font-sans font-medium tracking-widest text-white bg-black/75 px-3 py-1.5 border border-white/10 backdrop-blur-sm rounded-sm shadow-md">
                   ADRIÁN HONRUBIA
                 </span>
               </div>
