@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Project } from '../types';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import CircularCarousel from './CircularCarousel';
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -99,6 +100,225 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
           })}
         </div>
       </div>
+<<<<<<< Updated upstream
+=======
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          MAIN PROJECTS SECTION                             */
+/* -------------------------------------------------------------------------- */
+export default function ProjectsSection({ projects, onSelectProject }: ProjectsSectionProps) {
+  const { language } = useLanguage();
+
+  // Mode switcher: 'grid' (3D tilt cards) or 'spotlight' (theatrical cinematic stage)
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
+
+  // Discipline Filter
+  const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
+
+  // Active project ID in Spotlight mode
+  const [spotlightActiveId, setSpotlightActiveId] = useState<string>(
+    projects[0]?.id || 'imaclinic'
+  );
+
+  // Filtered projects
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'all') return projects;
+    return projects.filter((p) => getProjectDiscipline(p.id) === activeFilter);
+  }, [projects, activeFilter]);
+
+  // Keep spotlight active id valid when filter changes
+  useEffect(() => {
+    if (filteredProjects.length > 0) {
+      const exists = filteredProjects.some((p) => p.id === spotlightActiveId);
+      if (!exists) {
+        setSpotlightActiveId(filteredProjects[0].id);
+      }
+    }
+  }, [filteredProjects, spotlightActiveId]);
+
+  // Discipline filter tabs configuration
+  const filterTabs: { key: FilterCategory; labelEs: string; labelEn: string; count: number }[] = [
+    { key: 'all', labelEs: 'Todos', labelEn: 'All Works', count: projects.length },
+    {
+      key: 'web-3d',
+      labelEs: 'Web & 3D',
+      labelEn: 'Web & 3D',
+      count: projects.filter((p) => getProjectDiscipline(p.id) === 'web-3d').length,
+    },
+    {
+      key: 'film',
+      labelEs: 'Cine & Vídeo',
+      labelEn: 'Film & Motion',
+      count: projects.filter((p) => getProjectDiscipline(p.id) === 'film').length,
+    },
+    {
+      key: 'branding',
+      labelEs: 'Branding & Social',
+      labelEn: 'Branding & Social',
+      count: projects.filter((p) => getProjectDiscipline(p.id) === 'branding').length,
+    },
+  ];
+
+  return (
+    <section 
+      id="work" 
+      className="relative w-full py-24 md:py-32 bg-[#F9F9F7] dark:bg-[#0A0A0A] text-neutral-900 dark:text-white select-none scroll-mt-20 transition-colors duration-400"
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 md:mb-16 gap-8">
+          <div className="flex flex-col space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="text-xs md:text-sm font-mono tracking-[0.25em] text-accent uppercase font-medium">
+                {language === 'es' ? '02 / TRABAJO' : '02 / WORK'}
+              </span>
+              <div className="h-[1px] w-12 bg-accent/60" />
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-light tracking-tight text-neutral-900 dark:text-white">
+              {language === 'es' ? 'Proyectos Seleccionados' : 'Selected Projects'}
+            </h2>
+
+            <p className="max-w-xl text-neutral-600 dark:text-neutral-400 font-light text-xs md:text-sm leading-relaxed font-sans">
+              {language === 'es' 
+                ? 'Una colección curada de prototipos interactivos, modelado 3D, dirección cinematográfica y sistemas de identidad visual.'
+                : 'A curated collection of interactive prototypes, bespoke 3D modeling, cinematic film direction, and visual identity systems.'}
+            </p>
+          </div>
+
+          {/* Controls Cluster: Mode Switcher (Grid vs Spotlight) */}
+          <div className="flex flex-wrap items-center gap-3 self-start lg:self-end">
+            <div className="inline-flex items-center p-1 bg-neutral-200/80 dark:bg-neutral-900/90 border border-neutral-300 dark:border-neutral-800 rounded-sm">
+              <button
+                onClick={() => setViewMode('grid')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-mono tracking-wider uppercase rounded-sm transition-all ${
+                  viewMode === 'grid'
+                    ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-accent shadow-sm font-medium'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
+                }`}
+                title={language === 'es' ? 'Carrusel circular' : 'Circular carousel'}
+              >
+                <LayoutGrid size={13} />
+                <span>{language === 'es' ? 'Carrusel' : 'Carousel'}</span>
+              </button>
+
+              <button
+                onClick={() => setViewMode('spotlight')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-mono tracking-wider uppercase rounded-sm transition-all ${
+                  viewMode === 'spotlight'
+                    ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-accent shadow-sm font-medium'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
+                }`}
+                title="Escenario Cinematográfico"
+              >
+                <Sparkles size={13} />
+                <span>{language === 'es' ? 'Escenario' : 'Spotlight'}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Filters apply only to Spotlight; the carousel always shows all projects. */}
+        {viewMode === 'spotlight' && (
+        <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-neutral-200 dark:border-neutral-900 pb-4">
+          <div className="flex flex-wrap items-center gap-2">
+            {filterTabs.map((tab) => {
+              const isActive = activeFilter === tab.key;
+              const label = language === 'es' ? tab.labelEs : tab.labelEn;
+
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveFilter(tab.key)}
+                  className={`relative px-3.5 py-1.5 text-xs font-mono tracking-wider uppercase transition-colors rounded-sm flex items-center gap-2 ${
+                    isActive
+                      ? 'text-neutral-950 dark:text-white font-medium bg-neutral-200/80 dark:bg-neutral-850'
+                      : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-900'
+                  }`}
+                >
+                  <span>{label}</span>
+                  <span className={`text-[10px] ${isActive ? 'text-accent font-semibold' : 'text-neutral-400 dark:text-neutral-500'}`}>
+                    ({tab.count})
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Quick Counter Display */}
+          <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-neutral-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            <span>
+              {language === 'es'
+                ? `Mostrando ${filteredProjects.length} de ${projects.length} proyectos`
+                : `Showing ${filteredProjects.length} of ${projects.length} projects`}
+            </span>
+          </div>
+        </div>
+
+        )}
+
+        {/* Dynamic Presentation Body (Circular Carousel OR Spotlight Stage) */}
+        <AnimatePresence mode="wait">
+          {viewMode === 'grid' ? (
+            <motion.div
+              key="grid-mode"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="projects-carousel-stage"
+            >
+              {projects.length > 0 && (
+                <CircularCarousel
+                  items={projects.map(project => ({
+                    id: project.id,
+                    src: project.image,
+                    alt: project.title,
+                    title: project.title,
+                    subtitle: project.category,
+                  }))}
+                  preset="cylinder"
+                  intro="rise"
+                  cardWidth={450}
+                  aspectRatio={1.5}
+                  speed={14}
+                  captions
+                  gap={34}
+                  perspective={2200}
+                  onItemClick={(item) => onSelectProject(item.id)}
+                />
+              )}
+            </motion.div>
+          ) : (
+            <motion.div
+              key="spotlight-mode"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
+            >
+              <AnimatePresence>
+                {filteredProjects.map((project, index) => (
+                  <ProjectTiltCard
+                    key={project.id}
+                    project={project}
+                    index={index}
+                    total={filteredProjects.length}
+                    onSelect={onSelectProject}
+                    language={language}
+                  />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+>>>>>>> Stashed changes
     </section>
   );
 }
