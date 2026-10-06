@@ -3,9 +3,9 @@ import { AnimatePresence, motion } from 'motion/react';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
 import Header from './components/Header';
-import Hero from './components/Hero';
+import HomeShowcase from './components/HomeShowcase';
 import About from './components/About';
-import ProjectsSection from './components/ProjectsSection';
+
 import ServicesSection from './components/ServicesSection';
 import ContactSection from './components/ContactSection';
 import ProjectDetail from './components/ProjectDetail';
@@ -59,15 +59,7 @@ export default function App() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* Hero Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <Hero onDiscoverClick={handleDiscoverClick} />
-              </motion.div>
+              <HomeShowcase projects={localizedProjects} onDiscoverClick={handleDiscoverClick} onSelectProject={id => setViewState({ view: 'project', selectedProjectId: id })} />
 
               {/* Biography Section */}
               <motion.div
@@ -77,19 +69,6 @@ export default function App() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               >
                 <About />
-              </motion.div>
-
-              {/* Curated Selected Works */}
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <ProjectsSection
-                  projects={localizedProjects}
-                  onSelectProject={(id) => setViewState({ view: 'project', selectedProjectId: id })}
-                />
               </motion.div>
 
               {/* Specialist Capability Services */}

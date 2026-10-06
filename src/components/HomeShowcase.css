@@ -1,0 +1,89 @@
+.home-showcase { position: relative; isolation: isolate; }
+.gallery-hero { position: relative; height: 100svh; min-height: 680px; isolation: isolate; }
+.gallery-hero__background { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg,var(--bg-primary),transparent 25%),linear-gradient(#0002,#0001),url('../assets/images/carousel-gallery.png') center / cover; }
+.light .gallery-hero__background { background-image: linear-gradient(0deg,var(--bg-primary),transparent 25%),linear-gradient(#0002,#0001),url('../assets/images/carousel-gallery-light.png'); }
+.gallery-hero__name[class] { position: absolute; top: 21%; left: 0; width: 100%; padding: 0 3vw; margin: 0; text-align: center; font-family: 'Inter',sans-serif; font-size: clamp(32px,8.8vw,150px); font-weight: 800; letter-spacing: -.055em; line-height: 1; white-space: nowrap; color: var(--text-primary); -webkit-text-fill-color: currentColor; -webkit-text-stroke: 0; pointer-events: none; }
+.gallery-hero__anchor { position: absolute; top: 27%; left: 4%; width: 92%; height: 56%; }
+.gallery-hero__footer { position: absolute; bottom: 36px; left: max(24px,4vw); right: max(24px,4vw); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; z-index: 4; }
+.gallery-hero__role { font-family: 'Inter',sans-serif; font-weight: 600; font-size: clamp(22px,2.4vw,36px); line-height: 1.35; letter-spacing: -.025em; color: var(--text-primary); }
+.gallery-hero__actions { display: flex; gap: 12px; }
+.gallery-hero__actions span { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .12em; }
+.travelling-carousel { position: absolute; z-index: 3; }
+.travelling-carousel .circular-carousel::before { content: ''; position: absolute; left: 15%; right: 15%; top: 68%; height: 15%; background: radial-gradient(ellipse,#0006,transparent 70%); filter: blur(14px); pointer-events: none; }
+.travelling-carousel .circular-carousel__caption { color: var(--text-primary); text-shadow: 0 2px 8px var(--bg-primary); }
+.home-showcase #work > div > div:first-child, .home-showcase #work .project-view-toggle { position: relative; z-index: 4; }
+@media(max-width:700px) {
+  .gallery-hero { min-height: 640px; }
+  .gallery-hero__name[class] { top: 25%; font-size: 8.7vw; -webkit-text-stroke-width: 0; }
+  .gallery-hero__anchor { top: 28%; left: 0; width: 100%; height: 43%; }
+  .gallery-hero__footer { bottom: 24px; flex-direction: column; align-items: stretch; gap: 18px; }
+  .gallery-hero__actions { justify-content: flex-end; flex-wrap: wrap; }
+  .gallery-hero__actions .specular-button { padding: 12px 16px; }
+}
+
+/* Mask the glyph interiors so only the exterior half of the stroke remains. */
+.gallery-hero__name svg { display: block; width: 100%; height: auto; overflow: visible; transform: scaleY(1.18); transform-origin: center bottom; }
+.gallery-hero__name svg text { font-family: 'Inter', sans-serif; font-size: 150px; font-weight: 800; letter-spacing: -8px; -webkit-text-fill-color: unset; -webkit-text-stroke: 0; }
+
+/* Preserve the carousel geometry while withholding project details in the hero. */
+.travelling-carousel[data-docked="false"] .circular-carousel__caption {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.travelling-carousel[data-docked="false"] {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Subtle depth on the outlined name, keeping its transparent interior. */
+.gallery-hero__name svg {
+  filter: drop-shadow(0 1px 0 rgba(255, 244, 220, .32))
+          drop-shadow(0 3px 1px rgba(0, 0, 0, .55))
+          drop-shadow(0 6px 5px rgba(0, 0, 0, .25));
+}
+
+
+
+.gallery-hero__name[class] { pointer-events: auto; }
+.gallery-hero__anchor { pointer-events: none; }
+.gallery-hero__name-glint { opacity: 0; pointer-events: none; transition: opacity .2s; }
+.gallery-hero__name-glint[data-active="true"] { opacity: 1; }
+.gallery-hero__name-trace { stroke-dasharray: 70 900; stroke-dashoffset: 0; }
+
+@keyframes name-outline-trace { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -970; } }
+@media(prefers-reduced-motion:reduce) {
+  .gallery-hero__name-glint[data-active="true"] .gallery-hero__name-trace { animation: none; }
+}
+
+.gallery-hero__name-hit { pointer-events: none; }
+.gallery-hero__name-hit tspan { pointer-events: all; }
+
+/* A brighter, warmer halo only around the active letter's moving highlight. */
+.gallery-hero__name-glint[data-active="true"] {
+  filter: drop-shadow(0 0 1px rgba(255, 241, 201, .45)) drop-shadow(0 0 3px rgba(232, 201, 141, .4));
+}
+.gallery-hero__name-trace { stroke-dasharray: 70 900; }
+
+.gallery-hero__name-trace tspan { opacity: 0; }
+.gallery-hero__name-trace tspan.is-tracing { animation: letter-complete-trace 3.6s linear both; }
+@keyframes letter-complete-trace {
+  0% { opacity: 0; stroke-dashoffset: 0; }
+  6% { opacity: .65; }
+  90% { opacity: .65; }
+  100% { opacity: 0; stroke-dashoffset: -970; }
+}
+@media(prefers-reduced-motion:reduce) { .gallery-hero__name-trace tspan.is-tracing { animation-duration: .01ms; } }
+
+/* Fine brushed texture within the role lettering. */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .gallery-hero__role {
+    background-image: repeating-linear-gradient(112deg, transparent 0 2px, rgba(125, 114, 91, .22) 2px 3px, transparent 3px 5px), linear-gradient(165deg, #ffffff 10%, #d8d1c3 55%, #ffffff 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .light .gallery-hero__role {
+    background-image: repeating-linear-gradient(112deg, transparent 0 2px, rgba(201, 169, 110, .22) 2px 3px, transparent 3px 5px), linear-gradient(165deg, #171715, #514b40 55%, #171715);
+  }
+}

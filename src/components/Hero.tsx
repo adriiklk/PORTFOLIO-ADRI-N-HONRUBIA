@@ -1,8 +1,7 @@
+import { useState } from 'react';
 import SpecularButton from './SpecularButton';
-import { motion } from 'motion/react';
 import { ArrowDown, ArrowUpRight, Linkedin } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-
 const specularStyle = {
   size: 'lg' as const,
   radius: 18,
@@ -10,8 +9,8 @@ const specularStyle = {
   tintOpacity: 0,
   blur: 0,
   textColor: '#f5f5f5',
-  lineColor: '#ffffff',
-  baseColor: '#525252',
+  lineColor: '#E8C98D',
+  baseColor: '#A8813B',
   intensity: 1,
   shineSize: 10,
   shineFade: 40,
@@ -22,115 +21,53 @@ const specularStyle = {
   autoAnimate: false,
 };
 
-interface HeroProps {
-  onDiscoverClick: () => void;
-}
 
-export default function Hero({ onDiscoverClick }: HeroProps) {
+export default function Hero({ onDiscoverClick }: { onDiscoverClick: () => void }) {
   const { language } = useLanguage();
-
-  return (
-    <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center select-none bg-[#F9F9F7] dark:bg-black transition-colors duration-400">
-      {/* Cinematic Autoplay Background Video */}
-      <div className="absolute inset-0 w-full h-full object-cover">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover opacity-20 dark:opacity-60 filter grayscale brightness-100 dark:brightness-[0.4] transition-opacity duration-500"
-          src="https://player.vimeo.com/external/517482813.hd.mp4?s=d94a9bf5028f090d810f2d9f4851214ab6fdc64d&profile_id=174&oauth2_token_id=57447761"
-          referrerPolicy="no-referrer"
-        />
-        {/* Vignette layers for high-contrast legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F9F9F7]/90 via-transparent to-[#F9F9F7] dark:from-[#0A0A0A]/80 dark:via-transparent dark:to-[#0A0A0A] transition-colors duration-400" />
-        <div
-          className="absolute inset-0 opacity-70"
-          style={{
-            background: 'radial-gradient(circle, transparent 20%, var(--bg-primary) 100%)'
-          }}
-        />
+  const [activeLetters, setActiveLetters] = useState<Set<number>>(() => new Set());
+  const startLetter = (index: number) => setActiveLetters(current => current.has(index) ? current : new Set(current).add(index));
+  const finishLetter = (index: number) => setActiveLetters(current => { const next = new Set(current); next.delete(index); return next; });
+  const nameLetters = Array.from('ADRIÁN HONRUBIA');
+  return <section className="gallery-hero">
+    <div className="gallery-hero__background" />
+    <h1 className="gallery-hero__name" aria-label="ADRIÁN HONRUBIA">
+      <svg viewBox="0 0 1500 190" aria-hidden="true">
+        <defs>
+          <linearGradient id="hero-name-fade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="white" />
+            <stop offset="40%" stopColor="white" />
+            <stop offset="80%" stopColor="white" stopOpacity="0" />
+          </linearGradient>
+          <mask id="hero-name-exterior" maskUnits="userSpaceOnUse" x="0" y="0" width="1500" height="190">
+            <rect width="1500" height="190" fill="white" />
+            <text x="750" y="150" textAnchor="middle" fill="black">ADRIÁN HONRUBIA</text>
+          </mask>
+          <mask id="hero-name-lit-outline" maskUnits="userSpaceOnUse" x="0" y="0" width="1500" height="190">
+            <text x="750" y="150" textAnchor="middle" fill="none" stroke="url(#hero-name-fade)" strokeWidth="5">ADRIÁN HONRUBIA</text>
+          </mask>
+        </defs>
+        <text x="750" y="150" textAnchor="middle" fill="none" stroke="url(#hero-name-fade)" strokeWidth="5" mask="url(#hero-name-exterior)">ADRIÁN HONRUBIA</text>
+        <g mask="url(#hero-name-exterior)" className="gallery-hero__name-glint" data-active={activeLetters.size > 0}>
+          <g mask="url(#hero-name-lit-outline)">
+            <text className="gallery-hero__name-trace" x="750" y="150" textAnchor="middle" fill="none" stroke="#fff9e8" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round">{nameLetters.map((letter, index) => <tspan key={index} className={activeLetters.has(index) ? "is-tracing" : undefined} onAnimationEnd={() => finishLetter(index)}>{letter}</tspan>)}</text>
+          </g>
+        </g>
+        <text x="750" y="150" textAnchor="middle" fill="transparent" className="gallery-hero__name-hit">
+          {nameLetters.map((letter, index) => <tspan key={index} onPointerEnter={() => { if (letter !== ' ') startLetter(index); }}>{letter}</tspan>)}
+        </text>
+      </svg>
+    </h1>
+    <div id="hero-carousel-anchor" className="gallery-hero__anchor" />
+    <div className="gallery-hero__footer">
+      <p className="gallery-hero__role">AI CREATOR &amp;<br />MULTIMEDIA DESIGNER</p>
+      <div className="gallery-hero__actions">
+        <SpecularButton {...specularStyle} onClick={onDiscoverClick} className="hero-specular-button">
+          <span> {language === 'es' ? 'VER MI TRABAJO' : 'VIEW MY WORK'} <ArrowDown size={14} /></span>
+        </SpecularButton>
+        <SpecularButton {...specularStyle} href="https://www.linkedin.com/in/adri%C3%A1n-honrubia-gonz%C3%A1lez-8b1640435/" target="_blank" rel="noopener noreferrer" className="hero-specular-button">
+          <span><Linkedin size={14} /> LINKEDIN <ArrowUpRight size={13} /></span>
+        </SpecularButton>
       </div>
-
-      {/* Foreground Content Panel */}
-      <div className="relative z-10 max-w-4xl px-6 text-center flex flex-col items-center">
-        {/* Pre-title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-accent text-sm md:text-base font-mono tracking-[0.3em] font-medium uppercase mb-4"
-        >
-          ADRIÁN HONRUBIA
-        </motion.div>
-
-        {/* Major Displays Title */}
-        <div className="overflow-hidden mb-6 py-2">
-          <motion.h2
-            initial={{ y: 110 }}
-            animate={{ y: 0 }}
-            transition={{ delay: 0.2, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-7xl md:text-8xl font-serif font-light text-neutral-900 dark:text-white tracking-tight leading-none transition-colors duration-400"
-          >
-            {language === 'es' ? (
-              <>
-                Multimedia Designer <br className="hidden sm:inline" />
-                <span className="italic font-serif font-light text-neutral-600 dark:text-neutral-300 transition-colors duration-400">&amp; AI Creator</span>
-              </>
-            ) : (
-              <>
-                Multimedia Designer <br className="hidden sm:inline" />
-                <span className="italic font-serif font-light text-neutral-600 dark:text-neutral-300 transition-colors duration-400">&amp; AI Creator</span>
-              </>
-            )}
-          </motion.h2>
-        </div>
-
-        {/* Narrative Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-neutral-600 dark:text-neutral-300 font-light text-sm sm:text-base md:text-lg tracking-normal max-w-xl mb-12 transition-colors duration-400"
-        >
-          {language === 'es' 
-            ? 'Creando experiencias visuales a través del diseño y la narrativa cinematográfica.'
-            : 'Creating visual experiences through design and cinematic storytelling.'}
-        </motion.p>
-
-        {/* Call to Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
-        >
-          <SpecularButton
-            {...specularStyle}
-            onClick={onDiscoverClick}
-            className="hero-specular-button w-full sm:w-auto"
-          >
-            <span className="inline-flex items-center justify-center gap-3 font-mono text-xs tracking-[0.2em]">
-              {language === 'es' ? 'VER MI TRABAJO' : 'VIEW MY WORK'}
-              <ArrowDown size={14} />
-            </span>
-          </SpecularButton>
-
-          <SpecularButton
-            {...specularStyle}
-            href="https://www.linkedin.com/in/adri%C3%A1n-honrubia-gonz%C3%A1lez-8b1640435/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-specular-button w-full sm:w-auto"
-          >
-            <span className="inline-flex items-center justify-center gap-3 font-mono text-xs tracking-[0.2em]">
-              <Linkedin size={14} />
-              LINKEDIN
-              <ArrowUpRight size={13} />
-            </span>
-          </SpecularButton>
-        </motion.div>
-      </div>
-    </section>
-  );
+    </div>
+  </section>;
 }

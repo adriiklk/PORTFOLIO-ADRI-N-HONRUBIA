@@ -2,22 +2,24 @@ import BorderGlow from './BorderGlow';
 import { useTheme } from '../ThemeContext';
 import './ProjectViewToggle.css';
 import SquishSwitch from './SquishSwitch';
-import { useState } from 'react';
-import CircularCarousel from './CircularCarousel';
+
+
 import { motion } from 'motion/react';
 import { Project } from '../types';
 import { ArrowUpRight, LayoutGrid, GalleryHorizontalEnd } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 interface ProjectsSectionProps {
+  viewMode: 'carousel' | 'list';
+  setViewMode: (mode: 'carousel' | 'list') => void;
   projects: Project[];
   onSelectProject: (id: string) => void;
 }
 
-export default function ProjectsSection({ projects, onSelectProject }: ProjectsSectionProps) {
+export default function ProjectsSection({ projects, onSelectProject, viewMode, setViewMode }: ProjectsSectionProps) {
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const [viewMode, setViewMode] = useState<'carousel' | 'list'>('carousel');
+
 
   return (
     <section id="work" className="relative w-full py-24 md:py-32 bg-[#F9F9F7] dark:bg-[#0A0A0A] text-neutral-900 dark:text-white select-none scroll-mt-20 transition-colors duration-400">
@@ -80,28 +82,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
           </BorderGlow>
         </div>
         {viewMode === 'carousel' ? (
-          <div className="projects-carousel-stage">
-            {projects.length > 0 && (
-              <CircularCarousel
-                items={projects.map(project => ({
-                  id: project.id,
-                  src: project.image,
-                  alt: project.title,
-                  title: project.title,
-                  subtitle: project.category,
-                }))}
-                preset="cylinder"
-                intro="rise"
-                cardWidth={450}
-                aspectRatio={1.5}
-                speed={14}
-                captions
-                gap={34}
-                perspective={2200}
-                onItemClick={item => onSelectProject(item.id)}
-              />
-            )}
-          </div>
+          <div id="work-carousel-anchor" className="projects-carousel-stage" />
         ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => {
