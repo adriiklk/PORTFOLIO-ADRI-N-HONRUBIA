@@ -294,3 +294,21 @@
 .dark .projects-carousel-stage {
   --gallery-edge: #0a0a0a;
 }
+
+.light .projects-carousel-stage {
+  background-color: #f9f9f7;
+  background-image:
+    linear-gradient(to right, #f9f9f7, transparent 12%, transparent 88%, #f9f9f7),
+    linear-gradient(to bottom, #f9f9f7, transparent 18%, transparent 78%, #f9f9f7),
+    linear-gradient(to bottom, transparent, rgb(249 249 247 / 10%)),
+    url('../assets/images/carousel-gallery-light.png');
+  color: #171717;
+}
+
+.light .projects-carousel-stage .circular-carousel__caption {
+  text-shadow: 0 1px 8px rgb(249 249 247 / 85%);
+}
+
+.light .projects-carousel-stage .circular-carousel::before {
+  opacity: 0.35;
+}
