@@ -262,6 +262,17 @@
   position: relative;
   width: 100%;
   height: clamp(560px, 55vw, 740px);
+  background-color: #0a0a0a;
+  --gallery-edge: #f9f9f7;
+  background-image:
+    linear-gradient(to right, var(--gallery-edge), transparent 12%, transparent 88%, var(--gallery-edge)),
+    linear-gradient(to bottom, var(--gallery-edge), transparent 18%, transparent 78%, var(--gallery-edge)),
+    linear-gradient(to bottom, rgb(0 0 0 / 8%), rgb(0 0 0 / 12%) 65%, rgb(0 0 0 / 45%)),
+    url('../assets/images/carousel-gallery.png');
+  background-size: 100% 100%, 100% 100%, 100% 100%, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f5f5f5;
 }
 
 /* A soft floor shadow preserves the carousel's nested 3D transforms. */
@@ -275,4 +286,11 @@
   background: radial-gradient(ellipse, rgba(0, 0, 0, 0.48), transparent 70%);
   filter: blur(14px);
   pointer-events: none;
+}
+
+.projects-carousel-stage .circular-carousel__caption {
+  text-shadow: 0 2px 8px rgb(0 0 0 / 80%);
+}
+.dark .projects-carousel-stage {
+  --gallery-edge: #0a0a0a;
 }
