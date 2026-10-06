@@ -5,7 +5,7 @@
 .gallery-hero__name[class] { position: absolute; top: 21%; left: 0; width: 100%; padding: 0 3vw; margin: 0; text-align: center; font-family: 'Inter',sans-serif; font-size: clamp(32px,8.8vw,150px); font-weight: 800; letter-spacing: -.055em; line-height: 1; white-space: nowrap; color: var(--text-primary); -webkit-text-fill-color: currentColor; -webkit-text-stroke: 0; pointer-events: none; }
 .gallery-hero__anchor { position: absolute; top: 27%; left: 4%; width: 92%; height: 56%; }
 .gallery-hero__footer { position: absolute; bottom: 36px; left: max(24px,4vw); right: max(24px,4vw); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; z-index: 4; }
-.gallery-hero__role { font-family: 'Inter',sans-serif; font-weight: 600; font-size: clamp(22px,2.4vw,36px); line-height: 1.35; letter-spacing: -.025em; color: var(--text-primary); }
+.gallery-hero__role { font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: clamp(22px,2.4vw,36px); line-height: 1.35; letter-spacing: -.025em; color: var(--text-primary); }
 .gallery-hero__actions { display: flex; gap: 12px; }
 .gallery-hero__actions span { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: .12em; }
 .travelling-carousel { position: absolute; z-index: 3; }
@@ -16,9 +16,11 @@
   .gallery-hero { min-height: 640px; }
   .gallery-hero__name[class] { top: 25%; font-size: 8.7vw; -webkit-text-stroke-width: 0; }
   .gallery-hero__anchor { top: 28%; left: 0; width: 100%; height: 43%; }
-  .gallery-hero__footer { bottom: 24px; flex-direction: column; align-items: stretch; gap: 18px; }
-  .gallery-hero__actions { justify-content: flex-end; flex-wrap: wrap; }
-  .gallery-hero__actions .specular-button { padding: 12px 16px; }
+  .gallery-hero__footer { bottom: max(28px, env(safe-area-inset-bottom)); left: 20px; right: 20px; flex-direction: column; align-items: stretch; gap: 22px; }
+  .gallery-hero__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+  .gallery-hero__actions .specular-button { padding: 14px 8px; width: 100%; min-width: 0; }
+  .gallery-hero__actions span { font-size: 9px; letter-spacing: .06em; gap: 6px; }
+  .gallery-hero__role { width: 100%; font-size: clamp(22px, 5.6vw, 32px); line-height: 1.25; }
 }
 
 /* Mask the glyph interiors so only the exterior half of the stroke remains. */
@@ -86,4 +88,45 @@
   .light .gallery-hero__role {
     background-image: repeating-linear-gradient(112deg, transparent 0 2px, rgba(201, 169, 110, .22) 2px 3px, transparent 3px 5px), linear-gradient(165deg, #171715, #514b40 55%, #171715);
   }
+}
+
+
+
+
+/* One entrance per hero mount; carousel retains its native 3D rise animation. */
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-hero__background {
+    animation: hero-room-reveal 1.8s cubic-bezier(.16,1,.3,1) both;
+  }
+  .gallery-hero__name[class] {
+    animation: hero-name-reveal 1.5s .18s cubic-bezier(.16,1,.3,1) both;
+  }
+  .gallery-hero__role {
+    animation: hero-detail-reveal 1s .7s cubic-bezier(.16,1,.3,1) both;
+  }
+  .gallery-hero__actions > :first-child {
+    animation: hero-detail-reveal .9s .9s cubic-bezier(.16,1,.3,1) both;
+  }
+  .gallery-hero__actions > :nth-child(2) {
+    animation: hero-detail-reveal .9s 1.05s cubic-bezier(.16,1,.3,1) both;
+  }
+  .travelling-carousel {
+    animation: hero-carousel-reveal 1.2s .2s ease-out backwards;
+  }
+}
+@keyframes hero-room-reveal {
+  from { opacity: 0; clip-path: inset(5% 3%); filter: brightness(.55); }
+  to { opacity: 1; clip-path: inset(0); filter: brightness(1); }
+}
+@keyframes hero-name-reveal {
+  from { opacity: 0; transform: translateY(38px) scale(.96); filter: blur(7px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes hero-detail-reveal {
+  from { opacity: 0; transform: translateY(26px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes hero-carousel-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
