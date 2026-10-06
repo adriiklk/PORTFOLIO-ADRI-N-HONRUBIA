@@ -1,9 +1,12 @@
+import BorderGlow from './BorderGlow';
+import { useTheme } from '../ThemeContext';
+import './ProjectViewToggle.css';
 import SquishSwitch from './SquishSwitch';
 import { useState } from 'react';
 import CircularCarousel from './CircularCarousel';
 import { motion } from 'motion/react';
 import { Project } from '../types';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, LayoutGrid, GalleryHorizontalEnd } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 interface ProjectsSectionProps {
@@ -13,6 +16,7 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ projects, onSelectProject }: ProjectsSectionProps) {
   const { language } = useLanguage();
+  const { theme } = useTheme();
   const [viewMode, setViewMode] = useState<'carousel' | 'list'>('carousel');
 
   return (
@@ -36,6 +40,22 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
         </div>
 
         <div className="flex justify-end mb-8">
+          <BorderGlow
+            className="project-view-toggle"
+            edgeSensitivity={30}
+            glowColor="40 80 80"
+            backgroundColor={theme === 'dark' ? '#141414' : '#ffffff'}
+            borderRadius={24}
+            glowRadius={24}
+            glowIntensity={1}
+            coneSpread={25}
+            animated={false}
+            colors={['#c084fc', '#f472b6', '#38bdf8']}
+          >
+            <div className="project-view-toggle__content">
+              <span className="project-view-toggle__icon" aria-hidden="true">
+                {viewMode === 'carousel' ? <LayoutGrid size={19} strokeWidth={1.5} /> : <GalleryHorizontalEnd size={19} strokeWidth={1.5} />}
+              </span>
           <SquishSwitch
             checked={viewMode === 'list'}
             onChange={checked => setViewMode(checked ? 'list' : 'carousel')}
@@ -43,17 +63,21 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
               ? (language === 'es' ? 'Modo lista' : 'List mode')
               : (language === 'es' ? 'Modo carrusel' : 'Carousel mode')}
             ariaLabel={language === 'es' ? 'Mostrar lista de proyectos' : 'Show project list'}
-            trackColor="#27272a"
-            trackOnColor="#f5f5f5"
-            width={76}
-            height={38}
-            radius={19}
+            trackColor={theme === 'dark' ? '#303033' : '#e4e1d8'}
+            trackOnColor="#C9A96E"
+            thumbColor={theme === 'dark' ? '#f5f5f5' : '#77736b'}
+            thumbOnColor="#24221e"
+            width={60}
+            height={32}
+            radius={16}
             speed={50}
             stretch={36}
             hoverScale={1.035}
             colorDuration={320}
-            className="font-mono text-xs uppercase tracking-wider"
+            className="project-view-toggle__switch"
           />
+            </div>
+          </BorderGlow>
         </div>
         {viewMode === 'carousel' ? (
           <div className="projects-carousel-stage">

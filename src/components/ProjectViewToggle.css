@@ -1,0 +1,36 @@
+.project-view-toggle.border-glow-card {
+  box-shadow: 0 6px 24px rgb(0 0 0 / 7%);
+}
+.project-view-toggle > .border-glow-inner {
+  overflow: visible;
+}
+.project-view-toggle__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+.project-view-toggle__icon {
+  display: flex;
+  color: var(--color-accent);
+}
+.project-view-toggle__switch {
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+.project-view-toggle__switch .squish-switch__label {
+  min-width: 112px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.035em;
+}
+.project-view-toggle__switch .squish-switch:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 5px;
+  border-radius: 16px;
+}
+.project-view-toggle:focus-within {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+}
