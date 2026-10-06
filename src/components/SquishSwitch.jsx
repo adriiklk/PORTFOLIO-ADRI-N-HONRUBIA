@@ -96,6 +96,7 @@ export default function SquishSwitch({
   };
   const down = e => {
     if (disabled || grip.current || e.button !== 0) return;
+    skipClick.current = false;
     grip.current = {
       id: e.pointerId,
       grab: null,
@@ -131,15 +132,12 @@ export default function SquishSwitch({
       e.currentTarget.releasePointerCapture(e.pointerId);
     } catch {}
     if (cancelled) commit(g.onAtPress);
-    else if (!g.moved) commit(!onRef.current);
-    skipClick.current = true;
-    setTimeout(() => {
-      skipClick.current = false;
-    }, 0);
+    // Native click commits taps once; drags already commit on pointermove.
+    skipClick.current = cancelled || g.moved;
     setDragging(false);
   };
-  const click = () => {
-    if (skipClick.current) {
+  const click = (event) => {
+    if (skipClick.current && event.detail !== 0) {
       skipClick.current = false;
       return;
     }
