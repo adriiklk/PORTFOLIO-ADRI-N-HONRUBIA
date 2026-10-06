@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@500;600;700;800&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 @import url('https://fonts.cdnfonts.com/css/pricedown');
 @import "tailwindcss";
 
@@ -223,3 +223,27 @@ html.light {
   }
 }
 
+
+/* Editorial title pairing; body copy keeps Montserrat. */
+:is(h1, h2, h3, h4, h5, h6)[class] {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.035em;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(.font-serif, .font-light, .italic) {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+}
+/* Gold section labels and small headings, excluding controls and image badges. */
+:is(span, p, div).text-accent.uppercase:not([class*="bg-"]):not([class*="absolute"]),
+:is(h4, h5, h6).font-mono {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  text-transform: none;
+  font-size: max(1.125rem, 1em);
+  line-height: 1.35;
+}

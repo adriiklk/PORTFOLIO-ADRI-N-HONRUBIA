@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+const headerLogo = new URL('../assets/images/ah-logo.png', import.meta.url).href;
+import './Header.css';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { ViewState } from '../types';
@@ -11,6 +13,7 @@ interface HeaderProps {
 }
 
 export default function Header({ viewState, setViewState }: HeaderProps) {
+  const headerRef = useRef<HTMLElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
@@ -24,16 +27,25 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    let frame = 0;
+    const updateScroll = () => {
+      frame = 0;
+      setIsScrolled(window.scrollY > 40);
+      const range = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = range > 0 ? Math.min(1, Math.max(0, window.scrollY / range)) : 0;
+      headerRef.current?.style.setProperty('--header-glint-position', `${34 + progress * 32}%`);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (!frame) frame = requestAnimationFrame(updateScroll);
+    };
+    updateScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   const handleNavClick = (target: string) => {
@@ -65,96 +77,30 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out select-none ${
-          isScrolled
-            ? 'py-4 bg-[#F9F9F7]/90 dark:bg-[#0A0A0A]/90 border-b border-neutral-200/80 dark:border-neutral-900/40 backdrop-blur-md shadow-xs dark:shadow-none'
-            : 'py-6 md:py-8 bg-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* Logo / Brand Name */}
-          <button
-            onClick={handleBrandClick}
-            className="flex flex-col items-start gap-0.5 text-left group"
-          >
-            <span className="text-sm font-serif font-medium tracking-[0.2em] text-neutral-900 dark:text-white group-hover:text-accent transition-colors duration-300">
-              ADRIÁN HONRUBIA
-            </span>
-            <span className="text-[9px] font-sans tracking-[0.18em] uppercase text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors duration-300 font-medium">
-              {t('brand.subtitle')}
+      <header ref={headerRef} className={`glass-header ${isScrolled ? 'is-scrolled' : ''}`}>
+        <div className="glass-header__bar">
+          <div className="glass-header__side glass-header__left">
+            <div className="glass-header__languages" aria-label="Language">
+              <button onClick={() => setLanguage('en')} aria-pressed={language === 'en'}>EN</button>
+              <span>/</span>
+              <button onClick={() => setLanguage('es')} aria-pressed={language === 'es'}>ES</button>
+            </div>
+            <nav className="glass-header__nav" aria-label={language === 'es' ? 'Navegación principal' : 'Main navigation'}>
+              {navLinks.slice(0, 2).map(link => <button key={link.target} onClick={() => handleNavClick(link.target)}>{link.label}</button>)}
+            </nav>
+          </div>
+          <button className="glass-header__brand" onClick={handleBrandClick} aria-label="Adrián Honrubia — Inicio">
+            <span className="glass-header__logo"><img src={headerLogo} alt="" />
             </span>
           </button>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-10">
-            <nav className="flex items-center gap-8 lg:gap-10">
-              {navLinks.map((link) => (
-                <button
-                  key={link.target}
-                  onClick={() => handleNavClick(link.target)}
-                  className="relative text-[11px] font-sans font-medium uppercase tracking-[0.18em] text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors py-2 group"
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-accent group-hover:w-full transition-all duration-300" />
-                </button>
-              ))}
+          <div className="glass-header__side glass-header__right">
+            <nav className="glass-header__nav" aria-label={language === 'es' ? 'Más secciones' : 'More sections'}>
+              {navLinks.slice(2).map(link => <button key={link.target} onClick={() => handleNavClick(link.target)}>{link.label}</button>)}
             </nav>
-
-            {/* Desktop Language Selector */}
-            <div className="flex items-center gap-2 border-l border-neutral-300 dark:border-neutral-800 pl-6 h-4">
-              <button
-                onClick={() => setLanguage('en')}
-                className={`text-[10px] font-sans tracking-widest transition-colors ${
-                  language === 'en' ? 'text-accent font-semibold' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white font-medium'
-                }`}
-                aria-label="Set language to English"
-              >
-                EN
-              </button>
-              <span className="text-[11px] font-sans text-neutral-400 dark:text-neutral-500 font-normal select-none">/</span>
-              <button
-                onClick={() => setLanguage('es')}
-                className={`text-[10px] font-sans tracking-widest transition-colors ${
-                  language === 'es' ? 'text-accent font-semibold' : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white font-medium'
-                }`}
-                aria-label="Set language to Spanish"
-              >
-                ES
-              </button>
-            </div>
-
-            {/* Desktop Theme Mode Toggle */}
-            <div className="flex items-center pl-3 border-l border-neutral-300 dark:border-neutral-800">
-              <button
-                onClick={toggleTheme}
-                className="p-1.5 rounded-full text-neutral-600 dark:text-neutral-300 hover:text-accent hover:bg-neutral-200/70 dark:hover:bg-neutral-800/80 transition-all duration-300 flex items-center justify-center cursor-pointer"
-                aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                title={theme === 'dark' ? (language === 'es' ? 'Activar modo claro' : 'Switch to light mode') : (language === 'es' ? 'Activar modo oscuro' : 'Switch to dark mode')}
-              >
-                {theme === 'dark' ? (
-                  <Sun size={15} className="transition-transform duration-300 hover:rotate-45" />
-                ) : (
-                  <Moon size={15} className="transition-transform duration-300 hover:-rotate-12" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* Hamburger Menu Toggle (Mobile) */}
-          <div className="md:hidden flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="p-1.5 rounded-full text-neutral-600 dark:text-neutral-300 hover:text-accent transition-colors"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            <button className="glass-header__theme" onClick={toggleTheme} aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'} aria-pressed={theme === 'light'}>
+              <Moon size={14} /><span className="glass-header__orb" /><Sun size={14} />
             </button>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex items-center text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
-              aria-label="Toggle Navigation menu"
-            >
+            <button className="glass-header__menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label={language === 'es' ? 'Abrir o cerrar menú' : 'Toggle navigation'} aria-expanded={isMobileMenuOpen}>
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>

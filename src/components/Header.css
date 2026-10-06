@@ -1,0 +1,108 @@
+.glass-header { position: fixed; z-index: 50; top: 24px; left: 0; width: 100%; padding: 0 32px; transition: top .4s; }
+.glass-header__bar { position: relative; isolation: isolate; max-width: 1280px; height: 58px; margin: auto; display: grid; grid-template-columns: 1fr 260px 1fr; border: 1px solid rgba(201,169,110,.26); border-radius: 100px; background: linear-gradient(120deg,rgba(201,169,110,.10),rgba(22,20,16,.65) 44%,rgba(183,157,112,.07)); backdrop-filter: blur(24px) saturate(135%); -webkit-backdrop-filter: blur(24px) saturate(135%); box-shadow: 0 12px 40px #0003, inset 0 1px 0 #ffffff24, 0 0 24px #c9a96e0a; }
+.glass-header__bar::before { content: ''; position: absolute; pointer-events: none; inset: -1px 14% auto; height: 1px; background: linear-gradient(90deg, transparent, #e7cf9f, transparent 70%); box-shadow: 0 0 12px 2px #c9a96e38; opacity: .7; }
+.glass-header__bar::after { content: ''; position: absolute; pointer-events: none; top: -2px; left: 34%; width: 64px; height: 4px; border-radius: 50%; background: #f6e8ca; filter: blur(3px); box-shadow: 0 0 18px 5px #c9a96e40; animation: header-shimmer 7s ease-in-out infinite alternate; }
+.glass-header__side { display: flex; align-items: center; justify-content: space-evenly; gap: 20px; padding: 0 28px; min-width: 0; }
+.glass-header button { cursor: pointer; }
+.glass-header__nav { display: flex; align-items: center; justify-content: space-evenly; gap: clamp(18px,3vw,42px); }
+.glass-header__nav button, .glass-header__languages { color: #c6cbd0; font: 600 11px/1.3 'Montserrat',sans-serif; letter-spacing: .15em; text-transform: uppercase; white-space: nowrap; }
+.glass-header__nav button { padding: 14px 0; transition: color .2s, text-shadow .2s; }
+.glass-header__nav button:hover { color: #fff; text-shadow: 0 0 14px #dfc48e66; }
+.glass-header__languages { display: flex; align-items: center; gap: 10px; padding-right: 22px; border-right: 1px solid #ffffff26; }
+.glass-header__languages button { min-height: 44px; color: #8d969e; }
+.glass-header__languages button[aria-pressed=true] { color: #fff; }
+.glass-header__brand { position: relative; height: 100%; display: grid; place-items: center; color: #fff; background: #000; clip-path: polygon(20% 0,100% 0,80% 100%,0 100%); }
+.glass-header__logo { width: 86px; aspect-ratio: 827 / 400; position: relative; overflow: hidden; transition: filter .3s, transform .3s; }
+
+.glass-header__theme { flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 7px 10px; height: 32px; border: 1px solid #c9a96e40; border-radius: 30px; color: #cdc4b3; background: #100d0540; box-shadow: inset 0 1px 2px #ffffff20; }
+.glass-header__orb { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%,#fff 4%,#ece2cf 28%,#958465 80%); box-shadow: 0 0 14px #d8bc7e60; transition: box-shadow .3s; }
+.glass-header__theme:hover .glass-header__orb { box-shadow: 0 0 20px #efdab1; }
+.glass-header__menu { display: none; color: #fff; padding: 10px; }
+.glass-header button:focus-visible { outline: 2px solid #dfc48e; outline-offset: 4px; }
+.glass-header__brand:focus-visible { outline-offset: -7px; }
+.glass-header.is-scrolled { top: 12px; }
+.light .glass-header__bar { background: linear-gradient(110deg,#ffffffc9,#ece5d69c); border-color: #ffffffc9; box-shadow: 0 10px 35px #493c2320,inset 0 1px 0 #fff; }
+.light .glass-header__nav button, .light .glass-header__languages button { color: #655e51; }
+.light .glass-header__nav button:hover, .light .glass-header__languages button[aria-pressed=true], .light .glass-header__menu { color: #221e16; }
+.light .glass-header__languages { border-color: #55432426; }
+.light .glass-header__theme { background: #fff5; color: #665940; border-color: #95806040; }
+@keyframes header-shimmer { from { opacity: .4; transform: translateX(-24px); } to { opacity: 1; transform: translateX(24px); } }
+@media(max-width:1100px) { .glass-header__bar { grid-template-columns: 1fr 180px 1fr; } .glass-header__side { padding: 0 18px; gap: 14px; } .glass-header__nav { gap: 18px; } .glass-header__languages { padding-right: 14px; } }
+@media(max-width:800px) { .glass-header { top: 16px; padding: 0 16px; } .glass-header__bar { height: 52px; grid-template-columns: 1fr 130px 1fr; } .glass-header__nav { display: none; } .glass-header__side { padding: 0 16px; gap: 8px; } .glass-header__languages { border: 0; padding: 0; gap: 8px; } .glass-header__logo { width: 68px; } .glass-header__menu { display: block; } .glass-header__theme { border: 0; padding: 8px; background: transparent; box-shadow: none; } .glass-header__theme svg, .glass-header__theme .glass-header__orb { display: none; } .glass-header__theme svg:first-child { display: block; } .glass-header__right { justify-content: flex-end; } }
+@media(max-width:380px) { .glass-header__bar { grid-template-columns: 1fr 100px 1fr; } .glass-header__side { padding: 0 10px; } }
+@media(prefers-reduced-motion:reduce) { .glass-header__bar::after { animation: none; } .glass-header, .glass-header__logo { transition: none; } }
+
+/* Display the supplied transparent PNG without its empty outer canvas. */
+.glass-header__logo img { position: absolute; width: 151.6324%; max-width: none; height: auto; left: -24.5466%; top: -99%; }
+
+/* Crisp inset panel with a restrained metallic seam. */
+.glass-header__brand {
+  background: transparent;
+  clip-path: none;
+  isolation: isolate;
+}
+.glass-header__brand::before {
+  content: '';
+  position: absolute;
+  inset: 0 18px;
+  z-index: -1;
+  transform: skewX(-32deg);
+  background: linear-gradient(150deg, #141310, #030303 55%, #090908);
+  border-left: 1px solid rgba(201,169,110,.3);
+  border-right: 1px solid rgba(201,169,110,.2);
+  box-shadow: inset 0 1px 0 rgba(255,239,209,.09), inset 0 -1px 0 rgba(255,239,209,.04);
+  pointer-events: none;
+}
+.glass-header__bar::after {
+  height: 2px;
+  width: 48px;
+  filter: blur(2px);
+  box-shadow: 0 0 10px 2px #c9a96e26;
+  opacity: .55;
+  animation: none;
+}
+/* A moving light traces the entire diagonal logo panel on hover. */
+@property --logo-glow-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.glass-header__brand::after {
+  content: '';
+  position: absolute;
+  inset: 0 18px;
+  transform: skewX(-32deg);
+  padding: 1.5px;
+  background: conic-gradient(from var(--logo-glow-angle),
+    transparent 0deg 245deg, #c9a96e22 275deg,
+    #c9a96e 315deg, #fff3d6 337deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+.glass-header__brand:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  animation: logo-contour-orbit 2.8s linear infinite;
+}
+@keyframes logo-contour-orbit {
+  from { --logo-glow-angle: 0deg; }
+  to { --logo-glow-angle: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-header__brand:is(:hover, :focus-visible)::after {
+    animation: none;
+    background: linear-gradient(120deg, #c9a96e66, #fff3d6, #c9a96e66);
+  }
+}
+/* The glint follows page scroll with a gentle trailing motion. */
+.glass-header__bar::after {
+  left: var(--header-glint-position, 34%);
+  transition: left .65s cubic-bezier(.22, 1, .36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-header__bar::after { left: 34%; transition: none; }
+}
