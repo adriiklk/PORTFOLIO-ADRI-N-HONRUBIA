@@ -1,3 +1,6 @@
+import SquishSwitch from './SquishSwitch';
+import { useState } from 'react';
+import CircularCarousel from './CircularCarousel';
 import { motion } from 'motion/react';
 import { Project } from '../types';
 import { ArrowUpRight } from 'lucide-react';
@@ -11,6 +14,7 @@ interface ProjectsSectionProps {
 
 export default function ProjectsSection({ projects, onSelectProject }: ProjectsSectionProps) {
   const { language } = useLanguage();
+  const [viewMode, setViewMode] = useState<'carousel' | 'list'>('carousel');
 
   return (
     <section id="work" className="relative w-full py-24 md:py-32 bg-[#F9F9F7] dark:bg-[#0A0A0A] text-neutral-900 dark:text-white select-none scroll-mt-20 transition-colors duration-400">
@@ -32,7 +36,50 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
           </div>
         </div>
 
-        {/* Dynamic Offset Masonry Design Grid */}
+        <div className="flex justify-end mb-8">
+          <SquishSwitch
+            checked={viewMode === 'list'}
+            onChange={checked => setViewMode(checked ? 'list' : 'carousel')}
+            label={viewMode === 'carousel'
+              ? (language === 'es' ? 'Modo lista' : 'List mode')
+              : (language === 'es' ? 'Modo carrusel' : 'Carousel mode')}
+            ariaLabel={language === 'es' ? 'Mostrar lista de proyectos' : 'Show project list'}
+            trackColor="#27272a"
+            trackOnColor="#f5f5f5"
+            width={76}
+            height={38}
+            radius={19}
+            speed={50}
+            stretch={36}
+            hoverScale={1.035}
+            colorDuration={320}
+            className="font-mono text-xs uppercase tracking-wider"
+          />
+        </div>
+        {viewMode === 'carousel' ? (
+          <div className="projects-carousel-stage">
+            {projects.length > 0 && (
+              <CircularCarousel
+                items={projects.map(project => ({
+                  id: project.id,
+                  src: project.image,
+                  alt: project.title,
+                  title: project.title,
+                  subtitle: project.category,
+                }))}
+                preset="cylinder"
+                intro="rise"
+                cardWidth={450}
+                aspectRatio={1.5}
+                speed={14}
+                captions
+                gap={34}
+                perspective={2200}
+                onItemClick={item => onSelectProject(item.id)}
+              />
+            )}
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => {
             // Give even projects an elegant structural offset on wider screens to mock custom hand-coded masonry layouts
@@ -99,6 +146,7 @@ export default function ProjectsSection({ projects, onSelectProject }: ProjectsS
             );
           })}
         </div>
+        )}
       </div>
 <<<<<<< Updated upstream
 =======
