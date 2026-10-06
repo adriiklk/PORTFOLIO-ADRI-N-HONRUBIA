@@ -1,3 +1,4 @@
+import BorderGlow from './BorderGlow';
 import { motion } from 'motion/react';
 import { Palette, Film, Sparkles } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
@@ -32,7 +33,19 @@ export default function About() {
             className="lg:col-span-5 relative group flex justify-center lg:block"
           >
             <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-none">
-              <div className="aspect-[4/5] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800/40 clip-path-inset relative shadow-sm dark:shadow-none">
+              <BorderGlow
+                edgeSensitivity={30}
+                glowColor="40 80 80"
+                backgroundColor="#120F17"
+                borderRadius={28}
+                glowRadius={40}
+                glowIntensity={1}
+                coneSpread={25}
+                animated={false}
+                colors={['#c084fc', '#f472b6', '#38bdf8']}
+                className="about-portrait-glow"
+              >
+              <div className="aspect-[4/5] w-full overflow-hidden bg-neutral-100 dark:bg-neutral-900 relative rounded-[27px]">
                 {/* Overlay styling for extra dramatic high luxury vibe */}
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/40 dark:from-black via-transparent to-transparent opacity-60 z-10 transition-opacity group-hover:opacity-40" />
                 <img
@@ -46,6 +59,8 @@ export default function About() {
                 <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-accent/40 pointer-events-none z-20" />
                 <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-accent/40 pointer-events-none z-20" />
               </div>
+
+              </BorderGlow>
 
               {/* Float Badge caption */}
               <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 image-badge" data-theme-keep="dark">
