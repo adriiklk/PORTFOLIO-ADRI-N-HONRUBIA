@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import usePortfolioNavigation from './usePortfolioNavigation';
 import { AnimatePresence, motion } from 'motion/react';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
@@ -11,11 +12,11 @@ import ContactSection from './components/ContactSection';
 import ProjectDetail from './components/ProjectDetail';
 import Footer from './components/Footer';
 import { getPortfolioProjects, getServicesList } from './data';
-import { ViewState } from './types';
+
 import { useLanguage } from './LanguageContext';
 
 export default function App() {
-  const [viewState, setViewState] = useState<ViewState>({ view: 'home' });
+  const { viewState, navigate: setViewState, restoreHome } = usePortfolioNavigation();
   const { language } = useLanguage();
 
   const localizedProjects = getPortfolioProjects(language);
@@ -25,6 +26,10 @@ export default function App() {
   const selectedProject = localizedProjects.find(
     (p) => p.id === viewState.selectedProjectId
   );
+
+  useEffect(() => {
+    document.title = selectedProject ? selectedProject.title + ' | Adrián Honrubia' : 'Adrián Honrubia — Portfolio';
+  }, [selectedProject?.title]);
 
   const handleDiscoverClick = () => {
     const el = document.getElementById('work');
@@ -54,6 +59,7 @@ export default function App() {
           {viewState.view === 'home' ? (
             <motion.div
               key="home-panels"
+              onAnimationComplete={restoreHome}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -92,7 +98,7 @@ export default function App() {
               </motion.div>
             </motion.div>
           ) : (
-            selectedProject && (
+            selectedProject ? (
               <div key={`project-wrapper-${selectedProject.id}`} className="contents">
                 <ProjectDetail
                   project={selectedProject}
@@ -100,7 +106,11 @@ export default function App() {
                   onNavigateToProject={(id) => setViewState({ view: 'project', selectedProjectId: id })}
                 />
               </div>
-            )
+            ) : <div key="not-found" className="min-h-screen flex flex-col items-center justify-center gap-6 px-6 text-center">
+              <h1 className="text-4xl">404</h1>
+              <p>{language === 'es' ? 'No encontramos esta página.' : 'Page not found.'}</p>
+              <button onClick={() => setViewState({ view: 'home' }, 'top')}>{language === 'es' ? 'Volver al inicio' : 'Back home'}</button>
+            </div>
           )}
         </AnimatePresence>
       </main>

@@ -9,7 +9,7 @@ import { useTheme } from '../ThemeContext';
 
 interface HeaderProps {
   viewState: ViewState;
-  setViewState: (state: ViewState) => void;
+  setViewState: (state: ViewState, target?: string) => void;
 }
 
 export default function Header({ viewState, setViewState }: HeaderProps) {
@@ -51,28 +51,12 @@ export default function Header({ viewState, setViewState }: HeaderProps) {
   const handleNavClick = (target: string) => {
     setIsMobileMenuOpen(false);
     
-    // If we are currently in project detail view, switch back to home view first
-    if (viewState.view !== 'home') {
-      setViewState({ view: 'home' });
-      // Minor timeout to let React re-mount the home page elements before scrolling
-      setTimeout(() => {
-        const element = document.getElementById(target);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 150);
-    } else {
-      const element = document.getElementById(target);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
+    setViewState({ view: 'home' }, target);
   };
 
   const handleBrandClick = () => {
     setIsMobileMenuOpen(false);
-    setViewState({ view: 'home' });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setViewState({ view: 'home' }, 'top');
   };
 
   return (

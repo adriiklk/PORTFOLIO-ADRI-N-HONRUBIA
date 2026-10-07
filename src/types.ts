@@ -29,6 +29,6 @@ export interface SocialLink {
 }
 
 export type ViewState = {
-  view: 'home' | 'project';
+  view: 'home' | 'project' | 'not-found';
   selectedProjectId?: string;
 };
