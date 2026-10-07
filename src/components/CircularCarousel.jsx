@@ -214,6 +214,9 @@ const CircularCarousel = ({
   const curveValue = layout.billboard ? 0 : clamp(curve ?? layout.curve, 0, 1);
   const reduced = usePrefersReducedMotion();
 
+  // Extra sampling on desktop avoids softening after the curved 3D transforms.
+  // Keep the existing mobile budget to avoid larger GPU textures on phones.
+  const rasterScale = useMemo(() => typeof window !== 'undefined' && window.matchMedia('(min-width: 900px) and (pointer: fine)').matches ? 3 : 2, []);
   const cardW = Math.max(40, cardWidth);
   const cardH = cardW / clamp(aspectRatio, 0.2, 5);
   const along = axis === 'x' ? cardH : cardW;
@@ -365,9 +368,10 @@ const CircularCarousel = ({
 
     const nearest = angle => Math.round(angle / settingsRef.current.step) * settingsRef.current.step;
 
+    let virtualViewport = null;
     const measure = () => {
       const s = settingsRef.current;
-      const rect = root.getBoundingClientRect();
+      const rect = virtualViewport || { width: root.clientWidth, height: root.clientHeight };
       if (!rect.width || !rect.height) return;
       const room = s.captions ? CAPTION_SPACE : 0;
       const width = rect.width;
@@ -601,6 +605,14 @@ const CircularCarousel = ({
       wake();
     });
     resize.observe(root);
+    const onViewport = event => {
+      const next = event.detail;
+      if (virtualViewport?.width === next.width && virtualViewport?.height === next.height) return;
+      virtualViewport = next;
+      measure();
+      wake();
+    };
+    root.addEventListener('carousel-viewport', onViewport);
 
     const io = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
@@ -641,6 +653,7 @@ const CircularCarousel = ({
     return () => {
       cancelAnimationFrame(raf);
       resize.disconnect();
+      root.removeEventListener('carousel-viewport', onViewport);
       io.disconnect();
       clearTimeout(state.wheelTimer);
       root.removeEventListener('wheel', onWheel);
@@ -833,14 +846,14 @@ const CircularCarousel = ({
       axis === 'x'
         ? { left: -cardW / 2, top: -size / 2, width: cardW, height: size }
         : { left: -size / 2, top: -cardH / 2, width: size, height: cardH };
-    // Rasterize the filtered image at twice the card resolution before the
+    // Rasterize the filtered image above the card resolution before the
     // curved strips and hover enlargement are composited by the browser.
     const photoStyle = {
       left: axis === 'x' ? 0 : -offset,
       top: axis === 'x' ? -offset : 0,
-      width: cardW * 2,
-      height: cardH * 2,
-      transform: 'scale(0.5)',
+      width: cardW * rasterScale,
+      height: cardH * rasterScale,
+      transform: `scale(${1 / rasterScale})`,
       transformOrigin: 'top left'
     };
     const flip = axis === 'x' ? ' rotateX(180deg)' : ' rotateY(180deg)';

@@ -33,10 +33,10 @@ export default function HomeShowcase({ projects, onSelectProject, onDiscoverClic
       const travel = destination && !reduced.matches ? Math.min(Math.max(window.scrollY - g.pageTop, 0), distance) : 0;
       const progress = distance > 0 ? travel / distance : 0;
       const mix = (a: number, b: number) => a + (b - a) * progress;
-      Object.assign(layer.style, {
-        top: `${g.start + travel}px`, left: `${mix(g.left, g.endLeft)}px`,
-        width: `${mix(g.width, g.endWidth)}px`, height: `${mix(g.height, g.endHeight)}px`,
-      });
+      const width = mix(g.width, g.endWidth);
+      const height = mix(g.height, g.endHeight);
+      layer.style.transform = `translate3d(${mix(g.left, g.endLeft) + (width - g.endWidth) / 2}px, ${g.start + travel + (height - g.endHeight) / 2}px, 0)`;
+      layer.firstElementChild?.dispatchEvent(new CustomEvent('carousel-viewport', { detail: { width, height } }));
       const docked = Boolean(destination && (reduced.matches
         ? window.scrollY > g.pageTop + g.end - window.innerHeight * .6
         : progress >= 1));
@@ -46,12 +46,14 @@ export default function HomeShowcase({ projects, onSelectProject, onDiscoverClic
       }
       // Reduced motion keeps the same carousel in its nearest section without travelling.
       if (destination && reduced.matches && window.scrollY > g.pageTop + g.end - window.innerHeight * .6) {
-        Object.assign(layer.style, { top: `${g.end}px`, left: `${g.endLeft}px`, width: `${g.endWidth}px`, height: `${g.endHeight}px` });
+        layer.style.transform = `translate3d(${g.endLeft}px, ${g.end}px, 0)`;
+        layer.firstElementChild?.dispatchEvent(new CustomEvent('carousel-viewport', { detail: { width: g.endWidth, height: g.endHeight } }));
       }
     };
     const measure = () => {
       const r = root.getBoundingClientRect(), a = origin.getBoundingClientRect(), b = destination?.getBoundingClientRect() ?? a;
       geometry = { start: a.top-r.top, end: b.top-r.top, left: a.left-r.left, endLeft: b.left-r.left, width: a.width, endWidth: b.width, height: a.height, endHeight: b.height, pageTop: r.top+window.scrollY };
+      Object.assign(layer.style, { top: '0px', left: '0px', width: `${b.width}px`, height: `${b.height}px` });
       paint();
     };
     const scroll = () => { if (!frame) frame = requestAnimationFrame(paint); };
