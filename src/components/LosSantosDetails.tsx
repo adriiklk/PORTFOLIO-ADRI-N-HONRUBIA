@@ -28,7 +28,7 @@ import visualDirectionHeroImage from '../assets/images/regenerated_image_1790068
 // @ts-expect-error - Vite handles asset imports correctly
 import visualDirectionNeonImage from '../assets/images/regenerated_image_1790068987199.png';
 // @ts-expect-error - Vite handles asset imports correctly
-import losSantosNeonLogo from '../assets/images/los_santos_neon_logo.png';
+import losSantosNeonLogo from '../assets/images/los-santos-official-logo.png';
 
 // Dedicated, independent project gallery captures (no repetition)
 // @ts-expect-error - Vite handles asset imports correctly
