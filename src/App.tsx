@@ -11,6 +11,7 @@ import ServicesSection from './components/ServicesSection';
 import ContactSection from './components/ContactSection';
 import ProjectDetail from './components/ProjectDetail';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 import { getPortfolioProjects, getServicesList } from './data';
 
 import { useLanguage } from './LanguageContext';
@@ -28,8 +29,8 @@ export default function App() {
   );
 
   useEffect(() => {
-    document.title = selectedProject ? selectedProject.title + ' | Adrián Honrubia' : 'Adrián Honrubia — Portfolio';
-  }, [selectedProject?.title]);
+    document.title = viewState.view === 'not-found' ? '404 | Adrián Honrubia' : selectedProject ? selectedProject.title + ' | Adrián Honrubia' : 'Adrián Honrubia — Portfolio';
+  }, [selectedProject?.title, viewState.view]);
 
   const handleDiscoverClick = () => {
     const el = document.getElementById('work');
@@ -106,11 +107,7 @@ export default function App() {
                   onNavigateToProject={(id) => setViewState({ view: 'project', selectedProjectId: id })}
                 />
               </div>
-            ) : <div key="not-found" className="min-h-screen flex flex-col items-center justify-center gap-6 px-6 text-center">
-              <h1 className="text-4xl">404</h1>
-              <p>{language === 'es' ? 'No encontramos esta página.' : 'Page not found.'}</p>
-              <button onClick={() => setViewState({ view: 'home' }, 'top')}>{language === 'es' ? 'Volver al inicio' : 'Back home'}</button>
-            </div>
+            ) : <div key="not-found"><NotFound onNavigate={target => setViewState({ view: 'home' }, target)} /></div>
           )}
         </AnimatePresence>
       </main>

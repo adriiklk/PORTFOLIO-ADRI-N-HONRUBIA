@@ -247,3 +247,17 @@ html.light {
   font-size: max(1.125rem, 1em);
   line-height: 1.35;
 }
+/* Satoshi from Fontshare: white headings, including the hero name. */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:is(h1, h2, h3, h4, h5, h6)[class*="text-white"] {
+  font-family: 'Satoshi', 'Inter', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}

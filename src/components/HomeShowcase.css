@@ -2,7 +2,7 @@
 .gallery-hero { position: relative; height: 100svh; min-height: 680px; isolation: isolate; }
 .gallery-hero__background { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg,var(--bg-primary),transparent 25%),linear-gradient(#0002,#0001),url('../assets/images/carousel-gallery.png') center / cover; }
 .light .gallery-hero__background { background-image: linear-gradient(0deg,var(--bg-primary),transparent 25%),linear-gradient(#0002,#0001),url('../assets/images/carousel-gallery-light.png'); }
-.gallery-hero__name[class] { position: absolute; top: 21%; left: 0; width: 100%; padding: 0 3vw; margin: 0; text-align: center; font-family: 'Inter',sans-serif; font-size: clamp(32px,8.8vw,150px); font-weight: 800; letter-spacing: -.055em; line-height: 1; white-space: nowrap; color: var(--text-primary); -webkit-text-fill-color: currentColor; -webkit-text-stroke: 0; pointer-events: none; }
+.gallery-hero__name[class] { position: absolute; top: 21%; left: 0; width: 100%; padding: 0 3vw; margin: 0; text-align: center; font-family: 'Satoshi',sans-serif; font-size: clamp(32px,8.8vw,150px); font-weight: 800; letter-spacing: -.055em; line-height: 1; white-space: nowrap; color: var(--text-primary); -webkit-text-fill-color: currentColor; -webkit-text-stroke: 0; pointer-events: none; }
 .gallery-hero__anchor { position: absolute; top: 27%; left: 4%; width: 92%; height: 56%; }
 .gallery-hero__footer { position: absolute; bottom: 36px; left: max(24px,4vw); right: max(24px,4vw); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; z-index: 4; }
 .gallery-hero__role { font-family: 'Montserrat',sans-serif; font-weight: 700; font-size: clamp(22px,2.4vw,36px); line-height: 1.35; letter-spacing: -.025em; color: var(--text-primary); }
@@ -25,7 +25,7 @@
 
 /* Mask the glyph interiors so only the exterior half of the stroke remains. */
 .gallery-hero__name svg { display: block; width: 100%; height: auto; overflow: visible; transform: scaleY(1.18); transform-origin: center bottom; }
-.gallery-hero__name svg text { font-family: 'Inter', sans-serif; font-size: 150px; font-weight: 800; letter-spacing: -8px; -webkit-text-fill-color: unset; -webkit-text-stroke: 0; }
+.gallery-hero__name svg text { font-family: 'Satoshi', sans-serif; font-size: 150px; font-weight: 800; letter-spacing: -8px; -webkit-text-fill-color: unset; -webkit-text-stroke: 0; }
 
 /* Preserve the carousel geometry while withholding project details in the hero. */
 .travelling-carousel[data-docked="false"] .circular-carousel__caption {
